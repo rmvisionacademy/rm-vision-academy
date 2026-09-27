@@ -1,0 +1,3081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  
+  <title>R.M. Vision Academy | UGC NET, GIS & Geography Higher Studies</title>
+  
+  <meta name="title" content="R.M. Vision Academy | Premier Geography & Research Institute" />
+  <meta name="description" content="R.M. Vision Academy mentored by Rohamat Mandal (Aliah Univ, JNU New Delhi, UGC-NET). Premier coaching for BA/MA Geography Honours, UGC NET Geography, CUET PG, Advanced GIS (QGIS, ArcGIS, GEE), Remote Sensing & Statistical Software." />
+  <meta name="keywords" content="R.M. Vision Academy, RM Vision Academy Online, Rohamat Mandal Geography Classes, Online Geography Coaching, UGC NET Geography, GIS Software Training, QGIS, ArcGIS" />
+  
+  <!-- PWA Manifest & App Theme -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#1d4ed8" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="R.M. Vision" />
+  <link rel="apple-touch-icon" href="logo.jpg" />
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #0b1329;
+      --secondary: #1e3a8a;
+      --accent: #1d4ed8;
+      --accent-hover: #1e40af;
+      --accent-soft: #dbeafe;
+      --wp-green: #25d366;
+      --live-red: #dc2626;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #cbd5e1;
+      --radius: 8px;
+      --shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    }
+
+    body.dark-theme {
+      --primary: #020617;
+      --secondary: #38bdf8;
+      --accent: #3b82f6;
+      --accent-hover: #60a5fa;
+      --accent-soft: #1e293b;
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Times New Roman', Times, Georgia, serif;
+      transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    }
+
+    html, body {
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    img { max-width: 100%; height: auto; }
+
+    /* Top Strip */
+    .top-bar {
+      background: var(--primary);
+      color: #cbd5e1;
+      font-size: 0.85rem;
+      padding: 6px 3%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      width: 100%;
+    }
+
+    .top-bar-left, .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .top-bar a {
+      color: #e2e8f0;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    /* Sticky Header */
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--surface);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      width: 100%;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.45rem 3%;
+      max-width: 1440px;
+      margin: 0 auto;
+      width: 100%;
+      gap: 8px;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--secondary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      user-select: none;
+      flex-shrink: 0;
+    }
+
+    .logo-img {
+      height: 36px;
+      width: 36px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      flex-shrink: 0;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: nowrap;
+    }
+
+    .btn-install-app {
+      display: none;
+      align-items: center;
+      gap: 4px;
+      background: #10b981;
+      color: #fff;
+      padding: 0.35rem 0.6rem;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.78rem;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-user-login {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.6rem;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.78rem;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-class {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.35rem 0.65rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.78rem;
+      white-space: nowrap;
+    }
+
+    .live-badge {
+      display: none;
+      background: var(--live-red);
+      color: white;
+      padding: 1px 4px;
+      border-radius: 3px;
+      font-size: 0.62rem;
+      font-weight: 800;
+      animation: pulse 1.4s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.55; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: transparent;
+      border: none;
+      font-size: 1.35rem;
+      color: var(--text-main);
+      cursor: pointer;
+      padding: 2px 4px;
+    }
+
+    /* Main Menu Links */
+    .nav-links {
+      display: flex;
+      gap: 0.6rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 4px 6px;
+      border-radius: 4px;
+      cursor: pointer;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    /* Desktop Notification & Settings Rightmost Buttons */
+    .btn-menu-icon {
+      background: var(--surface);
+      color: var(--text-main);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.55rem;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.82rem;
+      cursor: pointer;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .btn-menu-icon:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .badge-dot {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      width: 9px;
+      height: 9px;
+      background-color: var(--live-red);
+      border-radius: 50%;
+      border: 1.5px solid var(--surface);
+      display: none;
+    }
+
+    /* Floating In-App Heads-up Notification Toast */
+    .heads-up-banner {
+      position: fixed;
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 92%;
+      max-width: 480px;
+      background: var(--surface);
+      color: var(--text-main);
+      border: 2px solid var(--accent);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      z-index: 3000;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: top 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .heads-up-banner.show {
+      top: 20px;
+    }
+
+    .heads-up-icon {
+      font-size: 1.8rem;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .heads-up-content {
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .heads-up-title {
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: var(--secondary);
+    }
+
+    .heads-up-body {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Page Routing */
+    .page-section {
+      display: none;
+      width: 100%;
+      animation: fadeIn 0.25s ease-in-out;
+    }
+
+    .page-section.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2.5rem 4%;
+      width: 100%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .section-title h1, .section-title h2 {
+      font-size: 2rem;
+      color: var(--text-main);
+      margin-bottom: 0.3rem;
+      font-weight: 700;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      font-style: italic;
+    }
+
+    .hero {
+      background: linear-gradient(180deg, var(--accent-soft) 0%, var(--bg) 100%);
+      padding: 3rem 4%;
+      border-bottom: 1px solid var(--border);
+      width: 100%;
+    }
+
+    .hero-layout {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 2.6rem;
+      line-height: 1.15;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 0.3rem;
+    }
+
+    .mentor-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .qual-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 1rem;
+    }
+
+    .qual-badge {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--secondary);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    .qual-badge.gold {
+      border-color: #fcd34d;
+      background: #fefce8;
+      color: #b45309;
+    }
+
+    body.dark-theme .qual-badge.gold {
+      background: #451a03;
+      color: #fde047;
+      border-color: #78350f;
+    }
+
+    .motivational-quote-box {
+      background: var(--surface);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      padding: 0.9rem 1.1rem;
+      margin-bottom: 1.4rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    .motivational-quote-box p {
+      font-style: italic;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 0.4rem;
+    }
+
+    .motivational-quote-box .author {
+      font-style: normal;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--accent);
+      text-align: right;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      padding: 0.55rem 1.2rem;
+      border-radius: 4px;
+      font-weight: 700;
+      text-decoration: none;
+      border: 1px solid var(--accent);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.95rem;
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text-main);
+      border: 1px solid var(--border);
+      padding: 0.55rem 1.2rem;
+      border-radius: 4px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.95rem;
+    }
+
+    .founder-hero-card {
+      background: var(--surface);
+      border-radius: 12px;
+      border: 2px solid var(--border);
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .founder-image-frame {
+      width: 100%;
+      max-width: 320px;
+      height: 340px;
+      margin: 0 auto 1rem;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 3px solid var(--accent);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      background: #e2e8f0;
+    }
+
+    .founder-image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+      background: var(--surface);
+      padding: 1rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .stat-item { text-align: center; }
+    .stat-item h3 { font-size: 1.8rem; color: var(--accent); margin-bottom: 0.1rem; }
+    .stat-item p { color: var(--text-muted); font-weight: 700; font-size: 0.8rem; }
+
+    .grid-courses {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      width: 100%;
+    }
+
+    .card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .badge-price {
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 4px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 0.75rem;
+      width: fit-content;
+    }
+
+    .card h3 { font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-main); }
+    .card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; }
+
+    .drive-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+      width: 100%;
+    }
+
+    .drive-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.9rem 1.1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+
+    .drive-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow); }
+    .drive-info { display: flex; align-items: center; gap: 8px; font-weight: bold; font-size: 0.9rem; }
+
+    .top-free-drive-section {
+      background: var(--accent-soft);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .subject-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 1.5rem;
+      background: var(--surface);
+      padding: 0.75rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      width: 100%;
+    }
+
+    .sub-filter-btn {
+      padding: 5px 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+
+    .sub-filter-btn.active, .sub-filter-btn:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .materials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      width: 100%;
+    }
+
+    .material-post-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .mat-subject-tag {
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 2px 7px;
+      border-radius: 3px;
+      font-weight: 800;
+      font-size: 0.75rem;
+      display: inline-block;
+      margin-bottom: 0.4rem;
+      width: fit-content;
+      text-transform: uppercase;
+    }
+
+    .material-post-card h3 { font-size: 1.2rem; color: var(--text-main); margin-bottom: 0.4rem; }
+    .material-post-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.75rem; white-space: pre-line; word-break: break-word; }
+
+    .btn-read-more {
+      background: none;
+      border: none;
+      color: var(--accent);
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 0.9rem;
+      text-decoration: underline;
+    }
+
+    .mat-image-preview {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-bottom: 0.6rem;
+      border: 1px solid var(--border);
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      width: 100%;
+    }
+
+    .video-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; background: #000; }
+    .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+    .video-info { padding: 0.85rem; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+      width: 100%;
+    }
+
+    .gallery-item {
+      height: 220px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      background: #e2e8f0;
+      position: relative;
+    }
+
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+
+    .notices-board {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+      box-shadow: var(--shadow);
+    }
+
+    .notice-item {
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .notice-item:last-child { border-bottom: none; }
+
+    .contact-channels {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .channel-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 1rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .channel-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      width: 100%;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      background: var(--surface);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-form input, .contact-form select, .contact-form textarea {
+      padding: 0.65rem;
+      background: var(--bg);
+      color: var(--text-main);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 0.95rem;
+      width: 100%;
+    }
+
+    .floating-wp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--wp-green);
+      color: white;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+      z-index: 999;
+      text-decoration: none;
+    }
+
+    .faculty-container {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+      max-width: 480px;
+      margin: 0 auto;
+      box-shadow: var(--shadow);
+    }
+
+    .faculty-photo-wrapper {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 1.25rem;
+      border: 3px solid var(--accent);
+      background: #e2e8f0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+
+    .faculty-photo-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* Modals & Settings Drawer */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal.active { display: flex; }
+
+    .modal-content {
+      background: var(--surface);
+      color: var(--text-main);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      max-width: 800px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .settings-drawer {
+      position: fixed;
+      top: 0;
+      right: -360px;
+      width: 340px;
+      max-width: 90vw;
+      height: 100vh;
+      background: var(--surface);
+      color: var(--text-main);
+      border-left: 1px solid var(--border);
+      box-shadow: -5px 0 25px rgba(0,0,0,0.2);
+      z-index: 2500;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .settings-drawer.open { right: 0; }
+
+    .settings-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 2400;
+    }
+
+    .settings-backdrop.open { display: block; }
+
+    .settings-header {
+      padding: 1.2rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .settings-menu-list {
+      list-style: none;
+      padding: 0.5rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .settings-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0.9rem;
+      border-radius: 6px;
+      color: var(--text-main);
+      cursor: pointer;
+      text-decoration: none;
+      margin-bottom: 2px;
+      font-size: 0.95rem;
+    }
+
+    .settings-item:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .settings-item-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .settings-item i {
+      font-size: 1.15rem;
+      width: 22px;
+      text-align: center;
+    }
+
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 22px;
+    }
+
+    .toggle-switch input { opacity: 0; width: 0; height: 0; }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      inset: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider { background-color: var(--accent); }
+    input:checked + .slider:before { transform: translateX(22px); }
+
+    /* Admin Tab Controls */
+    .admin-nav-tabs {
+      display: flex;
+      gap: 6px;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 1.25rem;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+
+    .tab-btn {
+      padding: 6px 12px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px 4px 0 0;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      white-space: nowrap;
+      font-size: 0.88rem;
+    }
+
+    .tab-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    .admin-form-group { margin-bottom: 0.85rem; }
+    .admin-form-group label { display: block; font-weight: 700; margin-bottom: 0.25rem; font-size: 0.9rem; }
+    .admin-form-group input, .admin-form-group select, .admin-form-group textarea {
+      width: 100%;
+      padding: 0.6rem;
+      background: var(--bg);
+      color: var(--text-main);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+
+    .admin-item-box {
+      border: 1px solid var(--border);
+      padding: 0.75rem;
+      border-radius: 6px;
+      margin-bottom: 6px;
+      background: var(--surface);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-delete {
+      background: #fee2e2;
+      color: #991b1b;
+      border: 1px solid #fecaca;
+      padding: 3px 6px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    footer {
+      background: var(--primary);
+      color: #94a3b8;
+      padding: 2.5rem 4% 1.5rem;
+      border-top: 2px solid #1e293b;
+      width: 100%;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid #1e293b;
+      margin-top: 2rem;
+      padding-top: 1.25rem;
+      font-size: 0.85rem;
+    }
+
+    /* Mobile Menu - Single Line Stack List Item (No side-by-side) */
+    .mobile-menu-item { display: none; }
+
+    @media (max-width: 1100px) {
+      .hero-layout, .contact-grid { grid-template-columns: 1fr; }
+      .founder-hero-card { max-width: 440px; margin: 0 auto; }
+    }
+
+    @media (max-width: 880px) {
+      .mobile-menu-btn { display: block; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: var(--surface);
+        border-bottom: 2px solid var(--border);
+        padding: 0.75rem 4%;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+      }
+      .nav-links.show { display: flex; }
+      .hero-text h1 { font-size: 2.1rem; }
+
+      .desktop-only-btn { display: none !important; }
+      
+      /* In Mobile Drawer: Render sequentially inside the menu line */
+      .mobile-menu-item {
+        display: block !important;
+        width: 100%;
+      }
+      .nav-links li {
+        width: 100%;
+      }
+      .nav-links li a {
+        display: flex;
+        width: 100%;
+        padding: 8px 6px;
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .navbar { padding: 0.35rem 2%; gap: 4px; }
+      .logo span { font-size: 0.82rem; max-width: 95px; line-height: 1.1; }
+      .logo-img { height: 30px; width: 30px; }
+      .nav-actions { gap: 4px; }
+      .btn-install-app, .btn-user-login, .btn-class {
+        padding: 0.3rem 0.45rem;
+        font-size: 0.72rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Heads-Up Banner (For Screen Popup) -->
+  <div id="headsUpBanner" class="heads-up-banner">
+    <div class="heads-up-icon"><i class="fa-solid fa-bell"></i></div>
+    <div class="heads-up-content">
+      <div id="headsUpTitle" class="heads-up-title">R.M. Vision Academy Alert</div>
+      <div id="headsUpBody" class="heads-up-body">New update posted.</div>
+    </div>
+  </div>
+
+  <!-- Top Strip -->
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <span><i class="fa-solid fa-location-dot"></i> New Delhi</span>
+      <a href="tel:+919134846845"><i class="fa-solid fa-phone"></i> +91 9134846845</a>
+      <a href="mailto:rmvisionacademy@gmail.com"><i class="fa-solid fa-envelope"></i> rmvisionacademy@gmail.com</a>
+    </div>
+    <div class="top-bar-right">
+      <a href="https://wa.me/919134846845?text=Hello%20R.M.%20Vision%20Academy,%20I%20have%20an%20inquiry" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+      <a href="https://youtube.com/@rohamatmandal1208?si=RYLOXOc2qrGEcuey" target="_blank"><i class="fa-brands fa-youtube"></i> YouTube</a>
+    </div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header>
+    <div class="navbar">
+      <!-- SECRET ADMIN TRIGGER: Triple-tap this logo to open Admin Login -->
+      <a onclick="handleSecretLogoClick()" class="logo" title="Triple click to access Admin Portal">
+        <img src="logo.jpg" alt="R.M. Vision Academy Logo" class="logo-img" onerror="this.onerror=null; this.src='file:///E:/RM_Vision_Academy/logo.jpg';">
+        <span>R.M. VISION ACADEMY</span>
+      </a>
+
+      <!-- Quick Action Buttons -->
+      <div class="nav-actions">
+        <button id="pwaInstallBtn" class="btn-install-app" onclick="triggerPwaInstall()">
+          <i class="fa-solid fa-download"></i> App
+        </button>
+
+        <button id="userAuthBtn" class="btn-user-login" onclick="openStudentLoginModal()">
+          <i class="fa-solid fa-user-plus"></i> Join
+        </button>
+
+        <a id="classLink" href="https://meet.google.com/fgx-yvqp-cmy" target="_blank" class="btn-class">
+          <i class="fa-solid fa-video"></i> Class
+          <span id="liveBadge" class="live-badge">LIVE</span>
+        </a>
+
+        <!-- 3-Line Mobile Hamburger Menu -->
+        <button class="mobile-menu-btn" onclick="toggleMobileNav()" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+
+      <!-- Navigation Router Links -->
+      <ul class="nav-links" id="mainNavLinks">
+        <li><a onclick="navigateTo('home')" id="nav-home" class="active">Home</a></li>
+        <li><a onclick="navigateTo('about')" id="nav-about">About</a></li>
+        <li><a onclick="navigateTo('courses')" id="nav-courses">Courses</a></li>
+        <li><a onclick="navigateTo('materials')" id="nav-materials">Open Study Materials</a></li>
+        <li><a onclick="navigateTo('paid-materials')" id="nav-paid-materials" style="color: var(--accent);">Study Material (Paid)</a></li>
+        <li><a onclick="navigateTo('recorded')" id="nav-recorded">Recorded Classes</a></li>
+        <li><a onclick="navigateTo('faculty')" id="nav-faculty">Faculty</a></li>
+        <li><a onclick="navigateTo('gallery')" id="nav-gallery">Gallery</a></li>
+        <li><a onclick="navigateTo('notices')" id="nav-notices">Notices</a></li>
+        <li><a onclick="navigateTo('contact')" id="nav-contact">Contact</a></li>
+
+        <!-- Desktop Rightmost Controls (Bell & Gear) -->
+        <li class="desktop-only-btn">
+          <button id="headerNotifBtn" class="btn-menu-icon" onclick="handleNotificationIconClick()" title="Push Notifications">
+            <i class="fa-solid fa-bell"></i>
+            <span id="notifBadgeDot" class="badge-dot"></span>
+          </button>
+        </li>
+        <li class="desktop-only-btn">
+          <button class="btn-menu-icon" onclick="toggleSettingsDrawer()" title="Settings">
+            <i class="fa-solid fa-gear"></i>
+          </button>
+        </li>
+
+        <!-- Mobile Drawer Notification & Settings: Stacked as natural line items -->
+        <li class="mobile-menu-item" style="border-top: 1px solid var(--border); padding-top: 4px;">
+          <a onclick="handleNotificationIconClick(); toggleMobileNav();" style="color:var(--text-main);">
+            <i class="fa-solid fa-bell" style="color:var(--accent);"></i> Notifications
+            <span id="mobileNotifDot" class="live-badge" style="display:none; background:var(--live-red); color:#fff; padding:1px 5px; font-size:0.65rem; border-radius:3px;">NEW</span>
+          </a>
+        </li>
+        <li class="mobile-menu-item">
+          <a onclick="toggleSettingsDrawer(); toggleMobileNav();" style="color:var(--text-main);">
+            <i class="fa-solid fa-gear" style="color:var(--accent);"></i> Settings & Preferences
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ==================== SETTINGS SLIDE-OVER DRAWER ==================== -->
+  <div id="settingsBackdrop" class="settings-backdrop" onclick="toggleSettingsDrawer()"></div>
+  <aside id="settingsDrawer" class="settings-drawer">
+    <div class="settings-header">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <i class="fa-solid fa-sliders"></i>
+        <h3 style="font-size:1.15rem; font-weight:700;">SETTINGS</h3>
+      </div>
+      <button onclick="toggleSettingsDrawer()" style="background:none; border:none; color:#fff; font-size:1.4rem; cursor:pointer;">&times;</button>
+    </div>
+
+    <ul class="settings-menu-list">
+      <li class="settings-item" onclick="openStudentLoginModal(); toggleSettingsDrawer();">
+        <div class="settings-item-left">
+          <i class="fa-regular fa-user" style="color:var(--accent);"></i>
+          <span>👤 My Profile</span>
+        </div>
+        <i class="fa-solid fa-chevron-right" style="font-size:0.75rem; color:var(--text-muted);"></i>
+      </li>
+
+      <li class="settings-item" onclick="navigateTo('courses'); toggleSettingsDrawer();">
+        <div class="settings-item-left">
+          <i class="fa-solid fa-book-open" style="color:#10b981;"></i>
+          <span>📚 My Courses</span>
+        </div>
+        <i class="fa-solid fa-chevron-right" style="font-size:0.75rem; color:var(--text-muted);"></i>
+      </li>
+
+      <li class="settings-item">
+        <div class="settings-item-left">
+          <i class="fa-regular fa-bell" style="color:#f59e0b;"></i>
+          <span>🔔 Notifications</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="notifToggleSwitch" onchange="toggleNotifications(this.checked)">
+          <span class="slider"></span>
+        </label>
+      </li>
+
+      <li class="settings-item" onclick="window.open('https://meet.google.com/fgx-yvqp-cmy', '_blank');">
+        <div class="settings-item-left">
+          <i class="fa-regular fa-calendar-check" style="color:#6366f1;"></i>
+          <span>📅 Class & Attendance</span>
+        </div>
+        <span style="font-size:0.75rem; color:var(--accent); font-weight:bold;">Live Meet</span>
+      </li>
+
+      <li class="settings-item" onclick="window.open('https://wa.me/919134846845?text=Payment%20&%20Subscription%20Inquiry%20R.M.%20Vision%20Academy', '_blank');">
+        <div class="settings-item-left">
+          <i class="fa-regular fa-credit-card" style="color:#ec4899;"></i>
+          <span>💳 Payment & Subscription</span>
+        </div>
+        <i class="fa-solid fa-chevron-right" style="font-size:0.75rem; color:var(--text-muted);"></i>
+      </li>
+
+      <li class="settings-item" onclick="navigateTo('paid-materials'); toggleSettingsDrawer();">
+        <div class="settings-item-left">
+          <i class="fa-solid fa-cloud-arrow-down" style="color:#06b6d4;"></i>
+          <span>📥 Downloaded Materials</span>
+        </div>
+        <i class="fa-solid fa-chevron-right" style="font-size:0.75rem; color:var(--text-muted);"></i>
+      </li>
+
+      <li class="settings-item">
+        <div class="settings-item-left">
+          <i class="fa-solid fa-palette" style="color:#8b5cf6;"></i>
+          <span>🎨 Dark Mode Theme</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode(this.checked)">
+          <span class="slider"></span>
+        </label>
+      </li>
+
+      <li class="settings-item" onclick="alert('Privacy & Security: Your registered phone number and academic details are securely protected in our cloud database.');">
+        <div class="settings-item-left">
+          <i class="fa-solid fa-shield-halved" style="color:#14b8a6;"></i>
+          <span>🔐 Privacy & Security</span>
+        </div>
+        <i class="fa-solid fa-chevron-right" style="font-size:0.75rem; color:var(--text-muted);"></i>
+      </li>
+
+      <li class="settings-item" onclick="window.open('https://wa.me/919134846845?text=I%20need%20help%20and%20support%20regarding%20app', '_blank');">
+        <div class="settings-item-left">
+          <i class="fa-solid fa-headset" style="color:#f97316;"></i>
+          <span>🎧 Help & Support</span>
+        </div>
+        <i class="fa-brands fa-whatsapp" style="color:var(--wp-green);"></i>
+      </li>
+
+      <li class="settings-item" onclick="navigateTo('about'); toggleSettingsDrawer();">
+        <div class="settings-item-left">
+          <i class="fa-solid fa-circle-info" style="color:var(--accent);"></i>
+          <span>ℹ️ About R.M. Vision Academy</span>
+        </div>
+        <i class="fa-solid fa-chevron-right" style="font-size:0.75rem; color:var(--text-muted);"></i>
+      </li>
+
+      <hr style="margin: 0.75rem 0; border: none; border-top: 1px solid var(--border);" />
+
+      <li class="settings-item" onclick="logoutStudent(); toggleSettingsDrawer();" style="color:#dc2626;">
+        <div class="settings-item-left">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          <span style="font-weight:bold;">🚪 Logout</span>
+        </div>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- ==================== PAGE 1: HOME ==================== -->
+  <main id="page-home" class="page-section active">
+    <section class="hero">
+      <div class="hero-layout">
+        <div class="hero-text">
+          <div class="mentor-tag"><i class="fa-solid fa-certificate"></i> Lead Mentor &amp; Founder</div>
+          <h1>Rohamat Mandal</h1>
+          <p style="font-weight: bold; color: var(--secondary); margin-bottom: 0.6rem; font-size: 1.25rem;">
+            Educator &amp; GIS Researcher
+          </p>
+
+          <div class="qual-badges">
+            <span class="qual-badge"><i class="fa-solid fa-graduation-cap" style="color:var(--accent);"></i> BA in Geography (Aliah University)</span>
+            <span class="qual-badge"><i class="fa-solid fa-university" style="color:var(--accent);"></i> MA in Geography (JNU, New Delhi)</span>
+            <span class="qual-badge gold"><i class="fa-solid fa-award"></i> UGC-NET Qualified</span>
+          </div>
+
+          <div class="motivational-quote-box">
+            <p>
+              "Geography is not just about memorizing boundaries and maps; it is the art of understanding how our world breathes, functions, and evolves. Believe in your analytical curiosity, master the fundamental concepts, and let your spatial understanding lead you to academic and career greatness."
+            </p>
+            <div class="author">— Rohamat Sir (Founder, R.M. Vision Academy)</div>
+          </div>
+
+          <p style="font-size: 1rem; color: var(--text-muted); margin-bottom: 1.2rem;">
+            Mastering undergraduate, postgraduate, and competitive entrance geographical curricula, spatial statistics, and advanced GIS workflows with concept-backed academic rigor.
+          </p>
+
+          <div class="hero-cta">
+            <a onclick="navigateTo('courses')" class="btn-primary">Explore Courses</a>
+            <a onclick="navigateTo('materials')" class="btn-secondary">Open Access Study Material</a>
+            <a onclick="navigateTo('paid-materials')" class="btn-secondary" style="color:var(--accent);">Paid Courses Notes</a>
+            <a href="https://wa.me/919134846845" target="_blank" class="btn-secondary" style="color: var(--wp-green);"><i class="fa-brands fa-whatsapp"></i> Chat Direct</a>
+          </div>
+        </div>
+
+        <div class="founder-hero-card">
+          <div class="founder-image-frame">
+            <img src="Founder.jpg" alt="Rohamat Mandal - Founder R.M. Vision Academy" onerror="this.onerror=null; this.src='Rohamat.jpg';">
+          </div>
+          <h3 style="color: var(--text-main); font-size: 1.3rem; margin-bottom: 0.2rem;">Rohamat Mandal</h3>
+          <p style="color: var(--accent); font-weight: 700; font-size: 0.88rem; margin-bottom: 0.4rem;">Founder &amp; Academic Director</p>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Aliah University • JNU New Delhi • UGC-NET</p>
+        </div>
+      </div>
+
+      <div style="max-width: 1280px; margin: 0 auto;">
+        <div class="stats-strip">
+          <div class="stat-item">
+            <h3>150+</h3>
+            <p>Students Mentored</p>
+          </div>
+          <div class="stat-item">
+            <h3>12+</h3>
+            <p>Specialized Modules</p>
+          </div>
+          <div class="stat-item">
+            <h3>98%</h3>
+            <p>Success Rate</p>
+          </div>
+          <div class="stat-item">
+            <h3 style="font-size: 1.2rem; color: var(--accent); margin-top: 6px;">Admissions Open</h3>
+            <p>UG, PG &amp; GIS Batches</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="section-title">
+        <h2>Primary Academic Tracks</h2>
+        <p>Tailored curriculum designed for university ranks, spatial research, and competitive excellence</p>
+      </div>
+      <div class="grid-courses">
+        <div class="card">
+          <div>
+            <span class="badge-price">Starting at ₹500/mo</span>
+            <h3>UG &amp; PG Geography Tuition</h3>
+            <p>Concept-based classes, practical guidance, study materials, assignments and examination-oriented preparation to build a strong foundation in Geography.</p>
+          </div>
+          <a onclick="navigateTo('courses')" class="btn-primary" style="justify-content: center;">Learn More</a>
+        </div>
+        <div class="card">
+          <div>
+            <span class="badge-price" style="background:#dcfce7; color:#15803d;">Free for Academy Students</span>
+            <h3>GIS, Statistics, Research &amp; Software</h3>
+            <p>Hands-on training in GIS, Remote Sensing, Statistical Techniques and Research Methodology with QGIS, ArcGIS, GEE, Python, R, SPSS, and STATA.</p>
+          </div>
+          <a onclick="navigateTo('courses')" class="btn-primary" style="justify-content: center;">Learn More</a>
+        </div>
+        <div class="card">
+          <div>
+            <span class="badge-price">Standard Pricing</span>
+            <h3>CUET &amp; University Entrance</h3>
+            <p>Focused preparation for CUET and University Entrance Examinations with syllabus-based classes, PYQ analysis, and regular mock tests.</p>
+          </div>
+          <a onclick="navigateTo('courses')" class="btn-primary" style="justify-content: center;">Learn More</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== PAGE 2: ABOUT ==================== -->
+  <main id="page-about" class="page-section">
+    <section class="container">
+      <div class="section-title">
+        <h1>About R.M. Vision Academy</h1>
+        <p>Bridging traditional academic excellence with laboratory geoinformatics</p>
+      </div>
+
+      <div style="background: var(--surface); padding: 2rem; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); margin-bottom: 2rem;">
+        <h2 style="color: var(--secondary); margin-bottom: 0.5rem;"><i class="fa-solid fa-eye" style="color: var(--accent);"></i> Our Vision</h2>
+        <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+          To build an intellectually vibrant ecosystem at R.M. Vision Academy where every Geography enthusiast attains mastery over fundamental physical and human spatial dynamics while acquiring industry-ready GIS, remote sensing, and research computing capabilities.
+        </p>
+
+        <h2 style="color: var(--secondary); margin-bottom: 0.5rem;"><i class="fa-solid fa-bullseye" style="color: #ef4444;"></i> Our Mission</h2>
+        <p style="font-size: 1.1rem; color: var(--text-muted);">
+          To deliver high-impact, affordable, and mentor-guided instruction. Under the academic leadership of Rohamat Mandal (BA Aliah University, MA JNU New Delhi, UGC-NET), we bridge academic curricula with practical laboratory workflows: cartography, spatial modeling, hypothesis testing, and satellite analytics for competitive excellence.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== PAGE 3: COURSES ==================== -->
+  <main id="page-courses" class="page-section">
+    <section class="container">
+      <div class="section-title">
+        <h1>Academic Courses &amp; Programs</h1>
+        <p>Comprehensive syllabi mapping for degree exams, entrance tests, and research software</p>
+      </div>
+
+      <div class="grid-courses">
+        <div class="card">
+          <div>
+            <span class="badge-price">Starting at ₹500/mo</span>
+            <h3>UG &amp; PG Geography Tuition</h3>
+            <p>Comprehensive academic support for Undergraduate and Postgraduate Geography students with concept-based classes and practical guidance.</p>
+          </div>
+          <a href="https://wa.me/919134846845?text=Enroll%20me%20for%20UG/PG%20Tuition%20at%20R.M.%20Vision%20Academy" target="_blank" class="btn-primary" style="justify-content: center;">Enroll via WhatsApp</a>
+        </div>
+
+        <div class="card">
+          <div>
+            <span class="badge-price" style="background:#dcfce7; color:#15803d;">Free for Academy Students</span>
+            <h3>GIS, Statistics, Research &amp; Software Skills</h3>
+            <p>Hands-on training in GIS, Remote Sensing, and Statistical Techniques using QGIS, ArcGIS, GEE, Python, R, SPSS, and STATA.</p>
+          </div>
+          <a href="https://wa.me/919134846845?text=Enroll%20me%20for%20GIS%20and%20Software%20Training%20at%20R.M.%20Vision%20Academy" target="_blank" class="btn-primary" style="justify-content: center;">Enroll via WhatsApp</a>
+        </div>
+
+        <div class="card">
+          <div>
+            <span class="badge-price">Standard Pricing</span>
+            <h3>CUET &amp; University Entrance Preparation</h3>
+            <p>Focused preparation for CUET and University Entrance Examinations with syllabus-based classes, PYQ analysis, and practice tests.</p>
+          </div>
+          <a href="https://wa.me/919134846845?text=Enroll%20me%20for%20CUET%20Entrance%20Prep%20at%20R.M.%20Vision%20Academy" target="_blank" class="btn-primary" style="justify-content: center;">Enroll via WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== PAGE 4: OPEN ACCESS STUDY MATERIALS ==================== -->
+  <main id="page-materials" class="page-section">
+    <section class="container">
+      <div class="section-title">
+        <h1>Open Access Study Materials &amp; Notes</h1>
+        <p>Subject-wise open repositories, downloadable files, diagrams, and written explanations</p>
+      </div>
+
+      <div class="top-free-drive-section">
+        <h3><i class="fa-solid fa-cloud-arrow-down" style="color: var(--accent);"></i> Free Access Google Drive Repositories</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">Directly access public lecture summaries and open student notes hosted on Google Drive.</p>
+        <div class="drive-grid" style="margin-top: 0;">
+          <a class="drive-card" href="https://drive.google.com/drive/folders/16ncC_ekuvIRhE7x-Ui_GmkFIjw52R3W7?usp=sharing" target="_blank">
+            <div class="drive-info"><i class="fa-solid fa-book-open" style="color:#ea4335; font-size:1.3rem;"></i><span>UG Free Notes Hub</span></div>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="subject-filter-bar" id="subjectFilterBar">
+        <button class="sub-filter-btn active" onclick="filterMaterials('ALL')">All Subjects</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Geotectonics and Geomorphology')">Geotectonics and Geomorphology</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Climatology')">Climatology</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Hydrology and Oceanography')">Hydrology and Oceanography</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Population Geography')">Population Geography</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Social, Cultural and Political Geography')">Social, Cultural and Political Geography</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Settlement and Transport Geography')">Settlement and Transport Geography</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Urban Geography')">Urban Geography</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Economic and Resource Geography')">Economic and Resource Geography</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Agricultural Geography')">Agricultural Geography</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Environmental Geography')">Environmental Geography</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Environmental Studies')">Environmental Studies</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Hazard and Disaster Management')">Hazard and Disaster Management</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Soil Geography')">Soil Geography</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Cartography, Surveying & Mapping')">Cartography, Surveying &amp; Mapping</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('GIS, Remote Sensing & Geoinformatics')">GIS, Remote Sensing &amp; Geoinformatics</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Software')">Software</button>
+      </div>
+
+      <h3 style="margin-bottom: 1.25rem; color: var(--text-main);">Subject-Wise Notes &amp; Explanations</h3>
+      <div id="dynamicMaterialsContainer" class="materials-grid">
+        <p style="color: #94a3b8;">Loading open access study materials...</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== PAGE 5: STUDY MATERIAL (PAID COURSES) ==================== -->
+  <main id="page-paid-materials" class="page-section">
+    <section class="container">
+      <div class="section-title">
+        <h1>Study Material Repositories</h1>
+        <p>Google Drive repositories for registered degree semester notes, research modules, and Class 10 resources</p>
+      </div>
+
+      <div style="background:var(--surface); padding:1.75rem; border-radius:var(--radius); border:1px solid var(--border); box-shadow:var(--shadow); margin-bottom:1.5rem;">
+        <h2 style="font-size:1.3rem; color:var(--secondary); margin-bottom:0.5rem;"><i class="fa-solid fa-lock" style="color:var(--accent);"></i> Degree Semester Notes (UG SEM 1 - SEM 6)</h2>
+        <div class="drive-grid">
+          <a class="drive-card" href="https://drive.google.com/drive/folders/1EGBTpmKv5XJK8zetRf5-8SV01xXU5H9I?usp=sharing" target="_blank">
+            <div class="drive-info"><i class="fa-brands fa-google-drive" style="color:#4285f4; font-size:1.4rem;"></i><span>UG SEM 1</span></div>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+          <a class="drive-card" href="https://drive.google.com/drive/folders/1WaoC03JT4dEeCTF7yAWH7CFoMWJBlaIw?usp=sharing" target="_blank">
+            <div class="drive-info"><i class="fa-brands fa-google-drive" style="color:#4285f4; font-size:1.4rem;"></i><span>UG SEM 2</span></div>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+          <a class="drive-card" href="https://drive.google.com/drive/folders/1wO1d_RE-iBuf7Y6BBxHK9tFdYlDDKT-e?usp=sharing" target="_blank">
+            <div class="drive-info"><i class="fa-brands fa-google-drive" style="color:#4285f4; font-size:1.4rem;"></i><span>UG SEM 3</span></div>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+          <a class="drive-card" href="https://drive.google.com/drive/folders/1Bkc3zgAaB0-iJNVd5HaeT60LINFYwoc9?usp=sharing" target="_blank">
+            <div class="drive-info"><i class="fa-brands fa-google-drive" style="color:#4285f4; font-size:1.4rem;"></i><span>UG SEM 4</span></div>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+          <a class="drive-card" href="https://drive.google.com/drive/folders/1HdMuEigds4iK4W-Rw-7W1xlwBVKqUxT9?usp=sharing" target="_blank">
+            <div class="drive-info"><i class="fa-brands fa-google-drive" style="color:#4285f4; font-size:1.4rem;"></i><span>UG SEM 5</span></div>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+          <a class="drive-card" href="https://drive.google.com/drive/folders/1VwwaRPTPRU1vylbhAjilOO57ZQKCxudH?usp=sharing" target="_blank">
+            <div class="drive-info"><i class="fa-brands fa-google-drive" style="color:#4285f4; font-size:1.4rem;"></i><span>UG SEM 6</span></div>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </div>
+
+      <div style="background:var(--surface); padding:1.75rem; border-radius:var(--radius); border:1px solid var(--border); box-shadow:var(--shadow); margin-bottom:1.5rem;">
+        <h2 style="font-size:1.3rem; color:var(--secondary); margin-bottom:0.5rem;"><i class="fa-solid fa-folder-open" style="color:#8b5cf6;"></i> Class 10 ICSE Drive Repository</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.8rem;">Direct repository access for Class 10 ICSE notes and reference material uploads.</p>
+        <div class="drive-grid">
+          <a class="drive-card" href="https://drive.google.com/drive/folders/1ry1FgxObrkVR1CXzdfWJMHAXzASsQSs2?usp=sharing" target="_blank">
+            <div class="drive-info"><i class="fa-solid fa-graduation-cap" style="color:#8b5cf6; font-size:1.4rem;"></i><span>Class 10 ICSE Drive</span></div>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </div>
+
+      <div style="background:var(--surface); padding:1.75rem; border-radius:var(--radius); border:1px solid var(--border); box-shadow:var(--shadow);">
+        <h2 style="font-size:1.3rem; color:var(--secondary); margin-bottom:0.5rem;"><i class="fa-solid fa-laptop-code" style="color:#10b981;"></i> Technical &amp; Research Course Materials</h2>
+        <div class="drive-grid">
+          <a class="drive-card" href="https://drive.google.com/drive/folders/1OJf4JiDHbSK6H1_0D5dsUaRQJXBpTMVT?usp=sharing" target="_blank">
+            <div class="drive-info"><i class="fa-solid fa-microchip" style="color:#10b981; font-size:1.4rem;"></i><span>GIS, Statistics &amp; Software Skills</span></div>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== PAGE 6: RECORDED CLASSES ==================== -->
+  <main id="page-recorded" class="page-section">
+    <section class="container">
+      <div class="section-title">
+        <h1>Recorded Lectures &amp; Masterclasses</h1>
+        <p>Watch full-length conceptual lectures, map interpretations, and GIS tutorials</p>
+      </div>
+
+      <div id="recordedClassList" class="video-grid">
+        <p style="color: #94a3b8; grid-column: 1 / -1; text-align: center; padding: 2rem;">Loading recorded classes...</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== PAGE 7: FACULTY ==================== -->
+  <main id="page-faculty" class="page-section">
+    <section class="container">
+      <div class="section-title">
+        <h1>Faculty &amp; Research Mentorship</h1>
+        <p>Learn directly from researchers with domain experience</p>
+      </div>
+
+      <div class="faculty-container">
+        <div class="faculty-photo-wrapper">
+          <img src="Founder.jpg" alt="Rohamat Mandal" onerror="this.onerror=null; this.src='Rohamat.jpg';">
+        </div>
+        <h2>Rohamat Mandal</h2>
+        <p style="color: var(--accent); font-weight: bold; font-size: 1.1rem; margin-bottom: 0.6rem;">Lead Faculty &amp; Academic Director</p>
+        
+        <div class="qual-badges" style="justify-content: center; margin-bottom: 1rem;">
+          <span class="qual-badge">BA Geography (Aliah University)</span>
+          <span class="qual-badge">MA Geography (JNU Delhi)</span>
+          <span class="qual-badge gold">UGC-NET Qualified</span>
+        </div>
+
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.25rem;">
+          Specialist in Geomorphological Modeling, Remote Sensing, Spatial Statistics, and Higher Academic Geography.
+        </p>
+        <a href="https://youtube.com/@rohamatmandal1208?si=RYLOXOc2qrGEcuey" target="_blank" class="btn-secondary">
+          <i class="fa-brands fa-youtube" style="color: red;"></i> Watch Lecture Demonstrations
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== PAGE 8: GALLERY ==================== -->
+  <main id="page-gallery" class="page-section">
+    <section class="container">
+      <div class="section-title">
+        <h1>Academy Photo Gallery</h1>
+        <p>Glimpses of fieldwork, computer GIS laboratories, seminars, and classroom sessions</p>
+      </div>
+
+      <div class="gallery-promo-banner" style="background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);">
+        <div class="gallery-promo-text">
+          <h3 style="font-size: 1.35rem; margin-bottom: 0.3rem;">Official Online Gallery Portfolio</h3>
+          <p style="color: #e2e8f0; font-size: 0.9rem;">Explore complete photo archives, outdoor surveys, and event albums on our portfolio gallery.</p>
+        </div>
+        <a href="https://rohamatmandal.website3.me/gallery" target="_blank" class="btn-primary" style="background:#fff; color:#0b1329;">
+          Visit Web Gallery <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+
+      <div id="galleryContainer" class="gallery-grid">
+        <p style="color: #94a3b8; grid-column: 1 / -1; text-align: center; padding: 2rem;">Loading gallery photos...</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== PAGE 9: NOTICES ==================== -->
+  <main id="page-notices" class="page-section">
+    <section class="container">
+      <div class="section-title">
+        <h1>Academy Notice Board</h1>
+        <p>Real-time official announcements, test dates, and admission alerts</p>
+      </div>
+      <div class="notices-board" id="noticeContainer">
+        <div class="notice-item">
+          <span>Loading announcements...</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== PAGE 10: CONTACT ==================== -->
+  <main id="page-contact" class="page-section">
+    <section class="container">
+      <div class="section-title">
+        <h1>Connect with R.M. Vision Academy</h1>
+        <p>Direct communication channels for enrollments, batch counseling, and guidance</p>
+      </div>
+
+      <div class="contact-channels">
+        <a href="https://wa.me/919134846845?text=Hello%20R.M.%20Vision%20Academy,%20I%20have%20an%20inquiry" target="_blank" class="channel-card">
+          <div class="channel-icon" style="background: var(--wp-green);"><i class="fa-brands fa-whatsapp"></i></div>
+          <div>
+            <div style="font-weight: 700; font-size: 1rem;">WhatsApp</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">Instant Chat &amp; Queries</div>
+          </div>
+        </a>
+        <a href="tel:+919134846845" class="channel-card">
+          <div class="channel-icon" style="background: var(--accent);"><i class="fa-solid fa-phone"></i></div>
+          <div>
+            <div style="font-weight: 700; font-size: 1rem;">Direct Call</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">+91 9134846845</div>
+          </div>
+        </a>
+        <a href="mailto:rmvisionacademy@gmail.com?subject=Course%20Admission%20Inquiry" class="channel-card">
+          <div class="channel-icon" style="background: #ea4335;"><i class="fa-solid fa-envelope"></i></div>
+          <div>
+            <div style="font-weight: 700; font-size: 1rem;">Email Us</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">rmvisionacademy@gmail.com</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="contact-grid">
+        <div style="background: var(--surface); padding: 1.5rem; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow);">
+          <h2 style="margin-bottom: 0.75rem; color: var(--text-main);">Contact Information</h2>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">
+            Have questions about syllabus structure, semester tuition fees, GIS laboratory prerequisites, or entrance test batches? Submit your message and our team will respond directly.
+          </p>
+          <p style="font-size: 0.95rem; margin-bottom: 0.5rem;">
+            <strong><i class="fa-solid fa-location-dot" style="color: var(--accent);"></i> Location:</strong> New Delhi, India
+          </p>
+          <p style="font-size: 0.95rem; margin-bottom: 0.5rem;">
+            <strong><i class="fa-solid fa-phone" style="color: var(--accent);"></i> Telephone:</strong> +91 9134846845
+          </p>
+          <p style="font-size: 0.95rem;">
+            <strong><i class="fa-solid fa-clock" style="color: var(--accent);"></i> Hours:</strong> Mon – Sat (9:00 AM – 7:00 PM IST)
+          </p>
+        </div>
+
+        <form class="contact-form" id="studentContactForm">
+          <h2 style="color: var(--text-main); margin-bottom: 0.3rem;">Send Direct Message</h2>
+          <input type="text" id="inqName" placeholder="Full Name *" required />
+          <input type="email" id="inqEmail" placeholder="Email Address *" required />
+          <input type="tel" id="inqPhone" placeholder="Mobile / WhatsApp Number *" required />
+          <select id="inqSubject">
+            <option value="UG & PG Geography Tuition">UG &amp; PG Geography Tuition</option>
+            <option value="GIS & Research Software Training">GIS &amp; Research Software Training</option>
+            <option value="CUET & University Entrance">CUET &amp; University Entrance</option>
+            <option value="General Academic Question">General Academic Question</option>
+          </select>
+          <textarea rows="4" id="inqMessage" placeholder="Your questions or batch timing preference... *" required></textarea>
+          <button type="submit" class="btn-primary" style="justify-content: center; font-size: 1rem;">Submit Inquiry</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <a href="https://wa.me/919134846845?text=Hello%20R.M.%20Vision%20Academy" target="_blank" class="floating-wp" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h3 style="color: #fff; margin-bottom: 0.6rem;">R.M. Vision Academy</h3>
+        <p style="font-size: 0.9rem;">
+          Bridging University degree geography with modern GIS spatial software, satellite analytics, and entrance mentoring under the guidance of Rohamat Mandal.
+        </p>
+      </div>
+      <div>
+        <h3 style="color: #fff; margin-bottom: 0.6rem;">Quick Portals</h3>
+        <ul style="list-style: none; font-size: 0.9rem; line-height: 1.9;">
+          <li><a onclick="navigateTo('courses')" style="color: #cbd5e1; cursor: pointer;">Courses &amp; Tuition</a></li>
+          <li><a onclick="navigateTo('materials')" style="color: #cbd5e1; cursor: pointer;">Open Study Materials</a></li>
+          <li><a onclick="navigateTo('paid-materials')" style="color: #cbd5e1; cursor: pointer;">Study Material Repositories</a></li>
+          <li><a onclick="navigateTo('recorded')" style="color: #cbd5e1; cursor: pointer;">Recorded Lectures</a></li>
+          <li><a onclick="navigateTo('gallery')" style="color: #cbd5e1; cursor: pointer;">Photo Gallery</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="color: #fff; margin-bottom: 0.6rem;">Direct Contact</h3>
+        <p style="font-size: 0.9rem;">Phone: +91 9134846845</p>
+        <p style="font-size: 0.9rem;">Email: rmvisionacademy@gmail.com</p>
+        <p style="font-size: 0.9rem;">New Delhi, India</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 R.M. Vision Academy | Mentored by Rohamat Mandal. All rights reserved.
+      <span onclick="authenticateAdmin()" style="cursor: pointer; color: #334155; margin-left: 8px;" title="Admin"><i class="fa-solid fa-lock"></i></span>
+    </div>
+  </footer>
+
+  <!-- NOTE READER MODAL -->
+  <div class="modal" id="noteReaderModal">
+    <div class="modal-content" style="max-width: 800px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem;">
+        <div>
+          <span id="readMatSubject" class="mat-subject-tag"></span>
+          <h2 id="readMatTitle" style="color: var(--text-main); font-size: 1.45rem; margin-top: 0.2rem;"></h2>
+          <div id="readMatDate" style="font-size: 0.8rem; color: #64748b;"></div>
+        </div>
+        <button onclick="closeNoteReader()" style="background: none; border: none; font-size: 1.8rem; cursor: pointer; color: #64748b;">&times;</button>
+      </div>
+
+      <div id="readMatPhotoWrapper" style="display: none; margin-bottom: 1.25rem;">
+        <img id="readMatPhoto" src="" alt="Note Diagram" style="width: 100%; max-height: 400px; object-fit: contain; border-radius: 6px; border: 1px solid var(--border);">
+      </div>
+
+      <div id="readMatText" style="font-size: 1rem; line-height: 1.8; color: var(--text-main); white-space: pre-line; word-break: break-word; margin-bottom: 1.5rem;"></div>
+
+      <div id="readMatPdfWrapper" style="display: none; border-top: 1px solid var(--border); padding-top: 1rem;">
+        <a id="readMatPdfLink" href="" download="" class="btn-primary" style="font-size: 0.9rem;">
+          <i class="fa-solid fa-file-pdf"></i> Download Attached Full PDF Document
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIRECT STUDENT REGISTER & LOGIN MODAL -->
+  <div class="modal" id="studentLoginModal">
+    <div class="modal-content" style="max-width: 440px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem;">
+        <h3 style="color: var(--text-main);"><i class="fa-solid fa-graduation-cap" style="color:var(--accent);"></i> Student Portal</h3>
+        <button onclick="closeStudentLoginModal()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+      </div>
+
+      <div id="authTabsHeader" style="display: flex; gap: 6px; margin-bottom: 1.2rem;">
+        <button id="authRegisterTab" class="tab-btn active" style="flex:1;" onclick="switchAuthMode('register')">
+          <i class="fa-solid fa-user-plus"></i> Register (New)
+        </button>
+        <button id="authLoginTab" class="tab-btn" style="flex:1;" onclick="switchAuthMode('login')">
+          <i class="fa-solid fa-right-to-bracket"></i> Login (Existing)
+        </button>
+      </div>
+
+      <div id="authRegisterForm">
+        <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.75rem;">
+          Complete your student profile to access notes and live class notices instantly.
+        </p>
+
+        <div class="admin-form-group">
+          <label>Full Name *</label>
+          <input type="text" id="regStudentName" placeholder="e.g. Rahul Sharma" required />
+        </div>
+
+        <div class="admin-form-group">
+          <label>Academic Level / Class *</label>
+          <select id="regStudentClass" required>
+            <option value="UG Semester 1">UG Semester 1</option>
+            <option value="UG Semester 2">UG Semester 2</option>
+            <option value="UG Semester 3">UG Semester 3</option>
+            <option value="UG Semester 4">UG Semester 4</option>
+            <option value="UG Semester 5">UG Semester 5</option>
+            <option value="UG Semester 6">UG Semester 6</option>
+            <option value="Postgraduate (PG)">Postgraduate (PG Geography)</option>
+            <option value="CUET / Entrance Aspirant">CUET / University Entrance</option>
+            <option value="GIS / Research Scholar">GIS, Statistics &amp; Research</option>
+            <option value="Other">Other Category</option>
+          </select>
+        </div>
+
+        <div class="admin-form-group">
+          <label>Course / Program Interested In *</label>
+          <select id="regStudentCourse" required>
+            <option value="UG & PG Geography Tuition">UG &amp; PG Geography Tuition</option>
+            <option value="GIS, Statistics & Research Training">GIS, Statistics &amp; Research Training</option>
+            <option value="CUET & University Entrance Coaching">CUET &amp; University Entrance Coaching</option>
+            <option value="Open Notes & Self Study">Open Access Notes &amp; Self Study</option>
+          </select>
+        </div>
+
+        <div class="admin-form-group">
+          <label>WhatsApp / Mobile Number *</label>
+          <input type="tel" id="regPhoneInput" placeholder="10-digit number (e.g. 9876543210)" required />
+        </div>
+
+        <div class="admin-form-group">
+          <label>Email Address (Optional)</label>
+          <input type="email" id="regEmailInput" placeholder="student@example.com" />
+        </div>
+
+        <button id="btnSubmitRegistration" onclick="handleDirectStudentRegistration()" class="btn-primary" style="width: 100%; justify-content: center; font-size:1rem; padding:0.65rem;">
+          <i class="fa-solid fa-user-check"></i> Complete Free Registration
+        </button>
+      </div>
+
+      <div id="authLoginForm" style="display:none;">
+        <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.75rem;">
+          Already registered? Enter your 10-digit mobile number to access your account instantly.
+        </p>
+        <div class="admin-form-group">
+          <label>Registered Mobile Number *</label>
+          <input type="tel" id="loginPhoneInput" placeholder="Enter 10-digit registered number" required />
+        </div>
+        <button id="btnSubmitLogin" onclick="handleDirectStudentLogin()" class="btn-primary" style="width: 100%; justify-content: center; font-size:1rem; padding:0.65rem;">
+          <i class="fa-solid fa-arrow-right-to-bracket"></i> Login Now
+        </button>
+      </div>
+
+      <div id="authLoggedInState" style="display:none; text-align:center; padding:1.25rem 0;">
+        <i class="fa-solid fa-circle-check" style="font-size:2.8rem; color:#10b981; margin-bottom:0.75rem;"></i>
+        <h3 id="currentUserNameDisplay">Logged In</h3>
+        <p id="currentUserDetailDisplay" style="color:var(--text-muted); font-size:0.9rem; margin-bottom:0.4rem;"></p>
+        <p id="currentUserCourseDisplay" style="color:var(--accent); font-weight:bold; font-size:0.85rem; margin-bottom:1.25rem;"></p>
+        <button onclick="logoutStudent()" class="btn-delete" style="padding:6px 14px; font-size:0.9rem;">
+          <i class="fa-solid fa-right-from-bracket"></i> Log Out
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADMIN MODAL -->
+  <div class="modal" id="adminModal">
+    <div class="modal-content">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+        <h2 style="color: var(--text-main);">Cloud Admin Control Panel</h2>
+        <button onclick="closeAdmin()" style="background: none; border: none; font-size: 1.8rem; cursor: pointer;">&times;</button>
+      </div>
+
+      <div class="admin-nav-tabs">
+        <button class="tab-btn active" onclick="switchAdminTab('adm-class')">Class Status</button>
+        <button class="tab-btn" onclick="switchAdminTab('adm-users')">Registered Students</button>
+        <button class="tab-btn" onclick="switchAdminTab('adm-materials')">Study Material</button>
+        <button class="tab-btn" onclick="switchAdminTab('adm-recorded')">Recorded Classes</button>
+        <button class="tab-btn" onclick="switchAdminTab('adm-notices')">Notices & Push Alerts</button>
+        <button class="tab-btn" onclick="switchAdminTab('adm-gallery')">Gallery</button>
+        <button class="tab-btn" onclick="switchAdminTab('adm-inquiries')">Student Inquiries</button>
+      </div>
+
+      <div id="adm-class" class="tab-content active">
+        <p style="margin-bottom: 1rem; color: var(--text-muted);">
+          Toggle whether students see the red pulsing <strong>LIVE</strong> badge on the header class link.
+        </p>
+        <button onclick="toggleLiveClass()" id="adminLiveToggleBtn" class="btn-primary" style="width: 100%; justify-content: center; font-size: 1rem;">
+          Turn Live Badge ON
+        </button>
+      </div>
+
+      <div id="adm-users" class="tab-content">
+        <h3 style="margin-bottom: 0.4rem;">Enrolled Students Database</h3>
+        <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:1rem;">Complete student records with academic level, target course, phone, and optional email.</p>
+        <div id="adminUsersList">Loading students...</div>
+      </div>
+
+      <div id="adm-materials" class="tab-content">
+        <h3 style="margin-bottom: 0.8rem;">Publish Subject-Wise Open Access Note</h3>
+        <div class="admin-form-group">
+          <label>Subject / Stream *</label>
+          <select id="admMatSubject">
+            <option value="Geotectonics and Geomorphology">Geotectonics and Geomorphology</option>
+            <option value="Climatology">Climatology</option>
+            <option value="Hydrology and Oceanography">Hydrology and Oceanography</option>
+            <option value="Population Geography">Population Geography</option>
+            <option value="Social, Cultural and Political Geography">Social, Cultural and Political Geography</option>
+            <option value="Settlement and Transport Geography">Settlement and Transport Geography</option>
+            <option value="Urban Geography">Urban Geography</option>
+            <option value="Economic and Resource Geography">Economic and Resource Geography</option>
+            <option value="Agricultural Geography">Agricultural Geography</option>
+            <option value="Environmental Geography">Environmental Geography</option>
+            <option value="Environmental Studies">Environmental Studies</option>
+            <option value="Hazard and Disaster Management">Hazard and Disaster Management</option>
+            <option value="Soil Geography">Soil Geography</option>
+            <option value="Cartography, Surveying & Mapping">Cartography, Surveying &amp; Mapping</option>
+            <option value="GIS, Remote Sensing & Geoinformatics">GIS, Remote Sensing &amp; Geoinformatics</option>
+            <option value="Software">Software</option>
+          </select>
+        </div>
+        <div class="admin-form-group">
+          <label>Note / Module Title *</label>
+          <input type="text" id="admMatTitle" placeholder="e.g. Plate Tectonics Theory & Mountain Building" />
+        </div>
+        <div class="admin-form-group">
+          <label>Full Text Explanation *</label>
+          <textarea id="admMatText" rows="5" placeholder="Write comprehensive conceptual explanation..."></textarea>
+        </div>
+        <div class="admin-form-group">
+          <label>Attach Diagram / Photo (Optional)</label>
+          <input type="file" id="admMatPhoto" accept="image/*" />
+        </div>
+        <div class="admin-form-group">
+          <label>Attach PDF Document (Optional)</label>
+          <input type="file" id="admMatPdf" accept=".pdf,.doc,.docx" />
+        </div>
+        <button onclick="publishStudyMaterial()" class="btn-primary" style="margin-bottom: 1.25rem;">Upload &amp; Publish Note</button>
+
+        <h3 style="margin-bottom: 0.6rem;">Manage Published Study Materials</h3>
+        <div id="adminMaterialsList">Loading...</div>
+      </div>
+
+      <div id="adm-recorded" class="tab-content">
+        <h3 style="margin-bottom: 0.8rem;">Add Recorded YouTube Lecture</h3>
+        <div class="admin-form-group">
+          <label>Lecture Title *</label>
+          <input type="text" id="admVideoTitle" placeholder="e.g. Geological Time Scale & Maps" />
+        </div>
+        <div class="admin-form-group">
+          <label>Subject / Topic *</label>
+          <input type="text" id="admVideoSubject" placeholder="e.g. Geological Maps" />
+        </div>
+        <div class="admin-form-group">
+          <label>YouTube Link or Video ID *</label>
+          <input type="text" id="admVideoUrl" placeholder="https://www.youtube.com/watch?v=... or Video ID" />
+        </div>
+        <button onclick="publishRecordedVideo()" class="btn-primary" style="margin-bottom: 1.25rem;">Add Lecture</button>
+
+        <h3 style="margin-bottom: 0.6rem;">Manage Recorded Lectures</h3>
+        <div id="adminVideoList">Loading...</div>
+      </div>
+
+      <div id="adm-notices" class="tab-content">
+        <h3 style="margin-bottom: 0.8rem;">Broadcast Official Notice &amp; Push Notification</h3>
+        <div class="admin-form-group">
+          <label>Notice Content * (Pushes directly to student phones with sound)</label>
+          <input type="text" id="admNoticeText" placeholder="Write urgent notice or batch alert..." />
+        </div>
+        <button onclick="publishNotice()" class="btn-primary" style="margin-bottom: 1.25rem;">
+          <i class="fa-solid fa-paper-plane"></i> Broadcast Notice &amp; Send Mobile Push Alert
+        </button>
+
+        <h3 style="margin-bottom: 0.6rem;">Active Notices</h3>
+        <div id="adminNoticeList">Loading...</div>
+      </div>
+
+      <div id="adm-gallery" class="tab-content">
+        <h3 style="margin-bottom: 0.8rem;">Upload High-Capacity Gallery Photo (Auto-Compressed)</h3>
+        <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:0.75rem;">
+          Photos are automatically compressed to ~50KB so you can store 200–300+ images without running out of space!
+        </p>
+        <div class="admin-form-group">
+          <label>Choose Image File (JPG / PNG / WebP) *</label>
+          <input type="file" id="admGalleryPhoto" accept="image/*" />
+        </div>
+        <button onclick="publishGalleryPhoto()" id="btnUploadGallery" class="btn-primary" style="margin-bottom: 1.25rem;">
+          <i class="fa-solid fa-cloud-arrow-up"></i> Compress &amp; Upload
+        </button>
+
+        <h3 style="margin-bottom: 0.6rem;">Existing Photos (<span id="galleryCountDisplay">0</span> Uploaded)</h3>
+        <div id="adminGalleryList" style="display:flex; gap:8px; flex-wrap:wrap; max-height:300px; overflow-y:auto; padding:4px; border:1px solid var(--border); border-radius:6px;">
+          Loading...
+        </div>
+      </div>
+
+      <div id="adm-inquiries" class="tab-content">
+        <h3 style="margin-bottom: 0.8rem;">Incoming Student Inquiries</h3>
+        <div id="adminInquiriesList">Loading submissions...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Real-Time Firebase Engine with Native SMS Chime & Heads-up System -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { 
+      getFirestore, doc, setDoc, getDoc, onSnapshot, collection, addDoc, deleteDoc, query, orderBy, limit 
+    } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDw_z3MUgrP4fF_cJXozNgunjhZti6gwio",
+      authDomain: "rm-vision-academy.firebaseapp.com",
+      projectId: "rm-vision-academy",
+      storageBucket: "rm-vision-academy.firebasestorage.app",
+      messagingSenderId: "996942314506",
+      appId: "1:996942314506:web:b0d004621c4aff5cbef3f3",
+      measurementId: "G-WGG488PGQW"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const usersCol = collection(db, "registered_students");
+    const galleryCol = collection(db, "gallery_photos");
+    const noticesCol = collection(db, "notices");
+    const materialsCol = collection(db, "study_materials");
+    const videosCol = collection(db, "recorded_classes");
+
+    // ==================== 1. WEB AUDIO API: REAL SMS BEEP CHIME ====================
+    function playSmsChimeSound() {
+      try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        
+        // Tone 1 (High pitch chime)
+        const osc1 = audioCtx.createOscillator();
+        const gain1 = audioCtx.createGain();
+        osc1.type = 'sine';
+        osc1.frequency.setValueAtTime(880, audioCtx.currentTime); // A5 note
+        gain1.gain.setValueAtTime(0.3, audioCtx.currentTime);
+        gain1.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.35);
+        osc1.connect(gain1);
+        gain1.connect(audioCtx.destination);
+        osc1.start();
+        osc1.stop(audioCtx.currentTime + 0.35);
+
+        // Tone 2 (SMS secondary chime)
+        const osc2 = audioCtx.createOscillator();
+        const gain2 = audioCtx.createGain();
+        osc2.type = 'sine';
+        osc2.frequency.setValueAtTime(1318.5, audioCtx.currentTime + 0.12); // E6 note
+        gain2.gain.setValueAtTime(0.35, audioCtx.currentTime + 0.12);
+        gain2.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.55);
+        osc2.connect(gain2);
+        gain2.connect(audioCtx.destination);
+        osc2.start(audioCtx.currentTime + 0.12);
+        osc2.stop(audioCtx.currentTime + 0.55);
+      } catch (e) {
+        console.warn("Audio autoplay blocked by system:", e);
+      }
+    }
+
+    // ==================== 2. MOBILE HEADS-UP NOTIFICATION ====================
+    let notificationsEnabled = localStorage.getItem('rm_notif_enabled') === 'true';
+    let isInitialNoticeLoad = true;
+    let isInitialMaterialLoad = true;
+    let isInitialVideoLoad = true;
+    let isInitialGalleryLoad = true;
+
+    const notifSwitch = document.getElementById('notifToggleSwitch');
+    if (notifSwitch) notifSwitch.checked = notificationsEnabled;
+
+    window.toggleNotifications = function(enabled) {
+      if (enabled) {
+        if (!("Notification" in window)) {
+          alert("Your device or browser does not support Web Push Notifications.");
+          notifSwitch.checked = false;
+          return;
+        }
+
+        Notification.requestPermission().then((permission) => {
+          if (permission === "granted") {
+            notificationsEnabled = true;
+            localStorage.setItem('rm_notif_enabled', 'true');
+            notifSwitch.checked = true;
+            playSmsChimeSound();
+            showHeadsUpNotification("Notifications Enabled! 🔔", "You will now get sound alerts and heads-up banner notifications whenever new updates are posted.");
+          } else {
+            alert("Notification permission denied. Please allow notifications from your browser site settings.");
+            notificationsEnabled = false;
+            localStorage.setItem('rm_notif_enabled', 'false');
+            notifSwitch.checked = false;
+          }
+        });
+      } else {
+        notificationsEnabled = false;
+        localStorage.setItem('rm_notif_enabled', 'false');
+        alert("Push notifications have been turned off.");
+      }
+    };
+
+    window.handleNotificationIconClick = function() {
+      if (!notificationsEnabled) {
+        if (confirm("Turn ON Mobile Notifications to receive class & study note alerts with SMS sound?")) {
+          toggleNotifications(true);
+        }
+      } else {
+        navigateTo('notices');
+        document.getElementById('notifBadgeDot').style.display = 'none';
+        const mDot = document.getElementById('mobileNotifDot');
+        if (mDot) mDot.style.display = 'none';
+      }
+    };
+
+    function showHeadsUpNotification(title, body) {
+      // 1. Play realistic SMS Sound
+      playSmsChimeSound();
+
+      // 2. Mobile vibration pattern
+      if ("vibrate" in navigator) {
+        navigator.vibrate([200, 100, 200, 100, 300]);
+      }
+
+      // 3. Screen banner popup (works inside the website or installed PWA)
+      const banner = document.getElementById('headsUpBanner');
+      const bTitle = document.getElementById('headsUpTitle');
+      const bBody = document.getElementById('headsUpBody');
+      if (banner && bTitle && bBody) {
+        bTitle.innerText = title;
+        bBody.innerText = body;
+        banner.classList.add('show');
+        setTimeout(() => banner.classList.remove('show'), 5000);
+      }
+
+      // 4. System tray push notification via Service Worker
+      if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+        navigator.serviceWorker.controller.postMessage({
+          type: 'SHOW_NOTIFICATION',
+          title: title,
+          body: body,
+          icon: 'logo.jpg'
+        });
+      } else if ("Notification" in window && Notification.permission === "granted") {
+        new Notification(title, {
+          body: body,
+          icon: 'logo.jpg',
+          badge: 'logo.jpg',
+          vibrate: [200, 100, 200]
+        });
+      }
+    }
+
+    // A. Real-Time Listener: Official Notices
+    onSnapshot(query(noticesCol, orderBy("timestamp", "desc"), limit(1)), (snapshot) => {
+      if (!snapshot.empty) {
+        const latestNotice = snapshot.docs[0].data();
+        document.getElementById('notifBadgeDot').style.display = 'block';
+        const mDot = document.getElementById('mobileNotifDot');
+        if (mDot) mDot.style.display = 'inline-block';
+
+        if (!isInitialNoticeLoad && notificationsEnabled) {
+          showHeadsUpNotification("📢 R.M. Vision Academy Alert", latestNotice.text);
+        }
+      }
+      isInitialNoticeLoad = false;
+    });
+
+    // B. Real-Time Listener: Study Materials Upload
+    onSnapshot(query(materialsCol, orderBy("timestamp", "desc"), limit(1)), (snapshot) => {
+      if (!snapshot.empty) {
+        const latestMat = snapshot.docs[0].data();
+        if (!isInitialMaterialLoad && notificationsEnabled) {
+          showHeadsUpNotification("📚 New Study Material Added!", `[${latestMat.subject}] ${latestMat.title}`);
+        }
+      }
+      isInitialMaterialLoad = false;
+    });
+
+    // C. Real-Time Listener: Recorded Class Links
+    onSnapshot(query(videosCol, orderBy("timestamp", "desc"), limit(1)), (snapshot) => {
+      if (!snapshot.empty) {
+        const latestVid = snapshot.docs[0].data();
+        if (!isInitialVideoLoad && notificationsEnabled) {
+          showHeadsUpNotification("🎬 New Class Lecture Published!", `[${latestVid.subject}] ${latestVid.title}`);
+        }
+      }
+      isInitialVideoLoad = false;
+    });
+
+    // D. Real-Time Listener: Gallery Photo Uploads
+    onSnapshot(query(galleryCol, orderBy("timestamp", "desc"), limit(1)), (snapshot) => {
+      if (!snapshot.empty) {
+        if (!isInitialGalleryLoad && notificationsEnabled) {
+          showHeadsUpNotification("🖼️ New Photo in Academy Gallery!", "Check out recent classroom, fieldwork & seminar moments in the Gallery tab.");
+        }
+      }
+      isInitialGalleryLoad = false;
+    });
+
+    // ==================== 3. SETTINGS DRAWER & THEME SWITCHER ====================
+    window.toggleSettingsDrawer = function() {
+      const drawer = document.getElementById('settingsDrawer');
+      const backdrop = document.getElementById('settingsBackdrop');
+      drawer.classList.toggle('open');
+      backdrop.classList.toggle('open');
+    };
+
+    const savedTheme = localStorage.getItem('rm_theme_mode');
+    const darkModeCheckbox = document.getElementById('darkModeToggle');
+
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark-theme');
+      if (darkModeCheckbox) darkModeCheckbox.checked = true;
+    }
+
+    window.toggleDarkMode = function(isDark) {
+      if (isDark) {
+        document.body.classList.add('dark-theme');
+        localStorage.setItem('rm_theme_mode', 'dark');
+      } else {
+        document.body.classList.remove('dark-theme');
+        localStorage.setItem('rm_theme_mode', 'light');
+      }
+    };
+
+    // ==================== 4. IMAGE COMPRESSOR ====================
+    function compressImageFile(file, maxWidth = 1000, quality = 0.65) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = (event) => {
+          const img = new Image();
+          img.src = event.target.result;
+          img.onload = () => {
+            const canvas = document.createElement('canvas');
+            let width = img.width;
+            let height = img.height;
+
+            if (width > maxWidth) {
+              height = Math.round((height * maxWidth) / width);
+              width = maxWidth;
+            }
+
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, width, height);
+
+            const compressedBase64 = canvas.toDataURL('image/jpeg', quality);
+            resolve(compressedBase64);
+          };
+          img.onerror = (err) => reject(err);
+        };
+        reader.onerror = (err) => reject(err);
+      });
+    }
+
+    // ==================== 5. PWA SERVICE WORKER ====================
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(err => console.log('SW Registration failed:', err));
+      });
+    }
+
+    let deferredPrompt = null;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      const installBtn = document.getElementById('pwaInstallBtn');
+      if (installBtn) installBtn.style.display = 'inline-flex';
+    });
+
+    window.triggerPwaInstall = async function() {
+      if (!deferredPrompt) {
+        alert("App is already installed or can be added from your browser menu ('Add to Home screen').");
+        return;
+      }
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      deferredPrompt = null;
+      document.getElementById('pwaInstallBtn').style.display = 'none';
+    };
+
+    // ==================== 6. FREE STUDENT AUTH ====================
+    let currentStudent = JSON.parse(localStorage.getItem('rm_logged_student')) || null;
+
+    window.openStudentLoginModal = function() {
+      document.getElementById('studentLoginModal').classList.add('active');
+      renderStudentAuthState();
+    };
+
+    window.closeStudentLoginModal = function() {
+      document.getElementById('studentLoginModal').classList.remove('active');
+    };
+
+    window.switchAuthMode = function(mode) {
+      if (mode === 'register') {
+        document.getElementById('authRegisterTab').classList.add('active');
+        document.getElementById('authLoginTab').classList.remove('active');
+        document.getElementById('authRegisterForm').style.display = 'block';
+        document.getElementById('authLoginForm').style.display = 'none';
+      } else {
+        document.getElementById('authLoginTab').classList.add('active');
+        document.getElementById('authRegisterTab').classList.remove('active');
+        document.getElementById('authLoginForm').style.display = 'block';
+        document.getElementById('authRegisterForm').style.display = 'none';
+      }
+    };
+
+    function cleanPhone(rawNumber) {
+      let num = rawNumber.replace(/[^0-9]/g, '');
+      if (num.length > 10) num = num.slice(-10);
+      return num;
+    }
+
+    window.handleDirectStudentRegistration = async function() {
+      const name = document.getElementById('regStudentName').value.trim();
+      const academicLevel = document.getElementById('regStudentClass').value;
+      const targetCourse = document.getElementById('regStudentCourse').value;
+      const rawPhone = document.getElementById('regPhoneInput').value.trim();
+      const email = document.getElementById('regEmailInput').value.trim();
+      const btn = document.getElementById('btnSubmitRegistration');
+
+      if (!name) {
+        alert("Please enter your Full Name.");
+        return;
+      }
+
+      const phone = cleanPhone(rawPhone);
+      if (phone.length !== 10) {
+        alert("Please enter a valid 10-digit mobile number.");
+        return;
+      }
+
+      btn.disabled = true;
+      btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Registering...`;
+
+      try {
+        const studentDocId = "std_" + phone;
+        const studentData = {
+          name,
+          academicLevel,
+          targetCourse,
+          phone,
+          email: email || 'Not Provided',
+          registeredDate: new Date().toLocaleString(),
+          lastLogin: new Date().toLocaleString(),
+          timestamp: Date.now(),
+          platform: window.matchMedia('(display-mode: standalone)').matches ? 'Installed App' : 'Website'
+        };
+
+        await setDoc(doc(db, "registered_students", studentDocId), studentData, { merge: true });
+
+        currentStudent = studentData;
+        localStorage.setItem('rm_logged_student', JSON.stringify(studentData));
+
+        alert(`Registration Successful! Welcome to R.M. Vision Academy, ${name}.`);
+        renderStudentAuthState();
+        closeStudentLoginModal();
+      } catch (err) {
+        console.error("Registration error:", err);
+        alert("Registration failed: " + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = `<i class="fa-solid fa-user-check"></i> Complete Free Registration`;
+      }
+    };
+
+    window.handleDirectStudentLogin = async function() {
+      const rawPhone = document.getElementById('loginPhoneInput').value.trim();
+      const btn = document.getElementById('btnSubmitLogin');
+
+      const phone = cleanPhone(rawPhone);
+      if (phone.length !== 10) {
+        alert("Please enter your 10-digit registered mobile number.");
+        return;
+      }
+
+      btn.disabled = true;
+      btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Verifying...`;
+
+      try {
+        const studentDocId = "std_" + phone;
+        const docRef = doc(db, "registered_students", studentDocId);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+          const studentData = docSnap.data();
+          studentData.lastLogin = new Date().toLocaleString();
+          await setDoc(docRef, { lastLogin: studentData.lastLogin }, { merge: true });
+
+          currentStudent = studentData;
+          localStorage.setItem('rm_logged_student', JSON.stringify(studentData));
+
+          alert(`Welcome back, ${studentData.name}! Successfully logged in.`);
+          renderStudentAuthState();
+          closeStudentLoginModal();
+        } else {
+          alert(`No registered student found with number: ${phone}. Please complete the registration form.`);
+          switchAuthMode('register');
+          document.getElementById('regPhoneInput').value = phone;
+        }
+      } catch (err) {
+        console.error("Login error:", err);
+        alert("Login error: " + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = `<i class="fa-solid fa-arrow-right-to-bracket"></i> Login Now`;
+      }
+    };
+
+    function renderStudentAuthState() {
+      const btn = document.getElementById('userAuthBtn');
+      const tabs = document.getElementById('authTabsHeader');
+      const regForm = document.getElementById('authRegisterForm');
+      const logForm = document.getElementById('authLoginForm');
+      const loggedState = document.getElementById('authLoggedInState');
+      const nameDisp = document.getElementById('currentUserNameDisplay');
+      const detailDisp = document.getElementById('currentUserDetailDisplay');
+      const courseDisp = document.getElementById('currentUserCourseDisplay');
+
+      if (currentStudent) {
+        btn.innerHTML = `<i class="fa-solid fa-user-check" style="color:#10b981;"></i> ${currentStudent.name.split(' ')[0]}`;
+        if (nameDisp) nameDisp.innerText = currentStudent.name;
+        if (detailDisp) detailDisp.innerText = `Mobile: ${currentStudent.phone} | ${currentStudent.academicLevel || ''}`;
+        if (courseDisp) courseDisp.innerText = currentStudent.targetCourse ? `Program: ${currentStudent.targetCourse}` : '';
+        
+        if (tabs) tabs.style.display = 'none';
+        if (regForm) regForm.style.display = 'none';
+        if (logForm) logForm.style.display = 'none';
+        if (loggedState) loggedState.style.display = 'block';
+      } else {
+        btn.innerHTML = `<i class="fa-solid fa-user-plus"></i> Join`;
+        if (tabs) tabs.style.display = 'flex';
+        if (loggedState) loggedState.style.display = 'none';
+        switchAuthMode('register');
+      }
+    }
+
+    window.logoutStudent = function() {
+      currentStudent = null;
+      localStorage.removeItem('rm_logged_student');
+      renderStudentAuthState();
+      closeStudentLoginModal();
+      alert("You have logged out successfully.");
+    };
+
+    renderStudentAuthState();
+
+    onSnapshot(query(usersCol, orderBy("timestamp", "desc")), (snapshot) => {
+      const container = document.getElementById('adminUsersList');
+      if (snapshot.empty) {
+        container.innerHTML = '<p style="color:#94a3b8; font-size:0.85rem;">No students registered yet.</p>';
+        return;
+      }
+
+      let html = '';
+      snapshot.forEach(docSnap => {
+        const u = docSnap.data();
+        html += `
+          <div class="admin-item-box" style="flex-direction:column; align-items:flex-start;">
+            <div style="width:100%; display:flex; justify-content:space-between; align-items:center;">
+              <strong style="color:var(--accent); font-size:1rem;">${u.name || 'Unnamed Student'}</strong>
+              <span style="font-size:0.75rem; color:#64748b;">${u.lastLogin || u.registeredDate || ''}</span>
+            </div>
+            <div style="font-size:0.85rem; margin: 3px 0;">
+              <strong>Phone:</strong> <a href="tel:${u.phone}" style="color:var(--accent); text-decoration:none;">${u.phone || 'N/A'}</a> | 
+              <strong>Email:</strong> ${u.email || 'N/A'}
+            </div>
+            <div style="font-size:0.85rem; color:var(--text-muted);">
+              <strong>Class / Level:</strong> ${u.academicLevel || 'N/A'} | <strong>Target Course:</strong> ${u.targetCourse || 'General'}
+            </div>
+            <div style="font-size:0.75rem; color:#10b981; margin-top:2px;">
+              <i class="fa-solid fa-mobile-screen"></i> Registered via: ${u.platform || 'Website'}
+            </div>
+          </div>
+        `;
+      });
+      container.innerHTML = html;
+    });
+
+    // ==================== 7. ROUTER ====================
+    window.navigateTo = function(pageKey) {
+      document.querySelectorAll('.page-section').forEach(p => p.classList.remove('active'));
+      const target = document.getElementById('page-' + pageKey);
+      if (target) {
+        target.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+      const activeLink = document.getElementById('nav-' + pageKey);
+      if (activeLink) activeLink.classList.add('active');
+
+      const nav = document.getElementById('mainNavLinks');
+      if (nav.classList.contains('show')) nav.classList.remove('show');
+    };
+
+    window.toggleMobileNav = function() {
+      const nav = document.getElementById('mainNavLinks');
+      nav.classList.toggle('show');
+    };
+
+    // ==================== 8. SECRET ADMIN AUTH ====================
+    let logoClickCount = 0;
+    let logoClickTimer = null;
+
+    window.handleSecretLogoClick = function() {
+      logoClickCount++;
+      clearTimeout(logoClickTimer);
+
+      logoClickTimer = setTimeout(() => {
+        if (logoClickCount >= 3) {
+          authenticateAdmin();
+        } else if (logoClickCount === 1) {
+          navigateTo('home');
+        }
+        logoClickCount = 0;
+      }, 400);
+    };
+
+    window.authenticateAdmin = function() {
+      const pin = prompt("Admin Security Verification - Enter PIN:");
+      if (pin === "91@12rm") {
+        document.getElementById('adminModal').classList.add('active');
+      } else if (pin !== null) {
+        alert("Access Denied: Invalid Security PIN.");
+      }
+    };
+
+    window.closeAdmin = function() {
+      document.getElementById('adminModal').classList.remove('active');
+    };
+
+    window.switchAdminTab = function(tabId) {
+      document.querySelectorAll('.admin-nav-tabs .tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      event.target.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    };
+
+    // ==================== 9. LIVE CLASS STATUS ====================
+    const statusDocRef = doc(db, "academy_settings", "live_status");
+    let currentLiveState = false;
+
+    onSnapshot(statusDocRef, (docSnap) => {
+      const liveBadge = document.getElementById('liveBadge');
+      const adminBtn = document.getElementById('adminLiveToggleBtn');
+
+      if (docSnap.exists() && docSnap.data().isLive) {
+        currentLiveState = true;
+        liveBadge.style.display = 'inline-block';
+        if (adminBtn) {
+          adminBtn.innerText = 'Turn Live Badge OFF (Currently Active)';
+          adminBtn.style.background = '#dc2626';
+        }
+      } else {
+        currentLiveState = false;
+        liveBadge.style.display = 'none';
+        if (adminBtn) {
+          adminBtn.innerText = 'Turn Live Badge ON (Currently Inactive)';
+          adminBtn.style.background = 'var(--accent)';
+        }
+      }
+    });
+
+    window.toggleLiveClass = async function() {
+      try {
+        await setDoc(statusDocRef, { isLive: !currentLiveState });
+      } catch (err) {
+        alert("Firestore error: Verify rules.");
+      }
+    };
+
+    // ==================== 10. STUDY MATERIALS ====================
+    let loadedMaterials = [];
+    let currentSubjectFilter = 'ALL';
+
+    onSnapshot(query(materialsCol, orderBy("timestamp", "desc")), (snapshot) => {
+      loadedMaterials = [];
+      snapshot.forEach(docSnap => loadedMaterials.push({ id: docSnap.id, ...docSnap.data() }));
+      renderFilteredMaterials();
+      renderAdminMaterialsList();
+    });
+
+    window.filterMaterials = function(subject) {
+      currentSubjectFilter = subject;
+      document.querySelectorAll('.sub-filter-btn').forEach(btn => {
+        if (btn.innerText.trim() === subject || (subject === 'ALL' && btn.innerText.includes('All'))) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+      renderFilteredMaterials();
+    };
+
+    function renderFilteredMaterials() {
+      const container = document.getElementById('dynamicMaterialsContainer');
+      const filtered = currentSubjectFilter === 'ALL' 
+        ? loadedMaterials 
+        : loadedMaterials.filter(m => m.subject === currentSubjectFilter);
+
+      if (filtered.length === 0) {
+        container.innerHTML = '<p style="color: #64748b; grid-column: 1 / -1;">No materials published under this subject yet.</p>';
+        return;
+      }
+
+      container.innerHTML = filtered.map(m => {
+        const text = m.text || '';
+        const words = text.trim().split(/\s+/);
+        const isLong = words.length > 40;
+        const displayText = isLong ? words.slice(0, 40).join(' ') + '...' : text;
+
+        return `
+          <div class="material-post-card">
+            <div>
+              <span class="mat-subject-tag">${m.subject}</span>
+              <h3>${m.title}</h3>
+              ${m.photoUrl ? `<img src="${m.photoUrl}" alt="${m.title}" class="mat-image-preview">` : ''}
+              <p>${displayText}</p>
+              ${isLong ? `<button class="btn-read-more" onclick="openNoteReader('${m.id}')">Read More &rarr;</button>` : ''}
+            </div>
+            <div style="margin-top: 0.8rem;">
+              ${m.pdfUrl ? `
+                <a href="${m.pdfUrl}" download="${m.title}.pdf" class="btn-primary" style="font-size:0.8rem; padding:5px 8px; width:100%; justify-content:center; margin-bottom:6px;">
+                  <i class="fa-solid fa-file-pdf"></i> Download Attached PDF
+                </a>
+              ` : ''}
+              <div style="font-size: 0.75rem; color: #94a3b8; text-align: right;">Published: ${m.date}</div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    window.openNoteReader = function(id) {
+      const note = loadedMaterials.find(m => m.id === id);
+      if (!note) return;
+
+      document.getElementById('readMatSubject').innerText = note.subject;
+      document.getElementById('readMatTitle').innerText = note.title;
+      document.getElementById('readMatDate').innerText = 'Published: ' + (note.date || 'Recently');
+      document.getElementById('readMatText').innerText = note.text;
+
+      const photoWrapper = document.getElementById('readMatPhotoWrapper');
+      const photoImg = document.getElementById('readMatPhoto');
+      if (note.photoUrl) {
+        photoImg.src = note.photoUrl;
+        photoWrapper.style.display = 'block';
+      } else {
+        photoWrapper.style.display = 'none';
+      }
+
+      const pdfWrapper = document.getElementById('readMatPdfWrapper');
+      const pdfLink = document.getElementById('readMatPdfLink');
+      if (note.pdfUrl) {
+        pdfLink.href = note.pdfUrl;
+        pdfLink.download = note.title + '.pdf';
+        pdfWrapper.style.display = 'block';
+      } else {
+        pdfWrapper.style.display = 'none';
+      }
+
+      document.getElementById('noteReaderModal').classList.add('active');
+    };
+
+    window.closeNoteReader = function() {
+      document.getElementById('noteReaderModal').classList.remove('active');
+    };
+
+    window.publishStudyMaterial = async function() {
+      const subject = document.getElementById('admMatSubject').value;
+      const title = document.getElementById('admMatTitle').value.trim();
+      const text = document.getElementById('admMatText').value.trim();
+      const photoFile = document.getElementById('admMatPhoto').files[0];
+      const pdfFile = document.getElementById('admMatPdf').files[0];
+
+      if (!title || !text) {
+        alert("Please provide both a Title and Text Explanation.");
+        return;
+      }
+
+      let photoUrl = '';
+      if (photoFile) {
+        photoUrl = await compressImageFile(photoFile, 900, 0.6);
+      }
+
+      const readFile = (file) => new Promise((resolve) => {
+        if (!file) return resolve('');
+        const reader = new FileReader();
+        reader.onload = (e) => resolve(e.target.result);
+        reader.readAsDataURL(file);
+      });
+
+      const pdfUrl = await readFile(pdfFile);
+
+      try {
+        await addDoc(materialsCol, {
+          subject,
+          title,
+          text,
+          photoUrl,
+          pdfUrl,
+          date: new Date().toLocaleDateString(),
+          timestamp: Date.now()
+        });
+
+        // Trigger SMS sound & heads-up banner notification
+        showHeadsUpNotification("📚 New Note Uploaded!", `[${subject}] ${title}`);
+
+        document.getElementById('admMatTitle').value = '';
+        document.getElementById('admMatText').value = '';
+        document.getElementById('admMatPhoto').value = '';
+        document.getElementById('admMatPdf').value = '';
+        alert("Study Material successfully published!");
+      } catch (err) {
+        alert("Error publishing: " + err.message);
+      }
+    };
+
+    function renderAdminMaterialsList() {
+      const container = document.getElementById('adminMaterialsList');
+      if (loadedMaterials.length === 0) {
+        container.innerHTML = '<p style="color:#94a3b8; font-size:0.85rem;">No study materials published yet.</p>';
+        return;
+      }
+      container.innerHTML = loadedMaterials.map(m => `
+        <div class="admin-item-box">
+          <div>
+            <strong>[${m.subject}]</strong> ${m.title}
+            <div style="font-size:0.75rem; color:#64748b;">${m.date}</div>
+          </div>
+          <button class="btn-delete" onclick="deleteStudyMaterial('${m.id}')">Delete</button>
+        </div>
+      `).join('');
+    }
+
+    window.deleteStudyMaterial = async function(id) {
+      if (confirm("Delete this study material?")) {
+        await deleteDoc(doc(db, "study_materials", id));
+      }
+    };
+
+    // ==================== 11. RECORDED CLASSES ====================
+    onSnapshot(query(videosCol, orderBy("timestamp", "desc")), (snapshot) => {
+      const container = document.getElementById('recordedClassList');
+      const adminContainer = document.getElementById('adminVideoList');
+
+      if (snapshot.empty) {
+        container.innerHTML = '<p style="color: #94a3b8; grid-column: 1 / -1; text-align: center; padding: 2rem;">No recorded lectures published yet. Add video links from the Admin panel.</p>';
+        if (adminContainer) adminContainer.innerHTML = '<p style="color:#94a3b8; font-size:0.85rem;">No uploaded video links yet.</p>';
+        return;
+      }
+
+      let html = '';
+      let adminHtml = '';
+
+      snapshot.forEach(docSnap => {
+        const v = docSnap.data();
+        let embedUrl = v.url;
+        if (embedUrl.includes('watch?v=')) {
+          embedUrl = embedUrl.replace('watch?v=', 'embed/');
+        } else if (embedUrl.includes('youtu.be/')) {
+          embedUrl = embedUrl.replace('youtu.be/', 'www.youtube.com/embed/');
+        }
+
+        html += `
+          <div class="video-card">
+            <div class="video-wrapper">
+              <iframe src="${embedUrl}" title="${v.title}" allowfullscreen></iframe>
+            </div>
+            <div class="video-info">
+              <span class="mat-subject-tag">${v.subject}</span>
+              <h3>${v.title}</h3>
+              <p style="color:var(--text-muted); font-size: 0.8rem;">Added: ${v.date}</p>
+            </div>
+          </div>
+        `;
+
+        adminHtml += `
+          <div class="admin-item-box">
+            <div><strong>${v.title}</strong> [${v.subject}]</div>
+            <button class="btn-delete" onclick="deleteRecordedVideo('${docSnap.id}')">Delete</button>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+      if (adminContainer) adminContainer.innerHTML = adminHtml;
+    });
+
+    window.publishRecordedVideo = async function() {
+      const title = document.getElementById('admVideoTitle').value.trim();
+      const subject = document.getElementById('admVideoSubject').value.trim();
+      const url = document.getElementById('admVideoUrl').value.trim();
+
+      if (!title || !url) {
+        alert("Please enter title and YouTube link.");
+        return;
+      }
+
+      await addDoc(videosCol, {
+        title,
+        subject: subject || 'Geography',
+        url,
+        date: new Date().toLocaleDateString(),
+        timestamp: Date.now()
+      });
+
+      // Trigger Notification with SMS chime
+      showHeadsUpNotification("🎬 New Class Lecture Published!", `[${subject || 'Geography'}] ${title}`);
+
+      document.getElementById('admVideoTitle').value = '';
+      document.getElementById('admVideoSubject').value = '';
+      document.getElementById('admVideoUrl').value = '';
+      alert("Lecture video added to Classroom!");
+    };
+
+    window.deleteRecordedVideo = async function(id) {
+      await deleteDoc(doc(db, "recorded_classes", id));
+    };
+
+    // ==================== 12. NOTICES & BROADCAST ====================
+    onSnapshot(query(noticesCol, orderBy("timestamp", "desc")), (snapshot) => {
+      const container = document.getElementById('noticeContainer');
+      const adminContainer = document.getElementById('adminNoticeList');
+
+      let html = `
+        <div class="notice-item">
+          <span>Admissions open for UG, PG, and GIS practical batches at R.M. Vision Academy.</span>
+          <span style="font-size: 0.75rem; color: #94a3b8;">Permanent</span>
+        </div>
+      `;
+      let adminHtml = '';
+
+      snapshot.forEach(docSnap => {
+        const n = docSnap.data();
+        html += `
+          <div class="notice-item">
+            <span>${n.text}</span>
+            <span style="font-size: 0.75rem; color: #94a3b8;">${n.date}</span>
+          </div>
+        `;
+        adminHtml += `
+          <div class="admin-item-box">
+            <span>${n.text}</span>
+            <button class="btn-delete" onclick="deleteNotice('${docSnap.id}')">Delete</button>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+      if (adminContainer) adminContainer.innerHTML = adminHtml || '<p style="color:#94a3b8; font-size:0.85rem;">No active custom notices.</p>';
+    });
+
+    window.publishNotice = async function() {
+      const text = document.getElementById('admNoticeText').value.trim();
+      if (!text) return;
+
+      await addDoc(noticesCol, {
+        text,
+        date: new Date().toLocaleDateString(),
+        timestamp: Date.now()
+      });
+
+      // Send local push notification with sound immediately
+      showHeadsUpNotification("📢 R.M. Vision Academy Alert", text);
+
+      document.getElementById('admNoticeText').value = '';
+      alert("Notice broadcasted! Mobile notifications triggered with sound.");
+    };
+
+    window.deleteNotice = async function(id) {
+      await deleteDoc(doc(db, "notices", id));
+    };
+
+    // ==================== 13. HIGH-CAPACITY PHOTO GALLERY ====================
+    onSnapshot(query(galleryCol, orderBy("timestamp", "desc")), (snapshot) => {
+      const container = document.getElementById('galleryContainer');
+      const adminContainer = document.getElementById('adminGalleryList');
+      const countDisplay = document.getElementById('galleryCountDisplay');
+
+      if (countDisplay) countDisplay.innerText = snapshot.size;
+
+      if (snapshot.empty) {
+        container.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 2rem 1rem; background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border);">
+            <i class="fa-regular fa-images" style="font-size: 2.2rem; color: #94a3b8; margin-bottom: 0.5rem;"></i>
+            <p style="color: #64748b; font-size: 1rem;">No photos uploaded yet.</p>
+            <p style="color: #94a3b8; font-size: 0.85rem;">Upload event, field, or session photos from the Admin panel.</p>
+          </div>
+        `;
+        if (adminContainer) adminContainer.innerHTML = '<p style="color:#94a3b8; font-size:0.85rem;">No photos uploaded yet.</p>';
+        return;
+      }
+
+      let dynamicImgs = '';
+      let adminHtml = '';
+
+      snapshot.forEach(docSnap => {
+        const p = docSnap.data();
+        dynamicImgs += `
+          <div class="gallery-item">
+            <img src="${p.url}" alt="R.M. Vision Academy Photo" loading="lazy">
+          </div>
+        `;
+        adminHtml += `
+          <div style="position:relative; width:65px; height:65px; border:1px solid #cbd5e1; border-radius:6px; overflow:hidden;">
+            <img src="${p.url}" style="width:100%; height:100%; object-fit:cover;">
+            <button onclick="deleteGalleryPhoto('${docSnap.id}')" title="Delete Photo" style="position:absolute; top:2px; right:2px; background:rgba(220, 38, 38, 0.9); color:#fff; border:none; border-radius:3px; width:16px; height:16px; display:flex; align-items:center; justify-content:center; font-size:10px; cursor:pointer;">&times;</button>
+          </div>
+        `;
+      });
+
+      container.innerHTML = dynamicImgs;
+      if (adminContainer) adminContainer.innerHTML = adminHtml;
+    });
+
+    window.publishGalleryPhoto = async function() {
+      const fileInput = document.getElementById('admGalleryPhoto');
+      const btn = document.getElementById('btnUploadGallery');
+      const file = fileInput.files[0];
+
+      if (!file) {
+        alert("Please select an image file first.");
+        return;
+      }
+
+      btn.disabled = true;
+      btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Compressing &amp; Uploading...`;
+
+      try {
+        const compressedBase64 = await compressImageFile(file, 900, 0.65);
+
+        await addDoc(galleryCol, {
+          url: compressedBase64,
+          timestamp: Date.now()
+        });
+
+        // Trigger SMS chime & notification
+        showHeadsUpNotification("🖼️ New Photo in Gallery!", "A new academy photo has been uploaded to the Gallery.");
+
+        fileInput.value = '';
+        alert("Photo successfully compressed and added to Gallery!");
+      } catch (err) {
+        alert("Upload failed: " + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = `<i class="fa-solid fa-cloud-arrow-up"></i> Compress &amp; Upload`;
+      }
+    };
+
+    window.deleteGalleryPhoto = async function(id) {
+      if (confirm("Delete this photo from the gallery?")) {
+        await deleteDoc(doc(db, "gallery_photos", id));
+      }
+    };
+
+    // ==================== 14. CONTACT INQUIRIES ====================
+    const inquiriesCol = collection(db, "inquiries");
+
+    document.getElementById('studentContactForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('inqName').value.trim();
+      const email = document.getElementById('inqEmail').value.trim();
+      const phone = document.getElementById('inqPhone').value.trim();
+      const subject = document.getElementById('inqSubject').value;
+      const message = document.getElementById('inqMessage').value.trim();
+
+      try {
+        await addDoc(inquiriesCol, {
+          name,
+          email,
+          phone,
+          subject,
+          message,
+          date: new Date().toLocaleString(),
+          timestamp: Date.now()
+        });
+        alert("Thank you, " + name + "! Your inquiry has been sent to Rohamat Sir. We will reply to your email shortly.");
+        document.getElementById('studentContactForm').reset();
+      } catch (err) {
+        alert("Error sending message: " + err.message);
+      }
+    });
+
+    onSnapshot(query(inquiriesCol, orderBy("timestamp", "desc")), (snapshot) => {
+      const container = document.getElementById('adminInquiriesList');
+      if (snapshot.empty) {
+        container.innerHTML = '<p style="color:#94a3b8; font-size:0.85rem;">No student inquiries received yet.</p>';
+        return;
+      }
+
+      let html = '';
+      snapshot.forEach(docSnap => {
+        const inq = docSnap.data();
+        const mailtoLink = `mailto:${inq.email}?subject=Response from R.M. Vision Academy - ${encodeURIComponent(inq.subject)}&body=Hello ${encodeURIComponent(inq.name)},%0D%0A%0D%0ARegarding your inquiry:%0D%0A"${encodeURIComponent(inq.message)}"%0D%0A%0D%0A`;
+
+        html += `
+          <div class="admin-item-box" style="flex-direction: column; align-items: flex-start;">
+            <div style="width: 100%; display: flex; justify-content: space-between;">
+              <strong>${inq.name} (<a href="tel:${inq.phone}" style="color:var(--accent); text-decoration:none;">${inq.phone}</a>)</strong>
+              <span style="font-size:0.75rem; color:#64748b;">${inq.date}</span>
+            </div>
+            <div style="font-size: 0.85rem; margin: 3px 0;"><strong>Program:</strong> ${inq.subject}</div>
+            <div style="font-size: 0.85rem; background: var(--bg); padding: 5px 8px; border-radius: 4px; width: 100%;">
+              "${inq.message}"
+            </div>
+            <div style="display:flex; gap:8px; margin-top:6px;">
+              <a href="${mailtoLink}" class="btn-primary" style="font-size:0.8rem; padding:3px 7px; text-decoration:none;">
+                <i class="fa-solid fa-reply"></i> Reply (${inq.email})
+              </a>
+              <button class="btn-delete" onclick="deleteInquiry('${docSnap.id}')">Delete</button>
+            </div>
+          </div>
+        `;
+      });
+      container.innerHTML = html;
+    });
+
+    window.deleteInquiry = async function(id) {
+      if (confirm("Delete this inquiry?")) {
+        await deleteDoc(doc(db, "inquiries", id));
+      }
+    };
+  </script>
+</body>
+</html>
