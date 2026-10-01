@@ -373,6 +373,49 @@
       font-style: italic;
     }
 
+    /* Glowing/Lightning effect for Open Access Study Materials */
+    .glowing-title {
+      display: inline-block;
+      position: relative;
+      animation: lightningGlow 2.5s infinite alternate ease-in-out;
+      padding: 4px 12px;
+      border-radius: 8px;
+    }
+
+    @keyframes lightningGlow {
+      0% {
+        color: #1d4ed8;
+        text-shadow: 0 0 5px rgba(29, 78, 216, 0.3), 0 0 12px rgba(37, 99, 235, 0.4);
+      }
+      50% {
+        color: #2563eb;
+        text-shadow: 0 0 10px rgba(59, 130, 246, 0.7), 0 0 25px rgba(96, 165, 250, 0.8), 0 0 35px rgba(37, 99, 235, 0.6);
+      }
+      100% {
+        color: #0284c7;
+        text-shadow: 0 0 6px rgba(14, 165, 233, 0.5), 0 0 18px rgba(56, 189, 248, 0.7);
+      }
+    }
+
+    body.dark-theme .glowing-title {
+      animation: lightningGlowDark 2.5s infinite alternate ease-in-out;
+    }
+
+    @keyframes lightningGlowDark {
+      0% {
+        color: #60a5fa;
+        text-shadow: 0 0 8px rgba(96, 165, 250, 0.5), 0 0 18px rgba(59, 130, 246, 0.5);
+      }
+      50% {
+        color: #93c5fd;
+        text-shadow: 0 0 15px rgba(147, 197, 253, 0.9), 0 0 30px rgba(96, 165, 250, 0.9), 0 0 45px rgba(37, 99, 235, 0.8);
+      }
+      100% {
+        color: #38bdf8;
+        text-shadow: 0 0 10px rgba(56, 189, 248, 0.6), 0 0 20px rgba(14, 165, 233, 0.7);
+      }
+    }
+
     .hero {
       background: linear-gradient(180deg, var(--accent-soft) 0%, var(--bg) 100%);
       padding: 3rem 4%;
@@ -643,6 +686,42 @@
       border-color: var(--accent);
     }
 
+    /* Subject Section Wrappers */
+    .subject-block {
+      margin-bottom: 2.5rem;
+      background: var(--surface);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .subject-block-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .subject-block-header h2 {
+      font-size: 1.35rem;
+      color: var(--secondary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .subject-count-badge {
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 12px;
+    }
+
     .materials-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -651,7 +730,7 @@
     }
 
     .material-post-card {
-      background: var(--surface);
+      background: var(--bg);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 1.25rem;
@@ -674,7 +753,7 @@
       text-transform: uppercase;
     }
 
-    .material-post-card h3 { font-size: 1.2rem; color: var(--text-main); margin-bottom: 0.4rem; }
+    .material-post-card h3 { font-size: 1.15rem; color: var(--text-main); margin-bottom: 0.4rem; }
     .material-post-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.75rem; white-space: pre-line; word-break: break-word; }
 
     .btn-read-more {
@@ -1081,7 +1160,7 @@
       font-size: 0.85rem;
     }
 
-    /* Mobile Menu - Single Line Stack List Item (No side-by-side) */
+    /* Mobile Menu */
     .mobile-menu-item { display: none; }
 
     @media (max-width: 1100px) {
@@ -1105,10 +1184,8 @@
       }
       .nav-links.show { display: flex; }
       .hero-text h1 { font-size: 2.1rem; }
-
       .desktop-only-btn { display: none !important; }
       
-      /* In Mobile Drawer: Render sequentially inside the menu line */
       .mobile-menu-item {
         display: block !important;
         width: 100%;
@@ -1138,7 +1215,7 @@
 </head>
 <body>
 
-  <!-- Floating Heads-Up Banner (For Screen Popup) -->
+  <!-- Floating Heads-Up Banner -->
   <div id="headsUpBanner" class="heads-up-banner">
     <div class="heads-up-icon"><i class="fa-solid fa-bell"></i></div>
     <div class="heads-up-content">
@@ -1216,7 +1293,7 @@
           </button>
         </li>
 
-        <!-- Mobile Drawer Notification & Settings: Stacked as natural line items -->
+        <!-- Mobile Drawer Notification & Settings -->
         <li class="mobile-menu-item" style="border-top: 1px solid var(--border); padding-top: 4px;">
           <a onclick="handleNotificationIconClick(); toggleMobileNav();" style="color:var(--text-main);">
             <i class="fa-solid fa-bell" style="color:var(--accent);"></i> Notifications
@@ -1379,7 +1456,8 @@
 
         <div class="founder-hero-card">
           <div class="founder-image-frame">
-            <img src="Founder.jpg" alt="Rohamat Mandal - Founder R.M. Vision Academy" onerror="this.onerror=null; this.src='Rohamat.jpg';">
+            <!-- UPDATED PHOTO -->
+            <img src="Rohamat_one.png" alt="Rohamat Mandal - Founder R.M. Vision Academy" onerror="this.onerror=null; this.src='file:///E:/RM_Vision_Academy/Rohamat_one.png';">
           </div>
           <h3 style="color: var(--text-main); font-size: 1.3rem; margin-bottom: 0.2rem;">Rohamat Mandal</h3>
           <p style="color: var(--accent); font-weight: 700; font-size: 0.88rem; margin-bottom: 0.4rem;">Founder &amp; Academic Director</p>
@@ -1508,7 +1586,8 @@
   <main id="page-materials" class="page-section">
     <section class="container">
       <div class="section-title">
-        <h1>Open Access Study Materials &amp; Notes</h1>
+        <!-- LIGHTNING / GLOWING TITLE -->
+        <h1 class="glowing-title"><i class="fa-solid fa-bolt" style="margin-right: 6px;"></i> Open Access Study Materials &amp; Notes <i class="fa-solid fa-bolt" style="margin-left: 6px;"></i></h1>
         <p>Subject-wise open repositories, downloadable files, diagrams, and written explanations</p>
       </div>
 
@@ -1523,6 +1602,7 @@
         </div>
       </div>
 
+      <!-- Subject Filter Quick Tabs -->
       <div class="subject-filter-bar" id="subjectFilterBar">
         <button class="sub-filter-btn active" onclick="filterMaterials('ALL')">All Subjects</button>
         <button class="sub-filter-btn" onclick="filterMaterials('Geotectonics and Geomorphology')">Geotectonics and Geomorphology</button>
@@ -1543,9 +1623,9 @@
         <button class="sub-filter-btn" onclick="filterMaterials('Software')">Software</button>
       </div>
 
-      <h3 style="margin-bottom: 1.25rem; color: var(--text-main);">Subject-Wise Notes &amp; Explanations</h3>
-      <div id="dynamicMaterialsContainer" class="materials-grid">
-        <p style="color: #94a3b8;">Loading open access study materials...</p>
+      <!-- SUBJECT WISE SECTIONS CONTAINER -->
+      <div id="subjectWiseContainer">
+        <p style="color: #94a3b8; text-align: center; padding: 2rem;">Loading open access study materials...</p>
       </div>
     </section>
   </main>
@@ -1635,7 +1715,8 @@
 
       <div class="faculty-container">
         <div class="faculty-photo-wrapper">
-          <img src="Founder.jpg" alt="Rohamat Mandal" onerror="this.onerror=null; this.src='Rohamat.jpg';">
+          <!-- UPDATED PHOTO -->
+          <img src="Rohamat_one.png" alt="Rohamat Mandal" onerror="this.onerror=null; this.src='file:///E:/RM_Vision_Academy/Rohamat_one.png';">
         </div>
         <h2>Rohamat Mandal</h2>
         <p style="color: var(--accent); font-weight: bold; font-size: 1.1rem; margin-bottom: 0.6rem;">Lead Faculty &amp; Academic Director</p>
@@ -1816,8 +1897,8 @@
       <div id="readMatText" style="font-size: 1rem; line-height: 1.8; color: var(--text-main); white-space: pre-line; word-break: break-word; margin-bottom: 1.5rem;"></div>
 
       <div id="readMatPdfWrapper" style="display: none; border-top: 1px solid var(--border); padding-top: 1rem;">
-        <a id="readMatPdfLink" href="" download="" class="btn-primary" style="font-size: 0.9rem;">
-          <i class="fa-solid fa-file-pdf"></i> Download Attached Full PDF Document
+        <a id="readMatPdfLink" href="" target="_blank" class="btn-primary" style="font-size: 0.9rem;">
+          <i class="fa-solid fa-file-pdf"></i> View &amp; Download Attached PDF
         </a>
       </div>
     </div>
@@ -1985,10 +2066,12 @@
           <input type="file" id="admMatPhoto" accept="image/*" />
         </div>
         <div class="admin-form-group">
-          <label>Attach PDF Document (Optional)</label>
+          <label>Attach PDF Document (Direct Cloud Storage Upload)</label>
           <input type="file" id="admMatPdf" accept=".pdf,.doc,.docx" />
         </div>
-        <button onclick="publishStudyMaterial()" class="btn-primary" style="margin-bottom: 1.25rem;">Upload &amp; Publish Note</button>
+        <button id="btnPublishMaterial" onclick="publishStudyMaterial()" class="btn-primary" style="margin-bottom: 1.25rem;">
+          <i class="fa-solid fa-cloud-arrow-up"></i> Upload &amp; Publish Note
+        </button>
 
         <h3 style="margin-bottom: 0.6rem;">Manage Published Study Materials</h3>
         <div id="adminMaterialsList">Loading...</div>
@@ -2054,12 +2137,17 @@
     </div>
   </div>
 
-  <!-- Real-Time Firebase Engine with Native SMS Chime & Heads-up System -->
+  <!-- Real-Time Firebase Engine with Storage SDK -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
     import { 
       getFirestore, doc, setDoc, getDoc, onSnapshot, collection, addDoc, deleteDoc, query, orderBy, limit 
     } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+    
+    // FIREBASE STORAGE SDK IMPORTED TO OVERCOME 1MB LIMIT
+    import { 
+      getStorage, ref, uploadBytesResumable, getDownloadURL 
+    } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyDw_z3MUgrP4fF_cJXozNgunjhZti6gwio",
@@ -2073,22 +2161,44 @@
 
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
+    const storage = getStorage(app);
+
     const usersCol = collection(db, "registered_students");
     const galleryCol = collection(db, "gallery_photos");
     const noticesCol = collection(db, "notices");
     const materialsCol = collection(db, "study_materials");
     const videosCol = collection(db, "recorded_classes");
 
+    // All available syllabus subjects list
+    const ALL_SUBJECTS = [
+      "Geotectonics and Geomorphology",
+      "Climatology",
+      "Hydrology and Oceanography",
+      "Population Geography",
+      "Social, Cultural and Political Geography",
+      "Settlement and Transport Geography",
+      "Urban Geography",
+      "Economic and Resource Geography",
+      "Agricultural Geography",
+      "Environmental Geography",
+      "Environmental Studies",
+      "Hazard and Disaster Management",
+      "Soil Geography",
+      "Cartography, Surveying & Mapping",
+      "GIS, Remote Sensing & Geoinformatics",
+      "Software"
+    ];
+
     // ==================== 1. WEB AUDIO API: REAL SMS BEEP CHIME ====================
     function playSmsChimeSound() {
       try {
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         
-        // Tone 1 (High pitch chime)
+        // Tone 1
         const osc1 = audioCtx.createOscillator();
         const gain1 = audioCtx.createGain();
         osc1.type = 'sine';
-        osc1.frequency.setValueAtTime(880, audioCtx.currentTime); // A5 note
+        osc1.frequency.setValueAtTime(880, audioCtx.currentTime);
         gain1.gain.setValueAtTime(0.3, audioCtx.currentTime);
         gain1.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.35);
         osc1.connect(gain1);
@@ -2096,11 +2206,11 @@
         osc1.start();
         osc1.stop(audioCtx.currentTime + 0.35);
 
-        // Tone 2 (SMS secondary chime)
+        // Tone 2
         const osc2 = audioCtx.createOscillator();
         const gain2 = audioCtx.createGain();
         osc2.type = 'sine';
-        osc2.frequency.setValueAtTime(1318.5, audioCtx.currentTime + 0.12); // E6 note
+        osc2.frequency.setValueAtTime(1318.5, audioCtx.currentTime + 0.12);
         gain2.gain.setValueAtTime(0.35, audioCtx.currentTime + 0.12);
         gain2.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.55);
         osc2.connect(gain2);
@@ -2108,7 +2218,7 @@
         osc2.start(audioCtx.currentTime + 0.12);
         osc2.stop(audioCtx.currentTime + 0.55);
       } catch (e) {
-        console.warn("Audio autoplay blocked by system:", e);
+        console.warn("Audio autoplay blocked:", e);
       }
     }
 
@@ -2165,15 +2275,12 @@
     };
 
     function showHeadsUpNotification(title, body) {
-      // 1. Play realistic SMS Sound
       playSmsChimeSound();
 
-      // 2. Mobile vibration pattern
       if ("vibrate" in navigator) {
         navigator.vibrate([200, 100, 200, 100, 300]);
       }
 
-      // 3. Screen banner popup (works inside the website or installed PWA)
       const banner = document.getElementById('headsUpBanner');
       const bTitle = document.getElementById('headsUpTitle');
       const bBody = document.getElementById('headsUpBody');
@@ -2184,7 +2291,6 @@
         setTimeout(() => banner.classList.remove('show'), 5000);
       }
 
-      // 4. System tray push notification via Service Worker
       if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
         navigator.serviceWorker.controller.postMessage({
           type: 'SHOW_NOTIFICATION',
@@ -2202,7 +2308,6 @@
       }
     }
 
-    // A. Real-Time Listener: Official Notices
     onSnapshot(query(noticesCol, orderBy("timestamp", "desc"), limit(1)), (snapshot) => {
       if (!snapshot.empty) {
         const latestNotice = snapshot.docs[0].data();
@@ -2217,7 +2322,6 @@
       isInitialNoticeLoad = false;
     });
 
-    // B. Real-Time Listener: Study Materials Upload
     onSnapshot(query(materialsCol, orderBy("timestamp", "desc"), limit(1)), (snapshot) => {
       if (!snapshot.empty) {
         const latestMat = snapshot.docs[0].data();
@@ -2228,7 +2332,6 @@
       isInitialMaterialLoad = false;
     });
 
-    // C. Real-Time Listener: Recorded Class Links
     onSnapshot(query(videosCol, orderBy("timestamp", "desc"), limit(1)), (snapshot) => {
       if (!snapshot.empty) {
         const latestVid = snapshot.docs[0].data();
@@ -2239,11 +2342,10 @@
       isInitialVideoLoad = false;
     });
 
-    // D. Real-Time Listener: Gallery Photo Uploads
     onSnapshot(query(galleryCol, orderBy("timestamp", "desc"), limit(1)), (snapshot) => {
       if (!snapshot.empty) {
         if (!isInitialGalleryLoad && notificationsEnabled) {
-          showHeadsUpNotification("🖼️ New Photo in Academy Gallery!", "Check out recent classroom, fieldwork & seminar moments in the Gallery tab.");
+          showHeadsUpNotification("🖼️ New Photo in Academy Gallery!", "Check out recent moments in the Gallery tab.");
         }
       }
       isInitialGalleryLoad = false;
@@ -2624,14 +2726,14 @@
       }
     };
 
-    // ==================== 10. STUDY MATERIALS ====================
+    // ==================== 10. STUDY MATERIALS (SUBJECT-WISE SECTIONS & STORAGE UPLOAD) ====================
     let loadedMaterials = [];
     let currentSubjectFilter = 'ALL';
 
     onSnapshot(query(materialsCol, orderBy("timestamp", "desc")), (snapshot) => {
       loadedMaterials = [];
       snapshot.forEach(docSnap => loadedMaterials.push({ id: docSnap.id, ...docSnap.data() }));
-      renderFilteredMaterials();
+      renderSubjectWiseMaterials();
       renderAdminMaterialsList();
     });
 
@@ -2644,46 +2746,73 @@
           btn.classList.remove('active');
         }
       });
-      renderFilteredMaterials();
+      renderSubjectWiseMaterials();
     };
 
-    function renderFilteredMaterials() {
-      const container = document.getElementById('dynamicMaterialsContainer');
-      const filtered = currentSubjectFilter === 'ALL' 
-        ? loadedMaterials 
-        : loadedMaterials.filter(m => m.subject === currentSubjectFilter);
+    function renderSubjectWiseMaterials() {
+      const container = document.getElementById('subjectWiseContainer');
+      
+      const subjectsToShow = (currentSubjectFilter === 'ALL')
+        ? ALL_SUBJECTS 
+        : [currentSubjectFilter];
 
-      if (filtered.length === 0) {
-        container.innerHTML = '<p style="color: #64748b; grid-column: 1 / -1;">No materials published under this subject yet.</p>';
-        return;
-      }
+      let fullHtml = '';
+      let totalNotesFound = 0;
 
-      container.innerHTML = filtered.map(m => {
-        const text = m.text || '';
-        const words = text.trim().split(/\s+/);
-        const isLong = words.length > 40;
-        const displayText = isLong ? words.slice(0, 40).join(' ') + '...' : text;
+      subjectsToShow.forEach(subjectName => {
+        const notesInSub = loadedMaterials.filter(m => m.subject === subjectName);
+        if (notesInSub.length > 0) {
+          totalNotesFound += notesInSub.length;
+          fullHtml += `
+            <div class="subject-block">
+              <div class="subject-block-header">
+                <h2><i class="fa-solid fa-folder-open" style="color:var(--accent);"></i> ${subjectName}</h2>
+                <span class="subject-count-badge">${notesInSub.length} Note${notesInSub.length > 1 ? 's' : ''}</span>
+              </div>
+              <div class="materials-grid">
+                ${notesInSub.map(m => {
+                  const text = m.text || '';
+                  const words = text.trim().split(/\s+/);
+                  const isLong = words.length > 35;
+                  const displayText = isLong ? words.slice(0, 35).join(' ') + '...' : text;
 
-        return `
-          <div class="material-post-card">
-            <div>
-              <span class="mat-subject-tag">${m.subject}</span>
-              <h3>${m.title}</h3>
-              ${m.photoUrl ? `<img src="${m.photoUrl}" alt="${m.title}" class="mat-image-preview">` : ''}
-              <p>${displayText}</p>
-              ${isLong ? `<button class="btn-read-more" onclick="openNoteReader('${m.id}')">Read More &rarr;</button>` : ''}
+                  return `
+                    <div class="material-post-card">
+                      <div>
+                        <span class="mat-subject-tag">${m.subject}</span>
+                        <h3>${m.title}</h3>
+                        ${m.photoUrl ? `<img src="${m.photoUrl}" alt="${m.title}" class="mat-image-preview">` : ''}
+                        <p>${displayText}</p>
+                        ${isLong ? `<button class="btn-read-more" onclick="openNoteReader('${m.id}')">Read Full Note &rarr;</button>` : ''}
+                      </div>
+                      <div style="margin-top: 0.8rem;">
+                        ${m.pdfUrl ? `
+                          <a href="${m.pdfUrl}" target="_blank" class="btn-primary" style="font-size:0.8rem; padding:6px 10px; width:100%; justify-content:center; margin-bottom:6px;">
+                            <i class="fa-solid fa-file-pdf"></i> Download PDF
+                          </a>
+                        ` : ''}
+                        <div style="font-size: 0.75rem; color: #94a3b8; text-align: right;">Published: ${m.date}</div>
+                      </div>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
             </div>
-            <div style="margin-top: 0.8rem;">
-              ${m.pdfUrl ? `
-                <a href="${m.pdfUrl}" download="${m.title}.pdf" class="btn-primary" style="font-size:0.8rem; padding:5px 8px; width:100%; justify-content:center; margin-bottom:6px;">
-                  <i class="fa-solid fa-file-pdf"></i> Download Attached PDF
-                </a>
-              ` : ''}
-              <div style="font-size: 0.75rem; color: #94a3b8; text-align: right;">Published: ${m.date}</div>
-            </div>
+          `;
+        }
+      });
+
+      if (totalNotesFound === 0) {
+        container.innerHTML = `
+          <div style="text-align: center; padding: 3rem 1rem; background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border);">
+            <i class="fa-solid fa-book-open-reader" style="font-size: 2.5rem; color: #94a3b8; margin-bottom: 0.8rem;"></i>
+            <h3 style="color:var(--text-main); margin-bottom: 0.3rem;">No study materials published yet</h3>
+            <p style="color:var(--text-muted); font-size: 0.9rem;">Materials uploaded for this category will appear here automatically.</p>
           </div>
         `;
-      }).join('');
+      } else {
+        container.innerHTML = fullHtml;
+      }
     }
 
     window.openNoteReader = function(id) {
@@ -2708,7 +2837,6 @@
       const pdfLink = document.getElementById('readMatPdfLink');
       if (note.pdfUrl) {
         pdfLink.href = note.pdfUrl;
-        pdfLink.download = note.title + '.pdf';
         pdfWrapper.style.display = 'block';
       } else {
         pdfWrapper.style.display = 'none';
@@ -2721,33 +2849,37 @@
       document.getElementById('noteReaderModal').classList.remove('active');
     };
 
+    // UPLOAD FUNCTION USING FIREBASE STORAGE FOR PDFs
     window.publishStudyMaterial = async function() {
       const subject = document.getElementById('admMatSubject').value;
       const title = document.getElementById('admMatTitle').value.trim();
       const text = document.getElementById('admMatText').value.trim();
       const photoFile = document.getElementById('admMatPhoto').files[0];
       const pdfFile = document.getElementById('admMatPdf').files[0];
+      const btn = document.getElementById('btnPublishMaterial');
 
       if (!title || !text) {
         alert("Please provide both a Title and Text Explanation.");
         return;
       }
 
-      let photoUrl = '';
-      if (photoFile) {
-        photoUrl = await compressImageFile(photoFile, 900, 0.6);
-      }
-
-      const readFile = (file) => new Promise((resolve) => {
-        if (!file) return resolve('');
-        const reader = new FileReader();
-        reader.onload = (e) => resolve(e.target.result);
-        reader.readAsDataURL(file);
-      });
-
-      const pdfUrl = await readFile(pdfFile);
+      btn.disabled = true;
+      btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Uploading & Publishing...`;
 
       try {
+        let photoUrl = '';
+        if (photoFile) {
+          photoUrl = await compressImageFile(photoFile, 900, 0.6);
+        }
+
+        let pdfUrl = '';
+        if (pdfFile) {
+          // Direct Upload to Firebase Cloud Storage (No 1MB Limit!)
+          const storageReference = ref(storage, `study_materials_pdf/${Date.now()}_${pdfFile.name}`);
+          const uploadTask = await uploadBytesResumable(storageReference, pdfFile);
+          pdfUrl = await getDownloadURL(uploadTask.ref);
+        }
+
         await addDoc(materialsCol, {
           subject,
           title,
@@ -2758,7 +2890,6 @@
           timestamp: Date.now()
         });
 
-        // Trigger SMS sound & heads-up banner notification
         showHeadsUpNotification("📚 New Note Uploaded!", `[${subject}] ${title}`);
 
         document.getElementById('admMatTitle').value = '';
@@ -2767,7 +2898,11 @@
         document.getElementById('admMatPdf').value = '';
         alert("Study Material successfully published!");
       } catch (err) {
+        console.error("Publish error:", err);
         alert("Error publishing: " + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = `<i class="fa-solid fa-cloud-arrow-up"></i> Upload &amp; Publish Note`;
       }
     };
 
@@ -2860,7 +2995,6 @@
         timestamp: Date.now()
       });
 
-      // Trigger Notification with SMS chime
       showHeadsUpNotification("🎬 New Class Lecture Published!", `[${subject || 'Geography'}] ${title}`);
 
       document.getElementById('admVideoTitle').value = '';
@@ -2916,7 +3050,6 @@
         timestamp: Date.now()
       });
 
-      // Send local push notification with sound immediately
       showHeadsUpNotification("📢 R.M. Vision Academy Alert", text);
 
       document.getElementById('admNoticeText').value = '';
@@ -2990,7 +3123,6 @@
           timestamp: Date.now()
         });
 
-        // Trigger SMS chime & notification
         showHeadsUpNotification("🖼️ New Photo in Gallery!", "A new academy photo has been uploaded to the Gallery.");
 
         fileInput.value = '';
