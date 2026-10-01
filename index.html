@@ -1172,7 +1172,7 @@
   <header>
     <div class="navbar">
       <a onclick="handleSecretLogoClick()" class="logo" title="Triple click to access Admin Portal">
-        <img src="logo.jpg" alt="R.M. Vision Academy Logo" class="logo-img" onerror="this.onerror=null; this.src='./logo.jpg';">
+        <img src="logo.jpg?v=3" alt="R.M. Vision Academy Logo" class="logo-img" onerror="this.onerror=null; this.src='./logo.jpg';">
         <span>R.M. VISION ACADEMY</span>
       </a>
 
@@ -1383,9 +1383,9 @@
 
         <div class="founder-hero-card">
           <div class="founder-image-frame">
-            <!-- Duto filename-i check korbe: Rohamat.jpg ebong Founder.png -->
-            <img src="Rohamat.jpg" alt="Rohamat Mandal - Founder R.M. Vision Academy" 
-                 onerror="this.onerror=null; this.src='Founder.png';">
+            <!-- Cache-Busting Version ?v=3 to force immediate update in browsers -->
+            <img src="Rohamat.jpg?v=3" alt="Rohamat Mandal - Founder R.M. Vision Academy" 
+                 onerror="this.onerror=null; this.src='Founder.png?v=3';">
           </div>
           <h3 style="color: var(--text-main); font-size: 1.3rem; margin-bottom: 0.2rem;">Rohamat Mandal</h3>
           <p style="color: var(--accent); font-weight: 700; font-size: 0.88rem; margin-bottom: 0.4rem;">Founder &amp; Academic Director</p>
@@ -1552,7 +1552,7 @@
         <button class="sub-filter-btn" onclick="filterMaterials('Hazard and Disaster Management')">Hazard and Disaster Management</button>
         <button class="sub-filter-btn" onclick="filterMaterials('Sustainable Tourism and Regional Development')">Sustainable Tourism and Regional Development</button>
         <button class="sub-filter-btn" onclick="filterMaterials('Pedological and Petrographical Analysis')">Pedological and Petrographical Analysis</button>
-        <button class="sub-filter-btn" onclick="Geography of Pedosphere and Biosphere">Geography of Pedosphere and Biosphere</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Geography of Pedosphere and Biosphere')">Geography of Pedosphere and Biosphere</button>
         <button class="sub-filter-btn" onclick="filterMaterials('Regional Geography of India')">Regional Geography of India</button>
         <button class="sub-filter-btn" onclick="filterMaterials('Regional Planning and Development')">Regional Planning and Development</button>
         <button class="sub-filter-btn" onclick="filterMaterials('Field Work Techniques in Geography')">Field Work Techniques in Geography</button>
@@ -1651,9 +1651,9 @@
 
       <div class="faculty-container">
         <div class="faculty-photo-wrapper">
-          <!-- Duto filename-i check korbe: Rohamat.jpg ebong Founder.png -->
-          <img src="Rohamat.jpg" alt="Rohamat Mandal" 
-               onerror="this.onerror=null; this.src='Founder.png';">
+          <!-- Cache-Busting Version ?v=3 to force immediate update in browsers -->
+          <img src="Rohamat.jpg?v=3" alt="Rohamat Mandal" 
+               onerror="this.onerror=null; this.src='Founder.png?v=3';">
         </div>
         <h2>Rohamat Mandal</h2>
         <p style="color: var(--accent); font-weight: bold; font-size: 1.1rem; margin-bottom: 0.6rem;">Lead Faculty &amp; Academic Director</p>
@@ -2280,14 +2280,7 @@
         setTimeout(() => banner.classList.remove('show'), 5000);
       }
 
-      if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
-        navigator.serviceWorker.controller.postMessage({
-          type: 'SHOW_NOTIFICATION',
-          title: title,
-          body: body,
-          icon: 'logo.jpg'
-        });
-      } else if ("Notification" in window && Notification.permission === "granted") {
+      if ("Notification" in window && Notification.permission === "granted") {
         new Notification(title, { body: body, icon: 'logo.jpg', badge: 'logo.jpg' });
       }
     }
@@ -2391,9 +2384,12 @@
       });
     }
 
+    // ==================== SERVICE WORKER AUTO-UNREGISTER (CLEARS OLD CACHE) ====================
     if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js').catch(err => console.log('SW Registration failed:', err));
+      navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
       });
     }
 
