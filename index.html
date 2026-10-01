@@ -73,7 +73,6 @@
 
     img { max-width: 100%; height: auto; }
 
-    /* Top Strip */
     .top-bar {
       background: var(--primary);
       color: #cbd5e1;
@@ -100,7 +99,6 @@
       transition: color 0.2s;
     }
 
-    /* Sticky Header */
     header {
       position: sticky;
       top: 0;
@@ -223,7 +221,6 @@
       padding: 2px 4px;
     }
 
-    /* Main Menu Links */
     .nav-links {
       display: flex;
       gap: 0.6rem;
@@ -251,7 +248,6 @@
       background: var(--accent-soft);
     }
 
-    /* Desktop Notification & Settings Rightmost Buttons */
     .btn-menu-icon {
       background: var(--surface);
       color: var(--text-main);
@@ -284,7 +280,6 @@
       display: none;
     }
 
-    /* Floating In-App Heads-up Notification Toast */
     .heads-up-banner {
       position: fixed;
       top: -120px;
@@ -305,42 +300,13 @@
       transition: top 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
-    .heads-up-banner.show {
-      top: 20px;
-    }
+    .heads-up-banner.show { top: 20px; }
+    .heads-up-icon { font-size: 1.8rem; color: var(--accent); flex-shrink: 0; }
+    .heads-up-content { flex: 1; overflow: hidden; }
+    .heads-up-title { font-weight: 800; font-size: 0.95rem; color: var(--secondary); }
+    .heads-up-body { font-size: 0.85rem; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-    .heads-up-icon {
-      font-size: 1.8rem;
-      color: var(--accent);
-      flex-shrink: 0;
-    }
-
-    .heads-up-content {
-      flex: 1;
-      overflow: hidden;
-    }
-
-    .heads-up-title {
-      font-weight: 800;
-      font-size: 0.95rem;
-      color: var(--secondary);
-    }
-
-    .heads-up-body {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    /* Page Routing */
-    .page-section {
-      display: none;
-      width: 100%;
-      animation: fadeIn 0.25s ease-in-out;
-    }
-
+    .page-section { display: none; width: 100%; animation: fadeIn 0.25s ease-in-out; }
     .page-section.active { display: block; }
 
     @keyframes fadeIn {
@@ -355,25 +321,10 @@
       width: 100%;
     }
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
+    .section-title { text-align: center; margin-bottom: 2rem; }
+    .section-title h1, .section-title h2 { font-size: 2rem; color: var(--text-main); margin-bottom: 0.3rem; font-weight: 700; }
+    .section-title p { color: var(--text-muted); font-size: 1.05rem; font-style: italic; }
 
-    .section-title h1, .section-title h2 {
-      font-size: 2rem;
-      color: var(--text-main);
-      margin-bottom: 0.3rem;
-      font-weight: 700;
-    }
-
-    .section-title p {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      font-style: italic;
-    }
-
-    /* Glowing/Lightning effect for Open Access Study Materials */
     .glowing-title {
       display: inline-block;
       position: relative;
@@ -383,18 +334,9 @@
     }
 
     @keyframes lightningGlow {
-      0% {
-        color: #1d4ed8;
-        text-shadow: 0 0 5px rgba(29, 78, 216, 0.3), 0 0 12px rgba(37, 99, 235, 0.4);
-      }
-      50% {
-        color: #2563eb;
-        text-shadow: 0 0 10px rgba(59, 130, 246, 0.7), 0 0 25px rgba(96, 165, 250, 0.8), 0 0 35px rgba(37, 99, 235, 0.6);
-      }
-      100% {
-        color: #0284c7;
-        text-shadow: 0 0 6px rgba(14, 165, 233, 0.5), 0 0 18px rgba(56, 189, 248, 0.7);
-      }
+      0% { color: #1d4ed8; text-shadow: 0 0 5px rgba(29, 78, 216, 0.3), 0 0 12px rgba(37, 99, 235, 0.4); }
+      50% { color: #2563eb; text-shadow: 0 0 10px rgba(59, 130, 246, 0.7), 0 0 25px rgba(96, 165, 250, 0.8), 0 0 35px rgba(37, 99, 235, 0.6); }
+      100% { color: #0284c7; text-shadow: 0 0 6px rgba(14, 165, 233, 0.5), 0 0 18px rgba(56, 189, 248, 0.7); }
     }
 
     body.dark-theme .glowing-title {
@@ -402,18 +344,9 @@
     }
 
     @keyframes lightningGlowDark {
-      0% {
-        color: #60a5fa;
-        text-shadow: 0 0 8px rgba(96, 165, 250, 0.5), 0 0 18px rgba(59, 130, 246, 0.5);
-      }
-      50% {
-        color: #93c5fd;
-        text-shadow: 0 0 15px rgba(147, 197, 253, 0.9), 0 0 30px rgba(96, 165, 250, 0.9), 0 0 45px rgba(37, 99, 235, 0.8);
-      }
-      100% {
-        color: #38bdf8;
-        text-shadow: 0 0 10px rgba(56, 189, 248, 0.6), 0 0 20px rgba(14, 165, 233, 0.7);
-      }
+      0% { color: #60a5fa; text-shadow: 0 0 8px rgba(96, 165, 250, 0.5), 0 0 18px rgba(59, 130, 246, 0.5); }
+      50% { color: #93c5fd; text-shadow: 0 0 15px rgba(147, 197, 253, 0.9), 0 0 30px rgba(96, 165, 250, 0.9), 0 0 45px rgba(37, 99, 235, 0.8); }
+      100% { color: #38bdf8; text-shadow: 0 0 10px rgba(56, 189, 248, 0.6), 0 0 20px rgba(14, 165, 233, 0.7); }
     }
 
     .hero {
@@ -453,12 +386,7 @@
       margin-bottom: 0.5rem;
     }
 
-    .qual-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 1rem;
-    }
+    .qual-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1rem; }
 
     .qual-badge {
       background: var(--surface);
@@ -474,17 +402,8 @@
       box-shadow: 0 1px 3px rgba(0,0,0,0.04);
     }
 
-    .qual-badge.gold {
-      border-color: #fcd34d;
-      background: #fefce8;
-      color: #b45309;
-    }
-
-    body.dark-theme .qual-badge.gold {
-      background: #451a03;
-      color: #fde047;
-      border-color: #78350f;
-    }
+    .qual-badge.gold { border-color: #fcd34d; background: #fefce8; color: #b45309; }
+    body.dark-theme .qual-badge.gold { background: #451a03; color: #fde047; border-color: #78350f; }
 
     .motivational-quote-box {
       background: var(--surface);
@@ -511,12 +430,7 @@
       text-align: right;
     }
 
-    .hero-cta {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 1rem;
-    }
+    .hero-cta { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 1rem; }
 
     .btn-primary {
       background: var(--accent);
@@ -667,6 +581,8 @@
       border-radius: var(--radius);
       border: 1px solid var(--border);
       width: 100%;
+      max-height: 220px;
+      overflow-y: auto;
     }
 
     .sub-filter-btn {
@@ -686,7 +602,6 @@
       border-color: var(--accent);
     }
 
-    /* Subject Section Wrappers */
     .subject-block {
       margin-bottom: 2.5rem;
       background: var(--surface);
@@ -754,7 +669,7 @@
     }
 
     .material-post-card h3 { font-size: 1.15rem; color: var(--text-main); margin-bottom: 0.4rem; }
-    .material-post-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.75rem; white-space: pre-line; word-break: break-word; }
+    .material-post-card .desc-preview { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.75rem; word-break: break-word; }
 
     .btn-read-more {
       background: none;
@@ -1070,7 +985,6 @@
     input:checked + .slider { background-color: var(--accent); }
     input:checked + .slider:before { transform: translateX(22px); }
 
-    /* Admin Tab Controls */
     .admin-nav-tabs {
       display: flex;
       gap: 6px;
@@ -1111,6 +1025,39 @@
       border: 1px solid var(--border);
       border-radius: 4px;
       font-size: 0.9rem;
+    }
+
+    /* Rich Text Format Toolbar */
+    .editor-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-bottom: none;
+      padding: 6px;
+      border-radius: 4px 4px 0 0;
+    }
+
+    .tool-btn {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 4px 8px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+
+    .tool-btn:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .editor-textarea {
+      border-radius: 0 0 4px 4px !important;
+      min-height: 140px;
     }
 
     .admin-item-box {
@@ -1160,7 +1107,6 @@
       font-size: 0.85rem;
     }
 
-    /* Mobile Menu */
     .mobile-menu-item { display: none; }
 
     @media (max-width: 1100px) {
@@ -1186,19 +1132,9 @@
       .hero-text h1 { font-size: 2.1rem; }
       .desktop-only-btn { display: none !important; }
       
-      .mobile-menu-item {
-        display: block !important;
-        width: 100%;
-      }
-      .nav-links li {
-        width: 100%;
-      }
-      .nav-links li a {
-        display: flex;
-        width: 100%;
-        padding: 8px 6px;
-        font-size: 0.95rem;
-      }
+      .mobile-menu-item { display: block !important; width: 100%; }
+      .nav-links li { width: 100%; }
+      .nav-links li a { display: flex; width: 100%; padding: 8px 6px; font-size: 0.95rem; }
     }
 
     @media (max-width: 600px) {
@@ -1206,10 +1142,7 @@
       .logo span { font-size: 0.82rem; max-width: 95px; line-height: 1.1; }
       .logo-img { height: 30px; width: 30px; }
       .nav-actions { gap: 4px; }
-      .btn-install-app, .btn-user-login, .btn-class {
-        padding: 0.3rem 0.45rem;
-        font-size: 0.72rem;
-      }
+      .btn-install-app, .btn-user-login, .btn-class { padding: 0.3rem 0.45rem; font-size: 0.72rem; }
     }
   </style>
 </head>
@@ -1242,7 +1175,7 @@
     <div class="navbar">
       <!-- SECRET ADMIN TRIGGER: Triple-tap this logo to open Admin Login -->
       <a onclick="handleSecretLogoClick()" class="logo" title="Triple click to access Admin Portal">
-        <img src="logo.jpg" alt="R.M. Vision Academy Logo" class="logo-img" onerror="this.onerror=null; this.src='file:///E:/RM_Vision_Academy/logo.jpg';">
+        <img src="./logo.jpg" alt="R.M. Vision Academy Logo" class="logo-img" onerror="this.onerror=null; this.src='logo.jpg';">
         <span>R.M. VISION ACADEMY</span>
       </a>
 
@@ -1261,7 +1194,6 @@
           <span id="liveBadge" class="live-badge">LIVE</span>
         </a>
 
-        <!-- 3-Line Mobile Hamburger Menu -->
         <button class="mobile-menu-btn" onclick="toggleMobileNav()" aria-label="Toggle Navigation">
           <i class="fa-solid fa-bars"></i>
         </button>
@@ -1280,7 +1212,6 @@
         <li><a onclick="navigateTo('notices')" id="nav-notices">Notices</a></li>
         <li><a onclick="navigateTo('contact')" id="nav-contact">Contact</a></li>
 
-        <!-- Desktop Rightmost Controls (Bell & Gear) -->
         <li class="desktop-only-btn">
           <button id="headerNotifBtn" class="btn-menu-icon" onclick="handleNotificationIconClick()" title="Push Notifications">
             <i class="fa-solid fa-bell"></i>
@@ -1293,7 +1224,6 @@
           </button>
         </li>
 
-        <!-- Mobile Drawer Notification & Settings -->
         <li class="mobile-menu-item" style="border-top: 1px solid var(--border); padding-top: 4px;">
           <a onclick="handleNotificationIconClick(); toggleMobileNav();" style="color:var(--text-main);">
             <i class="fa-solid fa-bell" style="color:var(--accent);"></i> Notifications
@@ -1456,8 +1386,9 @@
 
         <div class="founder-hero-card">
           <div class="founder-image-frame">
-            <!-- UPDATED PHOTO -->
-            <img src="Rohamat_one.png" alt="Rohamat Mandal - Founder R.M. Vision Academy" onerror="this.onerror=null; this.src='file:///E:/RM_Vision_Academy/Rohamat_one.png';">
+            <!-- UPDATED PHOTO PATHS WITH LOCAL FALLBACKS -->
+            <img src="./Rohamat_one.png" alt="Rohamat Mandal - Founder R.M. Vision Academy" 
+                 onerror="this.onerror=null; this.src='Rohamat_one.png';">
           </div>
           <h3 style="color: var(--text-main); font-size: 1.3rem; margin-bottom: 0.2rem;">Rohamat Mandal</h3>
           <p style="color: var(--accent); font-weight: 700; font-size: 0.88rem; margin-bottom: 0.4rem;">Founder &amp; Academic Director</p>
@@ -1586,7 +1517,6 @@
   <main id="page-materials" class="page-section">
     <section class="container">
       <div class="section-title">
-        <!-- LIGHTNING / GLOWING TITLE -->
         <h1 class="glowing-title"><i class="fa-solid fa-bolt" style="margin-right: 6px;"></i> Open Access Study Materials &amp; Notes <i class="fa-solid fa-bolt" style="margin-left: 6px;"></i></h1>
         <p>Subject-wise open repositories, downloadable files, diagrams, and written explanations</p>
       </div>
@@ -1602,28 +1532,37 @@
         </div>
       </div>
 
-      <!-- Subject Filter Quick Tabs -->
+      <!-- Complete 25 Geography Subjects Filter Bar -->
       <div class="subject-filter-bar" id="subjectFilterBar">
         <button class="sub-filter-btn active" onclick="filterMaterials('ALL')">All Subjects</button>
         <button class="sub-filter-btn" onclick="filterMaterials('Geotectonics and Geomorphology')">Geotectonics and Geomorphology</button>
         <button class="sub-filter-btn" onclick="filterMaterials('Climatology')">Climatology</button>
         <button class="sub-filter-btn" onclick="filterMaterials('Hydrology and Oceanography')">Hydrology and Oceanography</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Human Geography')">Human Geography</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Cartography and Thematic Mapping')">Cartography and Thematic Mapping</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Surveying and Levelling')">Surveying and Levelling</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Remote Sensing and GIS')">Remote Sensing and GIS</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Computer Applications and Coding in Geography')">Computer Applications and Coding in Geography</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Statistical Techniques in Geography')">Statistical Techniques in Geography</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Economic and Resource Geography')">Economic and Resource Geography</button>
         <button class="sub-filter-btn" onclick="filterMaterials('Population Geography')">Population Geography</button>
-        <button class="sub-filter-btn" onclick="filterMaterials('Social, Cultural and Political Geography')">Social, Cultural and Political Geography</button>
         <button class="sub-filter-btn" onclick="filterMaterials('Settlement and Transport Geography')">Settlement and Transport Geography</button>
         <button class="sub-filter-btn" onclick="filterMaterials('Urban Geography')">Urban Geography</button>
-        <button class="sub-filter-btn" onclick="filterMaterials('Economic and Resource Geography')">Economic and Resource Geography</button>
         <button class="sub-filter-btn" onclick="filterMaterials('Agricultural Geography')">Agricultural Geography</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Agriculture and Rural Development-I')">Agriculture and Rural Development-I</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Social, Cultural and Political Geography')">Social, Cultural and Political Geography</button>
         <button class="sub-filter-btn" onclick="filterMaterials('Environmental Geography')">Environmental Geography</button>
-        <button class="sub-filter-btn" onclick="filterMaterials('Environmental Studies')">Environmental Studies</button>
         <button class="sub-filter-btn" onclick="filterMaterials('Hazard and Disaster Management')">Hazard and Disaster Management</button>
-        <button class="sub-filter-btn" onclick="filterMaterials('Soil Geography')">Soil Geography</button>
-        <button class="sub-filter-btn" onclick="filterMaterials('Cartography, Surveying & Mapping')">Cartography, Surveying &amp; Mapping</button>
-        <button class="sub-filter-btn" onclick="filterMaterials('GIS, Remote Sensing & Geoinformatics')">GIS, Remote Sensing &amp; Geoinformatics</button>
-        <button class="sub-filter-btn" onclick="filterMaterials('Software')">Software</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Sustainable Tourism and Regional Development')">Sustainable Tourism and Regional Development</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Pedological and Petrographical Analysis')">Pedological and Petrographical Analysis</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Geography of Pedosphere and Biosphere')">Geography of Pedosphere and Biosphere</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Regional Geography of India')">Regional Geography of India</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Regional Planning and Development')">Regional Planning and Development</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Field Work Techniques in Geography')">Field Work Techniques in Geography</button>
+        <button class="sub-filter-btn" onclick="filterMaterials('Geographical Thought')">Geographical Thought</button>
       </div>
 
-      <!-- SUBJECT WISE SECTIONS CONTAINER -->
+      <!-- SUBJECT WISE SECTIONS -->
       <div id="subjectWiseContainer">
         <p style="color: #94a3b8; text-align: center; padding: 2rem;">Loading open access study materials...</p>
       </div>
@@ -1715,8 +1654,9 @@
 
       <div class="faculty-container">
         <div class="faculty-photo-wrapper">
-          <!-- UPDATED PHOTO -->
-          <img src="Rohamat_one.png" alt="Rohamat Mandal" onerror="this.onerror=null; this.src='file:///E:/RM_Vision_Academy/Rohamat_one.png';">
+          <!-- UPDATED PHOTO PATHS WITH LOCAL FALLBACKS -->
+          <img src="./Rohamat_one.png" alt="Rohamat Mandal" 
+               onerror="this.onerror=null; this.src='Rohamat_one.png';">
         </div>
         <h2>Rohamat Mandal</h2>
         <p style="color: var(--accent); font-weight: bold; font-size: 1.1rem; margin-bottom: 0.6rem;">Lead Faculty &amp; Academic Director</p>
@@ -1745,9 +1685,9 @@
         <p>Glimpses of fieldwork, computer GIS laboratories, seminars, and classroom sessions</p>
       </div>
 
-      <div class="gallery-promo-banner" style="background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);">
+      <div class="gallery-promo-banner" style="background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%); padding: 1.5rem; border-radius: var(--radius); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
         <div class="gallery-promo-text">
-          <h3 style="font-size: 1.35rem; margin-bottom: 0.3rem;">Official Online Gallery Portfolio</h3>
+          <h3 style="font-size: 1.35rem; margin-bottom: 0.3rem; color: #fff;">Official Online Gallery Portfolio</h3>
           <p style="color: #e2e8f0; font-size: 0.9rem;">Explore complete photo archives, outdoor surveys, and event albums on our portfolio gallery.</p>
         </div>
         <a href="https://rohamatmandal.website3.me/gallery" target="_blank" class="btn-primary" style="background:#fff; color:#0b1329;">
@@ -1894,7 +1834,8 @@
         <img id="readMatPhoto" src="" alt="Note Diagram" style="width: 100%; max-height: 400px; object-fit: contain; border-radius: 6px; border: 1px solid var(--border);">
       </div>
 
-      <div id="readMatText" style="font-size: 1rem; line-height: 1.8; color: var(--text-main); white-space: pre-line; word-break: break-word; margin-bottom: 1.5rem;"></div>
+      <!-- Render HTML Rich Text -->
+      <div id="readMatText" style="font-size: 1rem; line-height: 1.8; color: var(--text-main); word-break: break-word; margin-bottom: 1.5rem;"></div>
 
       <div id="readMatPdfWrapper" style="display: none; border-top: 1px solid var(--border); padding-top: 1rem;">
         <a id="readMatPdfLink" href="" target="_blank" class="btn-primary" style="font-size: 0.9rem;">
@@ -2034,33 +1975,55 @@
         <h3 style="margin-bottom: 0.8rem;">Publish Subject-Wise Open Access Note</h3>
         <div class="admin-form-group">
           <label>Subject / Stream *</label>
+          <!-- 25 Complete Geography Subjects in Admin Selection -->
           <select id="admMatSubject">
             <option value="Geotectonics and Geomorphology">Geotectonics and Geomorphology</option>
             <option value="Climatology">Climatology</option>
             <option value="Hydrology and Oceanography">Hydrology and Oceanography</option>
+            <option value="Human Geography">Human Geography</option>
+            <option value="Cartography and Thematic Mapping">Cartography and Thematic Mapping</option>
+            <option value="Surveying and Levelling">Surveying and Levelling</option>
+            <option value="Remote Sensing and GIS">Remote Sensing and GIS</option>
+            <option value="Computer Applications and Coding in Geography">Computer Applications and Coding in Geography</option>
+            <option value="Statistical Techniques in Geography">Statistical Techniques in Geography</option>
+            <option value="Economic and Resource Geography">Economic and Resource Geography</option>
             <option value="Population Geography">Population Geography</option>
-            <option value="Social, Cultural and Political Geography">Social, Cultural and Political Geography</option>
             <option value="Settlement and Transport Geography">Settlement and Transport Geography</option>
             <option value="Urban Geography">Urban Geography</option>
-            <option value="Economic and Resource Geography">Economic and Resource Geography</option>
             <option value="Agricultural Geography">Agricultural Geography</option>
+            <option value="Agriculture and Rural Development-I">Agriculture and Rural Development-I</option>
+            <option value="Social, Cultural and Political Geography">Social, Cultural and Political Geography</option>
             <option value="Environmental Geography">Environmental Geography</option>
-            <option value="Environmental Studies">Environmental Studies</option>
             <option value="Hazard and Disaster Management">Hazard and Disaster Management</option>
-            <option value="Soil Geography">Soil Geography</option>
-            <option value="Cartography, Surveying & Mapping">Cartography, Surveying &amp; Mapping</option>
-            <option value="GIS, Remote Sensing & Geoinformatics">GIS, Remote Sensing &amp; Geoinformatics</option>
-            <option value="Software">Software</option>
+            <option value="Sustainable Tourism and Regional Development">Sustainable Tourism and Regional Development</option>
+            <option value="Pedological and Petrographical Analysis">Pedological and Petrographical Analysis</option>
+            <option value="Geography of Pedosphere and Biosphere">Geography of Pedosphere and Biosphere</option>
+            <option value="Regional Geography of India">Regional Geography of India</option>
+            <option value="Regional Planning and Development">Regional Planning and Development</option>
+            <option value="Field Work Techniques in Geography">Field Work Techniques in Geography</option>
+            <option value="Geographical Thought">Geographical Thought</option>
           </select>
         </div>
         <div class="admin-form-group">
           <label>Note / Module Title *</label>
-          <input type="text" id="admMatTitle" placeholder="e.g. Plate Tectonics Theory & Mountain Building" />
+          <input type="text" id="admMatTitle" placeholder="e.g. Continental Drift Theory and Plate Tectonics" />
         </div>
+
+        <!-- Rich Text Toolbar for Textarea -->
         <div class="admin-form-group">
-          <label>Full Text Explanation *</label>
-          <textarea id="admMatText" rows="5" placeholder="Write comprehensive conceptual explanation..."></textarea>
+          <label>Full Text Explanation (With Formatted Styling) *</label>
+          <div class="editor-toolbar">
+            <button type="button" class="tool-btn" onclick="applyFormat('bold')"><i class="fa-solid fa-bold"></i> Bold</button>
+            <button type="button" class="tool-btn" onclick="applyFormat('italic')"><i class="fa-solid fa-italic"></i> Italic</button>
+            <button type="button" class="tool-btn" onclick="applyFormat('underline')"><i class="fa-solid fa-underline"></i> Underline</button>
+            <button type="button" class="tool-btn" onclick="applyFormat('h3')"><i class="fa-solid fa-heading"></i> H3</button>
+            <button type="button" class="tool-btn" onclick="applyFormat('ul')"><i class="fa-solid fa-list-ul"></i> Bullet</button>
+            <button type="button" class="tool-btn" onclick="applyFormat('ol')"><i class="fa-solid fa-list-ol"></i> Number</button>
+            <button type="button" class="tool-btn" onclick="applyFormat('clear')"><i class="fa-solid fa-eraser"></i> Clear</button>
+          </div>
+          <textarea id="admMatText" rows="6" class="editor-textarea" placeholder="Type explanation here... Highlight text and click buttons above to apply Bold, Italic, Underline or Headings!"></textarea>
         </div>
+
         <div class="admin-form-group">
           <label>Attach Diagram / Photo (Optional)</label>
           <input type="file" id="admMatPhoto" accept="image/*" />
@@ -2143,8 +2106,6 @@
     import { 
       getFirestore, doc, setDoc, getDoc, onSnapshot, collection, addDoc, deleteDoc, query, orderBy, limit 
     } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-    
-    // FIREBASE STORAGE SDK IMPORTED TO OVERCOME 1MB LIMIT
     import { 
       getStorage, ref, uploadBytesResumable, getDownloadURL 
     } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
@@ -2169,32 +2130,75 @@
     const materialsCol = collection(db, "study_materials");
     const videosCol = collection(db, "recorded_classes");
 
-    // All available syllabus subjects list
+    // All 25 Geography syllabus subjects list
     const ALL_SUBJECTS = [
       "Geotectonics and Geomorphology",
       "Climatology",
       "Hydrology and Oceanography",
+      "Human Geography",
+      "Cartography and Thematic Mapping",
+      "Surveying and Levelling",
+      "Remote Sensing and GIS",
+      "Computer Applications and Coding in Geography",
+      "Statistical Techniques in Geography",
+      "Economic and Resource Geography",
       "Population Geography",
-      "Social, Cultural and Political Geography",
       "Settlement and Transport Geography",
       "Urban Geography",
-      "Economic and Resource Geography",
       "Agricultural Geography",
+      "Agriculture and Rural Development-I",
+      "Social, Cultural and Political Geography",
       "Environmental Geography",
-      "Environmental Studies",
       "Hazard and Disaster Management",
-      "Soil Geography",
-      "Cartography, Surveying & Mapping",
-      "GIS, Remote Sensing & Geoinformatics",
-      "Software"
+      "Sustainable Tourism and Regional Development",
+      "Pedological and Petrographical Analysis",
+      "Geography of Pedosphere and Biosphere",
+      "Regional Geography of India",
+      "Regional Planning and Development",
+      "Field Work Techniques in Geography",
+      "Geographical Thought"
     ];
 
-    // ==================== 1. WEB AUDIO API: REAL SMS BEEP CHIME ====================
+    // ==================== RICH TEXT FORMATTING TOOLBAR HELPER ====================
+    window.applyFormat = function(action) {
+      const textarea = document.getElementById('admMatText');
+      const start = textarea.selectionStart;
+      const end = textarea.selectionEnd;
+      const selected = textarea.value.substring(start, end);
+
+      let replacement = '';
+      switch(action) {
+        case 'bold':
+          replacement = `<b>${selected || 'Bold Text'}</b>`;
+          break;
+        case 'italic':
+          replacement = `<i>${selected || 'Italic Text'}</i>`;
+          break;
+        case 'underline':
+          replacement = `<u>${selected || 'Underline Text'}</u>`;
+          break;
+        case 'h3':
+          replacement = `<h3>${selected || 'Section Heading'}</h3>`;
+          break;
+        case 'ul':
+          replacement = `\n<ul>\n  <li>${selected || 'Bullet item'}</li>\n</ul>\n`;
+          break;
+        case 'ol':
+          replacement = `\n<ol>\n  <li>${selected || 'Numbered item'}</li>\n</ol>\n`;
+          break;
+        case 'clear':
+          replacement = selected.replace(/<[^>]*>?/gm, '');
+          break;
+      }
+
+      textarea.setRangeText(replacement, start, end, 'select');
+      textarea.focus();
+    };
+
+    // ==================== 1. WEB AUDIO API: SMS BEEP CHIME ====================
     function playSmsChimeSound() {
       try {
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        
-        // Tone 1
         const osc1 = audioCtx.createOscillator();
         const gain1 = audioCtx.createGain();
         osc1.type = 'sine';
@@ -2206,7 +2210,6 @@
         osc1.start();
         osc1.stop(audioCtx.currentTime + 0.35);
 
-        // Tone 2
         const osc2 = audioCtx.createOscillator();
         const gain2 = audioCtx.createGain();
         osc2.type = 'sine';
@@ -2218,7 +2221,7 @@
         osc2.start(audioCtx.currentTime + 0.12);
         osc2.stop(audioCtx.currentTime + 0.55);
       } catch (e) {
-        console.warn("Audio autoplay blocked:", e);
+        console.warn("Audio autoplay prevented:", e);
       }
     }
 
@@ -2235,7 +2238,7 @@
     window.toggleNotifications = function(enabled) {
       if (enabled) {
         if (!("Notification" in window)) {
-          alert("Your device or browser does not support Web Push Notifications.");
+          alert("Web Notifications not supported.");
           notifSwitch.checked = false;
           return;
         }
@@ -2246,9 +2249,9 @@
             localStorage.setItem('rm_notif_enabled', 'true');
             notifSwitch.checked = true;
             playSmsChimeSound();
-            showHeadsUpNotification("Notifications Enabled! 🔔", "You will now get sound alerts and heads-up banner notifications whenever new updates are posted.");
+            showHeadsUpNotification("Notifications Enabled! 🔔", "You will now receive instant heads-up alerts!");
           } else {
-            alert("Notification permission denied. Please allow notifications from your browser site settings.");
+            alert("Notification permission denied in browser settings.");
             notificationsEnabled = false;
             localStorage.setItem('rm_notif_enabled', 'false');
             notifSwitch.checked = false;
@@ -2257,13 +2260,13 @@
       } else {
         notificationsEnabled = false;
         localStorage.setItem('rm_notif_enabled', 'false');
-        alert("Push notifications have been turned off.");
+        alert("Push notifications turned off.");
       }
     };
 
     window.handleNotificationIconClick = function() {
       if (!notificationsEnabled) {
-        if (confirm("Turn ON Mobile Notifications to receive class & study note alerts with SMS sound?")) {
+        if (confirm("Turn ON Mobile Notifications to receive class & study note alerts?")) {
           toggleNotifications(true);
         }
       } else {
@@ -2276,10 +2279,7 @@
 
     function showHeadsUpNotification(title, body) {
       playSmsChimeSound();
-
-      if ("vibrate" in navigator) {
-        navigator.vibrate([200, 100, 200, 100, 300]);
-      }
+      if ("vibrate" in navigator) navigator.vibrate([200, 100, 200, 100, 300]);
 
       const banner = document.getElementById('headsUpBanner');
       const bTitle = document.getElementById('headsUpTitle');
@@ -2299,12 +2299,7 @@
           icon: 'logo.jpg'
         });
       } else if ("Notification" in window && Notification.permission === "granted") {
-        new Notification(title, {
-          body: body,
-          icon: 'logo.jpg',
-          badge: 'logo.jpg',
-          vibrate: [200, 100, 200]
-        });
+        new Notification(title, { body: body, icon: 'logo.jpg', badge: 'logo.jpg' });
       }
     }
 
@@ -2345,13 +2340,13 @@
     onSnapshot(query(galleryCol, orderBy("timestamp", "desc"), limit(1)), (snapshot) => {
       if (!snapshot.empty) {
         if (!isInitialGalleryLoad && notificationsEnabled) {
-          showHeadsUpNotification("🖼️ New Photo in Academy Gallery!", "Check out recent moments in the Gallery tab.");
+          showHeadsUpNotification("🖼️ New Photo in Gallery!", "Check out recent moments in the Gallery tab.");
         }
       }
       isInitialGalleryLoad = false;
     });
 
-    // ==================== 3. SETTINGS DRAWER & THEME SWITCHER ====================
+    // ==================== 3. SETTINGS & THEME ====================
     window.toggleSettingsDrawer = function() {
       const drawer = document.getElementById('settingsDrawer');
       const backdrop = document.getElementById('settingsBackdrop');
@@ -2426,11 +2421,10 @@
 
     window.triggerPwaInstall = async function() {
       if (!deferredPrompt) {
-        alert("App is already installed or can be added from your browser menu ('Add to Home screen').");
+        alert("App is already installed or can be added from browser menu ('Add to Home screen').");
         return;
       }
       deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
       deferredPrompt = null;
       document.getElementById('pwaInstallBtn').style.display = 'none';
     };
@@ -2475,16 +2469,9 @@
       const email = document.getElementById('regEmailInput').value.trim();
       const btn = document.getElementById('btnSubmitRegistration');
 
-      if (!name) {
-        alert("Please enter your Full Name.");
-        return;
-      }
-
+      if (!name) { alert("Please enter Full Name."); return; }
       const phone = cleanPhone(rawPhone);
-      if (phone.length !== 10) {
-        alert("Please enter a valid 10-digit mobile number.");
-        return;
-      }
+      if (phone.length !== 10) { alert("Please enter valid 10-digit mobile number."); return; }
 
       btn.disabled = true;
       btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Registering...`;
@@ -2492,10 +2479,7 @@
       try {
         const studentDocId = "std_" + phone;
         const studentData = {
-          name,
-          academicLevel,
-          targetCourse,
-          phone,
+          name, academicLevel, targetCourse, phone,
           email: email || 'Not Provided',
           registeredDate: new Date().toLocaleString(),
           lastLogin: new Date().toLocaleString(),
@@ -2504,15 +2488,13 @@
         };
 
         await setDoc(doc(db, "registered_students", studentDocId), studentData, { merge: true });
-
         currentStudent = studentData;
         localStorage.setItem('rm_logged_student', JSON.stringify(studentData));
 
-        alert(`Registration Successful! Welcome to R.M. Vision Academy, ${name}.`);
+        alert(`Welcome to R.M. Vision Academy, ${name}!`);
         renderStudentAuthState();
         closeStudentLoginModal();
       } catch (err) {
-        console.error("Registration error:", err);
         alert("Registration failed: " + err.message);
       } finally {
         btn.disabled = false;
@@ -2523,12 +2505,9 @@
     window.handleDirectStudentLogin = async function() {
       const rawPhone = document.getElementById('loginPhoneInput').value.trim();
       const btn = document.getElementById('btnSubmitLogin');
-
       const phone = cleanPhone(rawPhone);
-      if (phone.length !== 10) {
-        alert("Please enter your 10-digit registered mobile number.");
-        return;
-      }
+
+      if (phone.length !== 10) { alert("Enter registered 10-digit number."); return; }
 
       btn.disabled = true;
       btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Verifying...`;
@@ -2546,16 +2525,15 @@
           currentStudent = studentData;
           localStorage.setItem('rm_logged_student', JSON.stringify(studentData));
 
-          alert(`Welcome back, ${studentData.name}! Successfully logged in.`);
+          alert(`Welcome back, ${studentData.name}!`);
           renderStudentAuthState();
           closeStudentLoginModal();
         } else {
-          alert(`No registered student found with number: ${phone}. Please complete the registration form.`);
+          alert(`No account found with number: ${phone}. Register here.`);
           switchAuthMode('register');
           document.getElementById('regPhoneInput').value = phone;
         }
       } catch (err) {
-        console.error("Login error:", err);
         alert("Login error: " + err.message);
       } finally {
         btn.disabled = false;
@@ -2623,9 +2601,6 @@
             </div>
             <div style="font-size:0.85rem; color:var(--text-muted);">
               <strong>Class / Level:</strong> ${u.academicLevel || 'N/A'} | <strong>Target Course:</strong> ${u.targetCourse || 'General'}
-            </div>
-            <div style="font-size:0.75rem; color:#10b981; margin-top:2px;">
-              <i class="fa-solid fa-mobile-screen"></i> Registered via: ${u.platform || 'Website'}
             </div>
           </div>
         `;
@@ -2726,7 +2701,7 @@
       }
     };
 
-    // ==================== 10. STUDY MATERIALS (SUBJECT-WISE SECTIONS & STORAGE UPLOAD) ====================
+    // ==================== 10. STUDY MATERIALS (SUBJECT-WISE & RICH TEXT) ====================
     let loadedMaterials = [];
     let currentSubjectFilter = 'ALL';
 
@@ -2751,7 +2726,6 @@
 
     function renderSubjectWiseMaterials() {
       const container = document.getElementById('subjectWiseContainer');
-      
       const subjectsToShow = (currentSubjectFilter === 'ALL')
         ? ALL_SUBJECTS 
         : [currentSubjectFilter];
@@ -2771,19 +2745,18 @@
               </div>
               <div class="materials-grid">
                 ${notesInSub.map(m => {
-                  const text = m.text || '';
-                  const words = text.trim().split(/\s+/);
-                  const isLong = words.length > 35;
-                  const displayText = isLong ? words.slice(0, 35).join(' ') + '...' : text;
+                  const plainText = (m.text || '').replace(/<[^>]*>?/gm, '');
+                  const words = plainText.trim().split(/\s+/);
+                  const isLong = words.length > 30;
+                  const previewSnippet = isLong ? words.slice(0, 30).join(' ') + '...' : plainText;
 
                   return `
                     <div class="material-post-card">
                       <div>
                         <span class="mat-subject-tag">${m.subject}</span>
-                        <h3>${m.title}</h3>
-                        ${m.photoUrl ? `<img src="${m.photoUrl}" alt="${m.title}" class="mat-image-preview">` : ''}
-                        <p>${displayText}</p>
-                        ${isLong ? `<button class="btn-read-more" onclick="openNoteReader('${m.id}')">Read Full Note &rarr;</button>` : ''}
+                        <h3>${m.title}</h3>${m.photoUrl ? `<img src="${m.photoUrl}" alt="${m.title}" class="mat-image-preview">` : ''}
+                        <div class="desc-preview">${previewSnippet}</div>
+                        <button class="btn-read-more" onclick="openNoteReader('${m.id}')">Read Full Note &rarr;</button>
                       </div>
                       <div style="margin-top: 0.8rem;">
                         ${m.pdfUrl ? `
@@ -2807,7 +2780,7 @@
           <div style="text-align: center; padding: 3rem 1rem; background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border);">
             <i class="fa-solid fa-book-open-reader" style="font-size: 2.5rem; color: #94a3b8; margin-bottom: 0.8rem;"></i>
             <h3 style="color:var(--text-main); margin-bottom: 0.3rem;">No study materials published yet</h3>
-            <p style="color:var(--text-muted); font-size: 0.9rem;">Materials uploaded for this category will appear here automatically.</p>
+            <p style="color:var(--text-muted); font-size: 0.9rem;">Materials uploaded for this subject will appear here automatically.</p>
           </div>
         `;
       } else {
@@ -2822,7 +2795,10 @@
       document.getElementById('readMatSubject').innerText = note.subject;
       document.getElementById('readMatTitle').innerText = note.title;
       document.getElementById('readMatDate').innerText = 'Published: ' + (note.date || 'Recently');
-      document.getElementById('readMatText').innerText = note.text;
+      
+      // Preserving formatting and line breaks in reader
+      const formattedHtml = note.text.replace(/\n/g, '<br/>');
+      document.getElementById('readMatText').innerHTML = formattedHtml;
 
       const photoWrapper = document.getElementById('readMatPhotoWrapper');
       const photoImg = document.getElementById('readMatPhoto');
@@ -2849,7 +2825,6 @@
       document.getElementById('noteReaderModal').classList.remove('active');
     };
 
-    // UPLOAD FUNCTION USING FIREBASE STORAGE FOR PDFs
     window.publishStudyMaterial = async function() {
       const subject = document.getElementById('admMatSubject').value;
       const title = document.getElementById('admMatTitle').value.trim();
@@ -2859,7 +2834,7 @@
       const btn = document.getElementById('btnPublishMaterial');
 
       if (!title || !text) {
-        alert("Please provide both a Title and Text Explanation.");
+        alert("Please provide Title and Text Explanation.");
         return;
       }
 
@@ -2874,7 +2849,6 @@
 
         let pdfUrl = '';
         if (pdfFile) {
-          // Direct Upload to Firebase Cloud Storage (No 1MB Limit!)
           const storageReference = ref(storage, `study_materials_pdf/${Date.now()}_${pdfFile.name}`);
           const uploadTask = await uploadBytesResumable(storageReference, pdfFile);
           pdfUrl = await getDownloadURL(uploadTask.ref);
@@ -2896,9 +2870,8 @@
         document.getElementById('admMatText').value = '';
         document.getElementById('admMatPhoto').value = '';
         document.getElementById('admMatPdf').value = '';
-        alert("Study Material successfully published!");
+        alert("Study Material published successfully!");
       } catch (err) {
-        console.error("Publish error:", err);
         alert("Error publishing: " + err.message);
       } finally {
         btn.disabled = false;
@@ -2935,8 +2908,8 @@
       const adminContainer = document.getElementById('adminVideoList');
 
       if (snapshot.empty) {
-        container.innerHTML = '<p style="color: #94a3b8; grid-column: 1 / -1; text-align: center; padding: 2rem;">No recorded lectures published yet. Add video links from the Admin panel.</p>';
-        if (adminContainer) adminContainer.innerHTML = '<p style="color:#94a3b8; font-size:0.85rem;">No uploaded video links yet.</p>';
+        container.innerHTML = '<p style="color: #94a3b8; grid-column: 1 / -1; text-align: center; padding: 2rem;">No recorded lectures published yet.</p>';
+        if (adminContainer) adminContainer.innerHTML = '<p style="color:#94a3b8; font-size:0.85rem;">No uploaded videos.</p>';
         return;
       }
 
@@ -2983,7 +2956,7 @@
       const url = document.getElementById('admVideoUrl').value.trim();
 
       if (!title || !url) {
-        alert("Please enter title and YouTube link.");
+        alert("Enter title and YouTube URL.");
         return;
       }
 
@@ -3000,7 +2973,7 @@
       document.getElementById('admVideoTitle').value = '';
       document.getElementById('admVideoSubject').value = '';
       document.getElementById('admVideoUrl').value = '';
-      alert("Lecture video added to Classroom!");
+      alert("Lecture video added successfully!");
     };
 
     window.deleteRecordedVideo = async function(id) {
@@ -3037,7 +3010,7 @@
       });
 
       container.innerHTML = html;
-      if (adminContainer) adminContainer.innerHTML = adminHtml || '<p style="color:#94a3b8; font-size:0.85rem;">No active custom notices.</p>';
+      if (adminContainer) adminContainer.innerHTML = adminHtml || '<p style="color:#94a3b8; font-size:0.85rem;">No custom notices.</p>';
     });
 
     window.publishNotice = async function() {
@@ -3051,16 +3024,15 @@
       });
 
       showHeadsUpNotification("📢 R.M. Vision Academy Alert", text);
-
       document.getElementById('admNoticeText').value = '';
-      alert("Notice broadcasted! Mobile notifications triggered with sound.");
+      alert("Notice broadcasted successfully!");
     };
 
     window.deleteNotice = async function(id) {
       await deleteDoc(doc(db, "notices", id));
     };
 
-    // ==================== 13. HIGH-CAPACITY PHOTO GALLERY ====================
+    // ==================== 13. GALLERY PHOTOS ====================
     onSnapshot(query(galleryCol, orderBy("timestamp", "desc")), (snapshot) => {
       const container = document.getElementById('galleryContainer');
       const adminContainer = document.getElementById('adminGalleryList');
@@ -3073,7 +3045,6 @@
           <div style="grid-column: 1 / -1; text-align: center; padding: 2rem 1rem; background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border);">
             <i class="fa-regular fa-images" style="font-size: 2.2rem; color: #94a3b8; margin-bottom: 0.5rem;"></i>
             <p style="color: #64748b; font-size: 1rem;">No photos uploaded yet.</p>
-            <p style="color: #94a3b8; font-size: 0.85rem;">Upload event, field, or session photos from the Admin panel.</p>
           </div>
         `;
         if (adminContainer) adminContainer.innerHTML = '<p style="color:#94a3b8; font-size:0.85rem;">No photos uploaded yet.</p>';
@@ -3108,7 +3079,7 @@
       const file = fileInput.files[0];
 
       if (!file) {
-        alert("Please select an image file first.");
+        alert("Select an image file.");
         return;
       }
 
@@ -3117,16 +3088,11 @@
 
       try {
         const compressedBase64 = await compressImageFile(file, 900, 0.65);
+        await addDoc(galleryCol, { url: compressedBase64, timestamp: Date.now() });
 
-        await addDoc(galleryCol, {
-          url: compressedBase64,
-          timestamp: Date.now()
-        });
-
-        showHeadsUpNotification("🖼️ New Photo in Gallery!", "A new academy photo has been uploaded to the Gallery.");
-
+        showHeadsUpNotification("🖼️ New Photo in Gallery!", "A new photo has been uploaded.");
         fileInput.value = '';
-        alert("Photo successfully compressed and added to Gallery!");
+        alert("Photo uploaded successfully!");
       } catch (err) {
         alert("Upload failed: " + err.message);
       } finally {
@@ -3136,12 +3102,12 @@
     };
 
     window.deleteGalleryPhoto = async function(id) {
-      if (confirm("Delete this photo from the gallery?")) {
+      if (confirm("Delete this photo?")) {
         await deleteDoc(doc(db, "gallery_photos", id));
       }
     };
 
-    // ==================== 14. CONTACT INQUIRIES ====================
+    // ==================== 14. INQUIRIES ====================
     const inquiriesCol = collection(db, "inquiries");
 
     document.getElementById('studentContactForm').addEventListener('submit', async (e) => {
@@ -3154,15 +3120,11 @@
 
       try {
         await addDoc(inquiriesCol, {
-          name,
-          email,
-          phone,
-          subject,
-          message,
+          name, email, phone, subject, message,
           date: new Date().toLocaleString(),
           timestamp: Date.now()
         });
-        alert("Thank you, " + name + "! Your inquiry has been sent to Rohamat Sir. We will reply to your email shortly.");
+        alert(`Thank you, ${name}! Your inquiry has been sent to Rohamat Sir.`);
         document.getElementById('studentContactForm').reset();
       } catch (err) {
         alert("Error sending message: " + err.message);
