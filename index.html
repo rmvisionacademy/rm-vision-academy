@@ -1172,7 +1172,7 @@
   <header>
     <div class="navbar">
       <a onclick="handleSecretLogoClick()" class="logo" title="Triple click to access Admin Portal">
-        <img src="logo.jpg?v=4" alt="R.M. Vision Academy Logo" class="logo-img" onerror="this.onerror=null; this.src='./logo.jpg';">
+        <img src="logo.jpg?v=5" alt="R.M. Vision Academy Logo" class="logo-img" onerror="this.onerror=null; this.src='./logo.jpg';">
         <span>R.M. VISION ACADEMY</span>
       </a>
 
@@ -1383,8 +1383,8 @@
 
         <div class="founder-hero-card">
           <div class="founder-image-frame">
-            <!-- Updated to Rohamat_new.jpg with direct local fallbacks and GitHub Pages cache-busting -->
-            <img src="Rohamat_new.jpg?v=1" alt="Rohamat Mandal - Founder R.M. Vision Academy" 
+            <!-- Suuraa Rohamat_one.png fayyadamuun qophaa'e -->
+            <img src="Rohamat_one.png?v=5" alt="Rohamat Mandal - Founder R.M. Vision Academy" 
                  onerror="this.onerror=null; this.src='Rohamat.jpg';">
           </div>
           <h3 style="color: var(--text-main); font-size: 1.3rem; margin-bottom: 0.2rem;">Rohamat Mandal</h3>
@@ -1651,8 +1651,8 @@
 
       <div class="faculty-container">
         <div class="faculty-photo-wrapper">
-          <!-- Updated to Rohamat_new.jpg with direct local fallbacks and GitHub Pages cache-busting -->
-          <img src="Rohamat_new.jpg?v=1" alt="Rohamat Mandal" 
+          <!-- Suuraa Rohamat_one.png fayyadamuun qophaa'e -->
+          <img src="Rohamat_one.png?v=5" alt="Rohamat Mandal" 
                onerror="this.onerror=null; this.src='Rohamat.jpg';">
         </div>
         <h2>Rohamat Mandal</h2>
@@ -2319,7 +2319,7 @@
       isInitialVideoLoad = false;
     });
 
-    onSnapshot(query(galleryCol, orderBy("timestamp", "desc"), limit(1)), (snapshot) => {
+    onSnapshot(query(galleryCol, orderBy("timestamp", "desc")), (snapshot) => {
       if (!snapshot.empty) {
         if (!isInitialGalleryLoad && notificationsEnabled) {
           showHeadsUpNotification("🖼️ New Photo in Gallery!", "Check out recent moments in the Gallery tab.");
@@ -2384,7 +2384,7 @@
       });
     }
 
-    // Unregister legacy Service Worker to eliminate old caches
+    // Service Worker auto-unregister
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.getRegistrations().then(function(registrations) {
         for (let registration of registrations) {
