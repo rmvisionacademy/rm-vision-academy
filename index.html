@@ -1383,8 +1383,9 @@
 
         <div class="founder-hero-card">
           <div class="founder-image-frame">
+            <!-- Duto filename-i check korbe: Rohamat.jpg ebong Founder.png -->
             <img src="Rohamat.jpg" alt="Rohamat Mandal - Founder R.M. Vision Academy" 
-                 onerror="this.onerror=null; this.src='./Rohamat.jpg';">
+                 onerror="this.onerror=null; this.src='Founder.png';">
           </div>
           <h3 style="color: var(--text-main); font-size: 1.3rem; margin-bottom: 0.2rem;">Rohamat Mandal</h3>
           <p style="color: var(--accent); font-weight: 700; font-size: 0.88rem; margin-bottom: 0.4rem;">Founder &amp; Academic Director</p>
@@ -1551,7 +1552,7 @@
         <button class="sub-filter-btn" onclick="filterMaterials('Hazard and Disaster Management')">Hazard and Disaster Management</button>
         <button class="sub-filter-btn" onclick="filterMaterials('Sustainable Tourism and Regional Development')">Sustainable Tourism and Regional Development</button>
         <button class="sub-filter-btn" onclick="filterMaterials('Pedological and Petrographical Analysis')">Pedological and Petrographical Analysis</button>
-        <button class="sub-filter-btn" onclick="filterMaterials('Geography of Pedosphere and Biosphere')">Geography of Pedosphere and Biosphere</button>
+        <button class="sub-filter-btn" onclick="Geography of Pedosphere and Biosphere">Geography of Pedosphere and Biosphere</button>
         <button class="sub-filter-btn" onclick="filterMaterials('Regional Geography of India')">Regional Geography of India</button>
         <button class="sub-filter-btn" onclick="filterMaterials('Regional Planning and Development')">Regional Planning and Development</button>
         <button class="sub-filter-btn" onclick="filterMaterials('Field Work Techniques in Geography')">Field Work Techniques in Geography</button>
@@ -1650,8 +1651,9 @@
 
       <div class="faculty-container">
         <div class="faculty-photo-wrapper">
+          <!-- Duto filename-i check korbe: Rohamat.jpg ebong Founder.png -->
           <img src="Rohamat.jpg" alt="Rohamat Mandal" 
-               onerror="this.onerror=null; this.src='./Rohamat.jpg';">
+               onerror="this.onerror=null; this.src='Founder.png';">
         </div>
         <h2>Rohamat Mandal</h2>
         <p style="color: var(--accent); font-weight: bold; font-size: 1.1rem; margin-bottom: 0.6rem;">Lead Faculty &amp; Academic Director</p>
@@ -2034,7 +2036,7 @@
         <div class="admin-form-group">
           <label>OR Paste Google Drive / External PDF Link (Option 2: Instant - Optional)</label>
           <input type="url" id="admMatDriveLink" placeholder="https://drive.google.com/file/d/.../view?usp=sharing" />
-          <small style="color:var(--text-muted); font-size:0.75rem;">ফাইল আপলোড হতে বেশি সময় লাগলে ড্রাইভে আপলোড করে সেই লিঙ্কটি এখানে দিতে পারেন।</small>
+          <small style="color:var(--text-muted); font-size:0.75rem;">File upload hote deri hole drive-e upload kore link past korun.</small>
         </div>
 
         <button id="btnPublishMaterial" onclick="publishStudyMaterial()" class="btn-primary" style="margin-bottom: 1.25rem;">
@@ -2803,7 +2805,6 @@
       document.getElementById('noteReaderModal').classList.remove('active');
     };
 
-    // ==================== PUBLISH FUNCTION WITH DRIVE LINK & FILE SUPPORT ====================
     window.publishStudyMaterial = async function() {
       const subject = document.getElementById('admMatSubject').value;
       const title = document.getElementById('admMatTitle').value.trim();
@@ -2831,12 +2832,9 @@
 
         let pdfUrl = '';
 
-        // Priority 1: Google Drive / External Link দেওয়া থাকলে সাথে সাথে ব্যবহার হবে
         if (driveLink) {
           pdfUrl = driveLink;
-        } 
-        // Priority 2: ড্রাইভ লিঙ্ক না দিয়ে সরাসরি ফাইল দিলে স্টোরেজে আপলোড হবে
-        else if (pdfFile) {
+        } else if (pdfFile) {
           if (pBar) pBar.style.display = 'block';
           const storageReference = ref(storage, `study_materials_pdf/${Date.now()}_${pdfFile.name.replace(/\s+/g, '_')}`);
           const uploadTask = uploadBytesResumable(storageReference, pdfFile);
@@ -2871,7 +2869,6 @@
 
         showHeadsUpNotification("📚 New Note Uploaded!", `[${subject}] ${title}`);
 
-        // Reset form
         document.getElementById('admMatTitle').value = '';
         document.getElementById('admMatText').value = '';
         document.getElementById('admMatPhoto').value = '';
