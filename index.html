@@ -851,7 +851,6 @@
 
     .faculty-photo-wrapper img { width: 100%; height: 100%; object-fit: cover; }
 
-    /* Modals & Settings Drawer */
     .modal {
       display: none;
       position: fixed;
@@ -1027,7 +1026,6 @@
       font-size: 0.9rem;
     }
 
-    /* Rich Text Format Toolbar */
     .editor-toolbar {
       display: flex;
       flex-wrap: wrap;
@@ -1173,9 +1171,8 @@
   <!-- Header Navigation -->
   <header>
     <div class="navbar">
-      <!-- SECRET ADMIN TRIGGER: Triple-tap this logo to open Admin Login -->
       <a onclick="handleSecretLogoClick()" class="logo" title="Triple click to access Admin Portal">
-        <img src="./logo.jpg" alt="R.M. Vision Academy Logo" class="logo-img" onerror="this.onerror=null; this.src='logo.jpg';">
+        <img src="logo.jpg" alt="R.M. Vision Academy Logo" class="logo-img" onerror="this.onerror=null; this.src='./logo.jpg';">
         <span>R.M. VISION ACADEMY</span>
       </a>
 
@@ -1386,9 +1383,8 @@
 
         <div class="founder-hero-card">
           <div class="founder-image-frame">
-            <!-- UPDATED PHOTO PATHS WITH LOCAL FALLBACKS -->
-            <img src="./Rohamat_one.png" alt="Rohamat Mandal - Founder R.M. Vision Academy" 
-                 onerror="this.onerror=null; this.src='Rohamat_one.png';">
+            <img src="Rohamat.jpg" alt="Rohamat Mandal - Founder R.M. Vision Academy" 
+                 onerror="this.onerror=null; this.src='./Rohamat.jpg';">
           </div>
           <h3 style="color: var(--text-main); font-size: 1.3rem; margin-bottom: 0.2rem;">Rohamat Mandal</h3>
           <p style="color: var(--accent); font-weight: 700; font-size: 0.88rem; margin-bottom: 0.4rem;">Founder &amp; Academic Director</p>
@@ -1532,7 +1528,7 @@
         </div>
       </div>
 
-      <!-- Complete 25 Geography Subjects Filter Bar -->
+      <!-- 25 Geography Subjects Filter Bar -->
       <div class="subject-filter-bar" id="subjectFilterBar">
         <button class="sub-filter-btn active" onclick="filterMaterials('ALL')">All Subjects</button>
         <button class="sub-filter-btn" onclick="filterMaterials('Geotectonics and Geomorphology')">Geotectonics and Geomorphology</button>
@@ -1654,9 +1650,8 @@
 
       <div class="faculty-container">
         <div class="faculty-photo-wrapper">
-          <!-- UPDATED PHOTO PATHS WITH LOCAL FALLBACKS -->
-          <img src="./Rohamat_one.png" alt="Rohamat Mandal" 
-               onerror="this.onerror=null; this.src='Rohamat_one.png';">
+          <img src="Rohamat.jpg" alt="Rohamat Mandal" 
+               onerror="this.onerror=null; this.src='./Rohamat.jpg';">
         </div>
         <h2>Rohamat Mandal</h2>
         <p style="color: var(--accent); font-weight: bold; font-size: 1.1rem; margin-bottom: 0.6rem;">Lead Faculty &amp; Academic Director</p>
@@ -1834,7 +1829,6 @@
         <img id="readMatPhoto" src="" alt="Note Diagram" style="width: 100%; max-height: 400px; object-fit: contain; border-radius: 6px; border: 1px solid var(--border);">
       </div>
 
-      <!-- Render HTML Rich Text -->
       <div id="readMatText" style="font-size: 1rem; line-height: 1.8; color: var(--text-main); word-break: break-word; margin-bottom: 1.5rem;"></div>
 
       <div id="readMatPdfWrapper" style="display: none; border-top: 1px solid var(--border); padding-top: 1rem;">
@@ -1975,7 +1969,6 @@
         <h3 style="margin-bottom: 0.8rem;">Publish Subject-Wise Open Access Note</h3>
         <div class="admin-form-group">
           <label>Subject / Stream *</label>
-          <!-- 25 Complete Geography Subjects in Admin Selection -->
           <select id="admMatSubject">
             <option value="Geotectonics and Geomorphology">Geotectonics and Geomorphology</option>
             <option value="Climatology">Climatology</option>
@@ -2009,7 +2002,6 @@
           <input type="text" id="admMatTitle" placeholder="e.g. Continental Drift Theory and Plate Tectonics" />
         </div>
 
-        <!-- Rich Text Toolbar for Textarea -->
         <div class="admin-form-group">
           <label>Full Text Explanation (With Formatted Styling) *</label>
           <div class="editor-toolbar">
@@ -2028,10 +2020,23 @@
           <label>Attach Diagram / Photo (Optional)</label>
           <input type="file" id="admMatPhoto" accept="image/*" />
         </div>
+
+        <!-- OPTION 1: FILE UPLOAD -->
         <div class="admin-form-group">
-          <label>Attach PDF Document (Direct Cloud Storage Upload)</label>
+          <label>Attach PDF Document (Option 1: Upload File)</label>
           <input type="file" id="admMatPdf" accept=".pdf,.doc,.docx" />
+          <div id="pdfUploadProgressBar" style="display:none; width:100%; background:#e2e8f0; border-radius:4px; height:8px; margin-top:6px; overflow:hidden;">
+            <div id="pdfUploadProgressFill" style="width:0%; background:#10b981; height:100%; transition:width 0.2s;"></div>
+          </div>
         </div>
+
+        <!-- OPTION 2: GOOGLE DRIVE LINK (OPTIONAL) -->
+        <div class="admin-form-group">
+          <label>OR Paste Google Drive / External PDF Link (Option 2: Instant - Optional)</label>
+          <input type="url" id="admMatDriveLink" placeholder="https://drive.google.com/file/d/.../view?usp=sharing" />
+          <small style="color:var(--text-muted); font-size:0.75rem;">ফাইল আপলোড হতে বেশি সময় লাগলে ড্রাইভে আপলোড করে সেই লিঙ্কটি এখানে দিতে পারেন।</small>
+        </div>
+
         <button id="btnPublishMaterial" onclick="publishStudyMaterial()" class="btn-primary" style="margin-bottom: 1.25rem;">
           <i class="fa-solid fa-cloud-arrow-up"></i> Upload &amp; Publish Note
         </button>
@@ -2130,7 +2135,6 @@
     const materialsCol = collection(db, "study_materials");
     const videosCol = collection(db, "recorded_classes");
 
-    // All 25 Geography syllabus subjects list
     const ALL_SUBJECTS = [
       "Geotectonics and Geomorphology",
       "Climatology",
@@ -2159,7 +2163,6 @@
       "Geographical Thought"
     ];
 
-    // ==================== RICH TEXT FORMATTING TOOLBAR HELPER ====================
     window.applyFormat = function(action) {
       const textarea = document.getElementById('admMatText');
       const start = textarea.selectionStart;
@@ -2168,34 +2171,19 @@
 
       let replacement = '';
       switch(action) {
-        case 'bold':
-          replacement = `<b>${selected || 'Bold Text'}</b>`;
-          break;
-        case 'italic':
-          replacement = `<i>${selected || 'Italic Text'}</i>`;
-          break;
-        case 'underline':
-          replacement = `<u>${selected || 'Underline Text'}</u>`;
-          break;
-        case 'h3':
-          replacement = `<h3>${selected || 'Section Heading'}</h3>`;
-          break;
-        case 'ul':
-          replacement = `\n<ul>\n  <li>${selected || 'Bullet item'}</li>\n</ul>\n`;
-          break;
-        case 'ol':
-          replacement = `\n<ol>\n  <li>${selected || 'Numbered item'}</li>\n</ol>\n`;
-          break;
-        case 'clear':
-          replacement = selected.replace(/<[^>]*>?/gm, '');
-          break;
+        case 'bold': replacement = `<b>${selected || 'Bold Text'}</b>`; break;
+        case 'italic': replacement = `<i>${selected || 'Italic Text'}</i>`; break;
+        case 'underline': replacement = `<u>${selected || 'Underline Text'}</u>`; break;
+        case 'h3': replacement = `<h3>${selected || 'Section Heading'}</h3>`; break;
+        case 'ul': replacement = `\n<ul>\n  <li>${selected || 'Bullet item'}</li>\n</ul>\n`; break;
+        case 'ol': replacement = `\n<ol>\n  <li>${selected || 'Numbered item'}</li>\n</ol>\n`; break;
+        case 'clear': replacement = selected.replace(/<[^>]*>?/gm, ''); break;
       }
 
       textarea.setRangeText(replacement, start, end, 'select');
       textarea.focus();
     };
 
-    // ==================== 1. WEB AUDIO API: SMS BEEP CHIME ====================
     function playSmsChimeSound() {
       try {
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -2221,11 +2209,10 @@
         osc2.start(audioCtx.currentTime + 0.12);
         osc2.stop(audioCtx.currentTime + 0.55);
       } catch (e) {
-        console.warn("Audio autoplay prevented:", e);
+        console.warn("Audio playback prevented:", e);
       }
     }
 
-    // ==================== 2. MOBILE HEADS-UP NOTIFICATION ====================
     let notificationsEnabled = localStorage.getItem('rm_notif_enabled') === 'true';
     let isInitialNoticeLoad = true;
     let isInitialMaterialLoad = true;
@@ -2249,9 +2236,9 @@
             localStorage.setItem('rm_notif_enabled', 'true');
             notifSwitch.checked = true;
             playSmsChimeSound();
-            showHeadsUpNotification("Notifications Enabled! 🔔", "You will now receive instant heads-up alerts!");
+            showHeadsUpNotification("Notifications Enabled! 🔔", "You will now receive instant alerts!");
           } else {
-            alert("Notification permission denied in browser settings.");
+            alert("Notification permission denied.");
             notificationsEnabled = false;
             localStorage.setItem('rm_notif_enabled', 'false');
             notifSwitch.checked = false;
@@ -2346,7 +2333,6 @@
       isInitialGalleryLoad = false;
     });
 
-    // ==================== 3. SETTINGS & THEME ====================
     window.toggleSettingsDrawer = function() {
       const drawer = document.getElementById('settingsDrawer');
       const backdrop = document.getElementById('settingsBackdrop');
@@ -2372,7 +2358,6 @@
       }
     };
 
-    // ==================== 4. IMAGE COMPRESSOR ====================
     function compressImageFile(file, maxWidth = 1000, quality = 0.65) {
       return new Promise((resolve, reject) => {
         const reader = new FileReader();
@@ -2404,7 +2389,6 @@
       });
     }
 
-    // ==================== 5. PWA SERVICE WORKER ====================
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('./sw.js').catch(err => console.log('SW Registration failed:', err));
@@ -2429,7 +2413,6 @@
       document.getElementById('pwaInstallBtn').style.display = 'none';
     };
 
-    // ==================== 6. FREE STUDENT AUTH ====================
     let currentStudent = JSON.parse(localStorage.getItem('rm_logged_student')) || null;
 
     window.openStudentLoginModal = function() {
@@ -2608,7 +2591,6 @@
       container.innerHTML = html;
     });
 
-    // ==================== 7. ROUTER ====================
     window.navigateTo = function(pageKey) {
       document.querySelectorAll('.page-section').forEach(p => p.classList.remove('active'));
       const target = document.getElementById('page-' + pageKey);
@@ -2630,7 +2612,6 @@
       nav.classList.toggle('show');
     };
 
-    // ==================== 8. SECRET ADMIN AUTH ====================
     let logoClickCount = 0;
     let logoClickTimer = null;
 
@@ -2668,7 +2649,6 @@
       document.getElementById(tabId).classList.add('active');
     };
 
-    // ==================== 9. LIVE CLASS STATUS ====================
     const statusDocRef = doc(db, "academy_settings", "live_status");
     let currentLiveState = false;
 
@@ -2701,7 +2681,6 @@
       }
     };
 
-    // ==================== 10. STUDY MATERIALS (SUBJECT-WISE & RICH TEXT) ====================
     let loadedMaterials = [];
     let currentSubjectFilter = 'ALL';
 
@@ -2796,7 +2775,6 @@
       document.getElementById('readMatTitle').innerText = note.title;
       document.getElementById('readMatDate').innerText = 'Published: ' + (note.date || 'Recently');
       
-      // Preserving formatting and line breaks in reader
       const formattedHtml = note.text.replace(/\n/g, '<br/>');
       document.getElementById('readMatText').innerHTML = formattedHtml;
 
@@ -2825,13 +2803,17 @@
       document.getElementById('noteReaderModal').classList.remove('active');
     };
 
+    // ==================== PUBLISH FUNCTION WITH DRIVE LINK & FILE SUPPORT ====================
     window.publishStudyMaterial = async function() {
       const subject = document.getElementById('admMatSubject').value;
       const title = document.getElementById('admMatTitle').value.trim();
       const text = document.getElementById('admMatText').value.trim();
       const photoFile = document.getElementById('admMatPhoto').files[0];
       const pdfFile = document.getElementById('admMatPdf').files[0];
+      const driveLink = document.getElementById('admMatDriveLink') ? document.getElementById('admMatDriveLink').value.trim() : '';
       const btn = document.getElementById('btnPublishMaterial');
+      const pBar = document.getElementById('pdfUploadProgressBar');
+      const pFill = document.getElementById('pdfUploadProgressFill');
 
       if (!title || !text) {
         alert("Please provide Title and Text Explanation.");
@@ -2839,7 +2821,7 @@
       }
 
       btn.disabled = true;
-      btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Uploading & Publishing...`;
+      btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Processing Note...`;
 
       try {
         let photoUrl = '';
@@ -2848,10 +2830,33 @@
         }
 
         let pdfUrl = '';
-        if (pdfFile) {
-          const storageReference = ref(storage, `study_materials_pdf/${Date.now()}_${pdfFile.name}`);
-          const uploadTask = await uploadBytesResumable(storageReference, pdfFile);
-          pdfUrl = await getDownloadURL(uploadTask.ref);
+
+        // Priority 1: Google Drive / External Link দেওয়া থাকলে সাথে সাথে ব্যবহার হবে
+        if (driveLink) {
+          pdfUrl = driveLink;
+        } 
+        // Priority 2: ড্রাইভ লিঙ্ক না দিয়ে সরাসরি ফাইল দিলে স্টোরেজে আপলোড হবে
+        else if (pdfFile) {
+          if (pBar) pBar.style.display = 'block';
+          const storageReference = ref(storage, `study_materials_pdf/${Date.now()}_${pdfFile.name.replace(/\s+/g, '_')}`);
+          const uploadTask = uploadBytesResumable(storageReference, pdfFile);
+
+          await new Promise((resolve, reject) => {
+            uploadTask.on('state_changed', 
+              (snapshot) => {
+                const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+                btn.innerHTML = `<i class="fa-solid fa-cloud-arrow-up"></i> Uploading PDF: ${progress}%`;
+                if (pFill) pFill.style.width = progress + '%';
+              }, 
+              (error) => {
+                reject(error);
+              }, 
+              async () => {
+                pdfUrl = await getDownloadURL(uploadTask.snapshot.ref);
+                resolve();
+              }
+            );
+          });
         }
 
         await addDoc(materialsCol, {
@@ -2866,16 +2871,23 @@
 
         showHeadsUpNotification("📚 New Note Uploaded!", `[${subject}] ${title}`);
 
+        // Reset form
         document.getElementById('admMatTitle').value = '';
         document.getElementById('admMatText').value = '';
         document.getElementById('admMatPhoto').value = '';
         document.getElementById('admMatPdf').value = '';
+        if (document.getElementById('admMatDriveLink')) document.getElementById('admMatDriveLink').value = '';
+        if (pBar) pBar.style.display = 'none';
+        if (pFill) pFill.style.width = '0%';
+
         alert("Study Material published successfully!");
       } catch (err) {
+        console.error("Upload Error:", err);
         alert("Error publishing: " + err.message);
       } finally {
         btn.disabled = false;
         btn.innerHTML = `<i class="fa-solid fa-cloud-arrow-up"></i> Upload &amp; Publish Note`;
+        if (pBar) pBar.style.display = 'none';
       }
     };
 
@@ -2902,7 +2914,6 @@
       }
     };
 
-    // ==================== 11. RECORDED CLASSES ====================
     onSnapshot(query(videosCol, orderBy("timestamp", "desc")), (snapshot) => {
       const container = document.getElementById('recordedClassList');
       const adminContainer = document.getElementById('adminVideoList');
@@ -2980,7 +2991,6 @@
       await deleteDoc(doc(db, "recorded_classes", id));
     };
 
-    // ==================== 12. NOTICES & BROADCAST ====================
     onSnapshot(query(noticesCol, orderBy("timestamp", "desc")), (snapshot) => {
       const container = document.getElementById('noticeContainer');
       const adminContainer = document.getElementById('adminNoticeList');
@@ -3032,7 +3042,6 @@
       await deleteDoc(doc(db, "notices", id));
     };
 
-    // ==================== 13. GALLERY PHOTOS ====================
     onSnapshot(query(galleryCol, orderBy("timestamp", "desc")), (snapshot) => {
       const container = document.getElementById('galleryContainer');
       const adminContainer = document.getElementById('adminGalleryList');
@@ -3107,7 +3116,6 @@
       }
     };
 
-    // ==================== 14. INQUIRIES ====================
     const inquiriesCol = collection(db, "inquiries");
 
     document.getElementById('studentContactForm').addEventListener('submit', async (e) => {
