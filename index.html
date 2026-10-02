@@ -73,6 +73,111 @@
 
     img { max-width: 100%; height: auto; }
 
+    /* ==================== SLIDING POSTER OVERLAY STYLES ==================== */
+    .poster-overlay-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(4px);
+      z-index: 4000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease-in-out;
+    }
+
+    .poster-overlay-container.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .poster-box {
+      position: relative;
+      width: 90%;
+      max-width: 720px;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+      border: 3px solid var(--accent);
+      transform: translateX(-120vw);
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .poster-overlay-container.active .poster-box {
+      transform: translateX(0);
+    }
+
+    .poster-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+      cursor: pointer;
+    }
+
+    .poster-close-btn {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.75);
+      color: #fff;
+      border: 1px solid #ffffff66;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: background 0.2s;
+    }
+
+    .poster-close-btn:hover {
+      background: var(--live-red);
+    }
+
+    /* Left Floating Slide Trigger Arrow Button */
+    .poster-slide-trigger {
+      position: fixed;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      background: var(--accent);
+      color: #fff;
+      padding: 12px 14px 12px 10px;
+      border-radius: 0 25px 25px 0;
+      border: 2px solid #fff;
+      border-left: none;
+      box-shadow: 3px 4px 15px rgba(0,0,0,0.3);
+      cursor: pointer;
+      z-index: 3500;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: bold;
+      animation: pulseTrigger 2s infinite;
+      transition: all 0.25s ease;
+    }
+
+    .poster-slide-trigger:hover {
+      background: var(--secondary);
+      padding-left: 14px;
+    }
+
+    @keyframes pulseTrigger {
+      0% { box-shadow: 0 0 0 0 rgba(29, 78, 216, 0.7); }
+      70% { box-shadow: 0 0 0 12px rgba(29, 78, 216, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(29, 78, 216, 0); }
+    }
+
     .top-bar {
       background: var(--primary);
       color: #cbd5e1;
@@ -1141,10 +1246,24 @@
       .logo-img { height: 30px; width: 30px; }
       .nav-actions { gap: 4px; }
       .btn-install-app, .btn-user-login, .btn-class { padding: 0.3rem 0.45rem; font-size: 0.72rem; }
+      .poster-box { width: 95%; }
     }
   </style>
 </head>
 <body>
+
+  <!-- ==================== INTERACTIVE SLIDING POSTER OVERLAY ==================== -->
+  <div id="posterOverlay" class="poster-overlay-container">
+    <div class="poster-box" id="posterBox">
+      <button class="poster-close-btn" onclick="slideOutPoster()" title="Close Poster">&times;</button>
+      <img src="poster.jpg" alt="R.M. Vision Academy Program Details Poster" onclick="slideOutPoster()">
+    </div>
+  </div>
+
+  <!-- Left Edge Floating Trigger Button -->
+  <button id="posterSlideBtn" class="poster-slide-trigger" onclick="slideInPoster()" title="Show Academy Highlights Poster">
+    <i class="fa-solid fa-chevron-right"></i>
+  </button>
 
   <!-- Floating Heads-Up Banner -->
   <div id="headsUpBanner" class="heads-up-banner">
@@ -1172,7 +1291,7 @@
   <header>
     <div class="navbar">
       <a onclick="handleSecretLogoClick()" class="logo" title="Triple click to access Admin Portal">
-        <img src="logo.jpg?v=5" alt="R.M. Vision Academy Logo" class="logo-img" onerror="this.onerror=null; this.src='./logo.jpg';">
+        <img src="logo.jpg?v=6" alt="R.M. Vision Academy Logo" class="logo-img" onerror="this.onerror=null; this.src='./logo.jpg';">
         <span>R.M. VISION ACADEMY</span>
       </a>
 
@@ -2165,6 +2284,45 @@
       "Geographical Thought"
     ];
 
+    /* ==================== INTERACTIVE SLIDING POSTER LOGIC ==================== */
+    let posterTimer = null;
+    let autoCycleTimer = null;
+
+    window.slideInPoster = function() {
+      const overlay = document.getElementById('posterOverlay');
+      if (overlay) {
+        overlay.classList.add('active');
+      }
+      clearTimeout(posterTimer);
+      // Auto-slide to left after 6 seconds
+      posterTimer = setTimeout(() => {
+        slideOutPoster();
+      }, 6000);
+    };
+
+    window.slideOutPoster = function() {
+      const overlay = document.getElementById('posterOverlay');
+      if (overlay) {
+        overlay.classList.remove('active');
+      }
+      clearTimeout(posterTimer);
+    };
+
+    // First visit show poster & slide to left after 4 seconds
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        slideInPoster();
+      }, 700);
+
+      // Periodic gentle pulse slide every 45 seconds if user stays on homepage
+      autoCycleTimer = setInterval(() => {
+        const homePage = document.getElementById('page-home');
+        if (homePage && homePage.classList.contains('active')) {
+          slideInPoster();
+        }
+      }, 45000);
+    });
+
     window.applyFormat = function(action) {
       const textarea = document.getElementById('admMatText');
       const start = textarea.selectionStart;
@@ -2384,7 +2542,7 @@
       });
     }
 
-    // Service Worker auto-unregister
+    // Service Worker auto-unregister to clear stale cache
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.getRegistrations().then(function(registrations) {
         for (let registration of registrations) {
@@ -3092,7 +3250,7 @@
         const compressedBase64 = await compressImageFile(file, 900, 0.65);
         await addDoc(galleryCol, { url: compressedBase64, timestamp: Date.now() });
 
-        showHeadsUpNotification("🖼️ New Photo in Gallery!", "A new photo has been uploaded.");
+        showHeadsUpNotification("🖼️️ New Photo in Gallery!", "A new photo has been uploaded.");
         fileInput.value = '';
         alert("Photo uploaded successfully!");
       } catch (err) {
