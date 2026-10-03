@@ -8,7 +8,7 @@
   
   <meta name="title" content="R.M. Vision Academy | Premier Geography & Research Institute" />
   <meta name="description" content="R.M. Vision Academy mentored by Rohamat Mandal (Aliah Univ, JNU New Delhi, UGC-NET). Premier coaching for BA/MA Geography Honours, UGC NET Geography, CUET PG, Advanced GIS (QGIS, ArcGIS, GEE), Remote Sensing & Statistical Software." />
-  <meta name="keywords" content="R.M. Vision Academy, RM Vision Academy Online, Rohamat Mandal Geography Classes, Online Geography Coaching, UGC NET Geography, GIS Software Training, QGIS, ArcGIS" />
+  <meta name="keywords" content="R.M. Vision Academy, RM Vision Academy Online, Rohamat Mandal Geography Classes, Online Geography Coaching, UGC NET Geography, GIS Software Training, QGIS, ArcGIS, CUET UG, CUET PG Geography" />
   
   <!-- PWA Manifest & App Theme -->
   <link rel="manifest" href="manifest.json" />
@@ -1320,6 +1320,7 @@
         <li><a onclick="navigateTo('home')" id="nav-home" class="active">Home</a></li>
         <li><a onclick="navigateTo('about')" id="nav-about">About</a></li>
         <li><a onclick="navigateTo('courses')" id="nav-courses">Courses</a></li>
+        <li><a onclick="navigateTo('cuet-entrance')" id="nav-cuet-entrance">CUET &amp; Entrance</a></li>
         <li><a onclick="navigateTo('materials')" id="nav-materials">Open Study Materials</a></li>
         <li><a onclick="navigateTo('paid-materials')" id="nav-paid-materials" style="color: var(--accent);">Study Material (Paid)</a></li>
         <li><a onclick="navigateTo('recorded')" id="nav-recorded">Recorded Classes</a></li>
@@ -1379,6 +1380,14 @@
         <div class="settings-item-left">
           <i class="fa-solid fa-book-open" style="color:#10b981;"></i>
           <span>📚 My Courses</span>
+        </div>
+        <i class="fa-solid fa-chevron-right" style="font-size:0.75rem; color:var(--text-muted);"></i>
+      </li>
+
+      <li class="settings-item" onclick="navigateTo('cuet-entrance'); toggleSettingsDrawer();">
+        <div class="settings-item-left">
+          <i class="fa-solid fa-graduation-cap" style="color:#f59e0b;"></i>
+          <span>🎯 CUET &amp; University Entrance</span>
         </div>
         <i class="fa-solid fa-chevron-right" style="font-size:0.75rem; color:var(--text-muted);"></i>
       </li>
@@ -1494,6 +1503,7 @@
 
           <div class="hero-cta">
             <a onclick="navigateTo('courses')" class="btn-primary">Explore Courses</a>
+            <a onclick="navigateTo('cuet-entrance')" class="btn-primary" style="background:#f59e0b; border-color:#f59e0b;">CUET &amp; Entrance</a>
             <a onclick="navigateTo('materials')" class="btn-secondary">Open Access Study Material</a>
             <a onclick="navigateTo('paid-materials')" class="btn-secondary" style="color:var(--accent);">Paid Courses Notes</a>
             <a href="https://wa.me/919134846845" target="_blank" class="btn-secondary" style="color: var(--wp-green);"><i class="fa-brands fa-whatsapp"></i> Chat Direct</a>
@@ -1502,7 +1512,6 @@
 
         <div class="founder-hero-card">
           <div class="founder-image-frame">
-            <!-- Suuraa Rohamat_one.png fayyadamuun qophaa'e -->
             <img src="Rohamat_one.png?v=5" alt="Rohamat Mandal - Founder R.M. Vision Academy" 
                  onerror="this.onerror=null; this.src='Rohamat.jpg';">
           </div>
@@ -1528,7 +1537,7 @@
           </div>
           <div class="stat-item">
             <h3 style="font-size: 1.2rem; color: var(--accent); margin-top: 6px;">Admissions Open</h3>
-            <p>UG, PG &amp; GIS Batches</p>
+            <p>UG, PG &amp; Entrance Batches</p>
           </div>
         </div>
       </div>
@@ -1558,11 +1567,11 @@
         </div>
         <div class="card">
           <div>
-            <span class="badge-price">Standard Pricing</span>
+            <span class="badge-price">Exam Oriented</span>
             <h3>CUET &amp; University Entrance</h3>
-            <p>Focused preparation for CUET and University Entrance Examinations with syllabus-based classes, PYQ analysis, and regular mock tests.</p>
+            <p>Focused preparation for CUET and Central/State University Entrance Examinations with syllabus-based notes, PYQ test series, and mentor support.</p>
           </div>
-          <a onclick="navigateTo('courses')" class="btn-primary" style="justify-content: center;">Learn More</a>
+          <a onclick="navigateTo('cuet-entrance')" class="btn-primary" style="justify-content: center;">Enter CUET Portal</a>
         </div>
       </div>
     </section>
@@ -1619,13 +1628,186 @@
 
         <div class="card">
           <div>
-            <span class="badge-price">Standard Pricing</span>
+            <span class="badge-price">Special Batches</span>
             <h3>CUET &amp; University Entrance Preparation</h3>
-            <p>Focused preparation for CUET and University Entrance Examinations with syllabus-based classes, PYQ analysis, and practice tests.</p>
+            <p>Comprehensive prep for CUET UG/PG, JNU, BHU, and DU entrance exams with test series and previous year question solutions.</p>
           </div>
-          <a href="https://wa.me/919134846845?text=Enroll%20me%20for%20CUET%20Entrance%20Prep%20at%20R.M.%20Vision%20Academy" target="_blank" class="btn-primary" style="justify-content: center;">Enroll via WhatsApp</a>
+          <a onclick="navigateTo('cuet-entrance')" class="btn-primary" style="justify-content: center;">Explore Entrance Portal</a>
         </div>
       </div>
+    </section>
+  </main>
+
+  <!-- ==================== PAGE: CUET & UNIVERSITY ENTRANCE ==================== -->
+  <main id="page-cuet-entrance" class="page-section">
+    <section class="container">
+      
+      <div class="section-title">
+        <h1 class="glowing-title"><i class="fa-solid fa-bullseye" style="margin-right: 8px;"></i> CUET &amp; University Entrance Portal</h1>
+        <p>Comprehensive Study Notes, University PYQs, and Standardized Mock Test Series for UG &amp; PG Geography Aspirants</p>
+      </div>
+
+      <!-- SECTION 1: STUDY MATERIALS (LINKED WITH OPEN STUDY MATERIALS) -->
+      <div style="background: var(--surface); border: 2px solid var(--border); border-radius: var(--radius); padding: 1.75rem; box-shadow: var(--shadow); margin-bottom: 2.5rem;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; border-bottom:2px solid var(--accent); padding-bottom:0.75rem; margin-bottom:1.25rem;">
+          <h2 style="color:var(--secondary); font-size:1.45rem; display:flex; align-items:center; gap:8px;">
+            <i class="fa-solid fa-book-bookmark" style="color:var(--accent);"></i> Entrance Study Materials (UG &amp; PG)
+          </h2>
+          <button onclick="navigateTo('materials')" class="btn-primary" style="font-size:0.85rem; padding: 6px 12px;">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Open Full Notes Hub
+          </button>
+        </div>
+
+        <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:1.25rem;">
+          Access structured syllabus notes, analytical geography summaries, and core concepts. All study notes are directly linked to our main Subject-wise Open Study Materials repository.
+        </p>
+
+        <div class="grid-courses">
+          <!-- UG Material Card -->
+          <div class="card" style="border-top: 4px solid var(--accent);">
+            <div>
+              <span class="badge-price">Undergraduate (UG) Entrance</span>
+              <h3>CUET UG &amp; State University Entrance Notes</h3>
+              <p>Physical Geography, Indian Geography, Human &amp; Economic Geography fundamentals designed specifically for CUET UG &amp; Central/State University admissions.</p>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              <button onclick="navigateTo('materials')" class="btn-primary" style="justify-content:center;">
+                <i class="fa-solid fa-folder-open"></i> Access UG Study Notes
+              </button>
+              <a href="https://drive.google.com/drive/folders/16ncC_ekuvIRhE7x-Ui_GmkFIjw52R3W7?usp=sharing" target="_blank" class="btn-secondary" style="justify-content:center;">
+                <i class="fa-brands fa-google-drive" style="color:#ea4335;"></i> Free Drive Repository
+              </a>
+            </div>
+          </div>
+
+          <!-- PG Material Card -->
+          <div class="card" style="border-top: 4px solid #10b981;">
+            <div>
+              <span class="badge-price" style="background:#dcfce7; color:#15803d;">Postgraduate (PG) Entrance</span>
+              <h3>CUET PG (HUQP08), JNU, BHU &amp; DU Notes</h3>
+              <p>Advanced Geographical Thought, Geomorphology, Remote Sensing &amp; GIS, Climatology, Statistical Techniques, and Cartography for PG aspirants.</p>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              <button onclick="navigateTo('materials')" class="btn-primary" style="justify-content:center; background:#10b981; border-color:#10b981;">
+                <i class="fa-solid fa-graduation-cap"></i> Access PG Study Notes
+              </button>
+              <a href="https://wa.me/919134846845?text=Hello%20Rohamat%20Sir,%20I%20need%20the%20CUET%20PG%20Comprehensive%20Study%20Kit" target="_blank" class="btn-secondary" style="justify-content:center;">
+                <i class="fa-brands fa-whatsapp" style="color:var(--wp-green);"></i> Request PG Study Kit
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2: TEST SERIES & PREVIOUS YEAR QUESTIONS (PYQ) -->
+      <div style="margin-bottom: 2rem;">
+        <div class="section-title" style="text-align: left; margin-bottom: 1.5rem;">
+          <h2 style="font-size: 1.6rem; color: var(--text-main); display:flex; align-items:center; gap:8px;">
+            <i class="fa-solid fa-laptop-file" style="color: var(--live-red);"></i> Entrance Test Series &amp; University PYQ Bank
+          </h2>
+          <p>Solve official university question papers and assess your score with mentor-curated mock tests</p>
+        </div>
+
+        <!-- 2A. UG SECTION: UNIVERSITY PYQ & TEST SERIES -->
+        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.75rem; box-shadow: var(--shadow);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; border-bottom:1px solid var(--border); padding-bottom:0.5rem;">
+            <h3 style="color: var(--secondary); font-size:1.25rem;">
+              <i class="fa-solid fa-file-pen" style="color:var(--accent);"></i> 1. Undergraduate (UG) Entrance &amp; University PYQs
+            </h3>
+            <span class="subject-count-badge">CUET UG &amp; State Unis</span>
+          </div>
+
+          <div class="drive-grid" style="margin-top:0;">
+            <!-- CUET UG Test -->
+            <div class="card" style="padding:1.2rem; justify-content:space-between;">
+              <div>
+                <h4 style="font-size:1.05rem; margin-bottom:0.3rem;"><i class="fa-solid fa-check-circle" style="color:#10b981;"></i> CUET UG Mock Test Series</h4>
+                <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.8rem;">Domain Geography full-length tests matching NTA pattern, negative marking, and timer.</p>
+              </div>
+              <a href="https://wa.me/919134846845?text=I%20want%20to%20enroll%20in%20CUET%20UG%20Geography%20Test%20Series" target="_blank" class="btn-primary" style="font-size:0.85rem; justify-content:center;">
+                <i class="fa-solid fa-play"></i> Start / Request Test
+              </a>
+            </div>
+
+            <!-- University PYQs -->
+            <div class="card" style="padding:1.2rem; justify-content:space-between;">
+              <div>
+                <h4 style="font-size:1.05rem; margin-bottom:0.3rem;"><i class="fa-solid fa-clock-rotate-left" style="color:var(--accent);"></i> Multi-University UG PYQ Bank</h4>
+                <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.8rem;">Aliah, Calcutta Univ, Jamia, AMU, and CUET UG solved question papers with answer keys.</p>
+              </div>
+              <a href="https://drive.google.com/drive/folders/16ncC_ekuvIRhE7x-Ui_GmkFIjw52R3W7?usp=sharing" target="_blank" class="btn-secondary" style="font-size:0.85rem; justify-content:center;">
+                <i class="fa-solid fa-download"></i> Download UG PYQs
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2B. PG SECTION: UNIVERSITY PYQ & ROHAMAT SIR'S TEST SERIES -->
+        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; border-bottom:1px solid var(--border); padding-bottom:0.5rem;">
+            <h3 style="color: var(--secondary); font-size:1.25rem;">
+              <i class="fa-solid fa-award" style="color:#eab308;"></i> 2. Postgraduate (PG) Entrance, University PYQs &amp; Rohamat Sir's Special Tests
+            </h3>
+            <span class="subject-count-badge" style="background:#fef3c7; color:#b45309;">MA / M.Sc Geography</span>
+          </div>
+
+          <div class="grid-courses">
+            <!-- Rohamat Sir's Own Test Series -->
+            <div class="card" style="border: 2px solid var(--accent); position:relative;">
+              <div style="position:absolute; top:-12px; right:15px; background:var(--accent); color:#fff; font-size:0.7rem; font-weight:800; padding:2px 8px; border-radius:10px;">
+                ACADEMY EXCLUSIVE
+              </div>
+              <div>
+                <span class="badge-price" style="background: #fefce8; color: #b45309; border: 1px solid #fcd34d;">
+                  <i class="fa-solid fa-star"></i> Mentored by Rohamat Sir
+                </span>
+                <h3 style="font-size:1.2rem;">Rohamat Sir's PG Master Test Series</h3>
+                <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:1rem;">
+                  Hand-crafted high-yield mock tests prepared directly by Rohamat Mandal (JNU, UGC-NET). Covers tricky map interpretation, assertion-reasoning, thought chronology, and numerical GIS questions.
+                </p>
+                <ul style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1rem; padding-left:1.2rem; line-height:1.7;">
+                  <li>Detailed PDF explanations for each question</li>
+                  <li>In-depth score evaluation &amp; percentile ranks</li>
+                  <li>Direct doubt clearing session with Rohamat Sir</li>
+                </ul>
+              </div>
+              <a href="https://wa.me/919134846845?text=Hello%20Rohamat%20Sir,%20I%20want%20to%20enroll%20in%20your%20Exclusive%20PG%20Test%20Series" target="_blank" class="btn-primary" style="justify-content:center;">
+                <i class="fa-brands fa-whatsapp"></i> Enroll in Rohamat Sir's Test Series
+              </a>
+            </div>
+
+            <!-- Central & State University PG PYQ Archive -->
+            <div class="card">
+              <div>
+                <span class="badge-price">University Archive</span>
+                <h3 style="font-size:1.2rem;">All-University PG Entrance PYQ Bank</h3>
+                <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:1rem;">
+                  Authentic solved past papers across top Indian central and state universities:
+                </p>
+                <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:1.2rem;">
+                  <span class="qual-badge">CUET PG (2022-2025)</span>
+                  <span class="qual-badge">JNU JNUEE Archive</span>
+                  <span class="qual-badge">BHU PET Geography</span>
+                  <span class="qual-badge">DU Entrance (DUET)</span>
+                  <span class="qual-badge">Jamia Millia (JMI)</span>
+                  <span class="qual-badge">Aligarh Muslim Univ (AMU)</span>
+                  <span class="qual-badge">State Universities (WB/Central)</span>
+                </div>
+              </div>
+              <div style="display:flex; flex-direction:column; gap:8px;">
+                <a href="https://wa.me/919134846845?text=Please%20provide%20access%20to%20the%20All%20University%20PG%20PYQ%20Bank" target="_blank" class="btn-secondary" style="justify-content:center;">
+                  <i class="fa-solid fa-folder-open"></i> Request Complete PYQ Collection
+                </a>
+                <button onclick="navigateTo('materials')" class="btn-secondary" style="justify-content:center; color:var(--accent);">
+                  <i class="fa-solid fa-book"></i> Read Related Theory Notes
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
     </section>
   </main>
 
@@ -1770,7 +1952,6 @@
 
       <div class="faculty-container">
         <div class="faculty-photo-wrapper">
-          <!-- Suuraa Rohamat_one.png fayyadamuun qophaa'e -->
           <img src="Rohamat_one.png?v=5" alt="Rohamat Mandal" 
                onerror="this.onerror=null; this.src='Rohamat.jpg';">
         </div>
@@ -1888,8 +2069,8 @@
           <input type="tel" id="inqPhone" placeholder="Mobile / WhatsApp Number *" required />
           <select id="inqSubject">
             <option value="UG & PG Geography Tuition">UG &amp; PG Geography Tuition</option>
-            <option value="GIS & Research Software Training">GIS &amp; Research Software Training</option>
             <option value="CUET & University Entrance">CUET &amp; University Entrance</option>
+            <option value="GIS & Research Software Training">GIS &amp; Research Software Training</option>
             <option value="General Academic Question">General Academic Question</option>
           </select>
           <textarea rows="4" id="inqMessage" placeholder="Your questions or batch timing preference... *" required></textarea>
@@ -1915,6 +2096,7 @@
         <h3 style="color: #fff; margin-bottom: 0.6rem;">Quick Portals</h3>
         <ul style="list-style: none; font-size: 0.9rem; line-height: 1.9;">
           <li><a onclick="navigateTo('courses')" style="color: #cbd5e1; cursor: pointer;">Courses &amp; Tuition</a></li>
+          <li><a onclick="navigateTo('cuet-entrance')" style="color: #cbd5e1; cursor: pointer;">CUET &amp; Entrance Portal</a></li>
           <li><a onclick="navigateTo('materials')" style="color: #cbd5e1; cursor: pointer;">Open Study Materials</a></li>
           <li><a onclick="navigateTo('paid-materials')" style="color: #cbd5e1; cursor: pointer;">Study Material Repositories</a></li>
           <li><a onclick="navigateTo('recorded')" style="color: #cbd5e1; cursor: pointer;">Recorded Lectures</a></li>
@@ -2007,8 +2189,8 @@
           <label>Course / Program Interested In *</label>
           <select id="regStudentCourse" required>
             <option value="UG & PG Geography Tuition">UG &amp; PG Geography Tuition</option>
-            <option value="GIS, Statistics & Research Training">GIS, Statistics &amp; Research Training</option>
             <option value="CUET & University Entrance Coaching">CUET &amp; University Entrance Coaching</option>
+            <option value="GIS, Statistics & Research Training">GIS, Statistics &amp; Research Training</option>
             <option value="Open Notes & Self Study">Open Access Notes &amp; Self Study</option>
           </select>
         </div>
@@ -2142,7 +2324,6 @@
           <input type="file" id="admMatPhoto" accept="image/*" />
         </div>
 
-        <!-- OPTION 1: FILE UPLOAD -->
         <div class="admin-form-group">
           <label>Attach PDF Document (Option 1: Upload File)</label>
           <input type="file" id="admMatPdf" accept=".pdf,.doc,.docx" />
@@ -2151,7 +2332,6 @@
           </div>
         </div>
 
-        <!-- OPTION 2: GOOGLE DRIVE LINK (OPTIONAL) -->
         <div class="admin-form-group">
           <label>OR Paste Google Drive / External PDF Link (Option 2: Instant - Optional)</label>
           <input type="url" id="admMatDriveLink" placeholder="https://drive.google.com/file/d/.../view?usp=sharing" />
@@ -2294,7 +2474,6 @@
         overlay.classList.add('active');
       }
       clearTimeout(posterTimer);
-      // Auto-slide to left after 6 seconds
       posterTimer = setTimeout(() => {
         slideOutPoster();
       }, 6000);
@@ -2308,13 +2487,11 @@
       clearTimeout(posterTimer);
     };
 
-    // First visit show poster & slide to left after 4 seconds
     window.addEventListener('load', () => {
       setTimeout(() => {
         slideInPoster();
       }, 700);
 
-      // Periodic gentle pulse slide every 45 seconds if user stays on homepage
       autoCycleTimer = setInterval(() => {
         const homePage = document.getElementById('page-home');
         if (homePage && homePage.classList.contains('active')) {
@@ -2542,7 +2719,6 @@
       });
     }
 
-    // Service Worker auto-unregister to clear stale cache
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.getRegistrations().then(function(registrations) {
         for (let registration of registrations) {
@@ -3250,7 +3426,7 @@
         const compressedBase64 = await compressImageFile(file, 900, 0.65);
         await addDoc(galleryCol, { url: compressedBase64, timestamp: Date.now() });
 
-        showHeadsUpNotification("🖼️️ New Photo in Gallery!", "A new photo has been uploaded.");
+        showHeadsUpNotification("🖼 New Photo in Gallery!", "A new photo has been uploaded.");
         fileInput.value = '';
         alert("Photo uploaded successfully!");
       } catch (err) {
