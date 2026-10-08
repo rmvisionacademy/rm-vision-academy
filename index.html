@@ -1441,6 +1441,14 @@
       <nav aria-label="Main Navigation">
         <ul class="nav-links" id="mainNavLinks">
           <li><a onclick="navigateTo('home')" id="nav-home" class="active">Home</a></li>
+          
+          <!-- AI TEACHER MENU ITEM -->
+          <li>
+            <a href="https://rmvisionacademy.github.io/rmvisionacademygegraphyai/" target="_blank" rel="noopener" id="nav-ai-teacher" style="color: #7c3aed; font-weight: 800; background: #f5f3ff; border: 1px solid #ddd6fe; border-radius: 4px; padding: 4px 8px;">
+              <i class="fa-solid fa-robot" style="color: #7c3aed;"></i> AI Teacher
+            </a>
+          </li>
+
           <li><a onclick="navigateTo('about')" id="nav-about">About</a></li>
           <li><a onclick="navigateTo('courses')" id="nav-courses">Courses</a></li>
           <li><a onclick="navigateTo('cuet-entrance')" id="nav-cuet-entrance">CUET &amp; Entrance</a></li>
@@ -1498,6 +1506,15 @@
           <span>👤 My Profile</span>
         </div>
         <i class="fa-solid fa-chevron-right" style="font-size:0.75rem; color:var(--text-muted);"></i>
+      </li>
+
+      <!-- AI TEACHER IN SETTINGS -->
+      <li class="settings-item" onclick="window.open('https://rmvisionacademy.github.io/rmvisionacademygegraphyai/', '_blank'); toggleSettingsDrawer();">
+        <div class="settings-item-left">
+          <i class="fa-solid fa-robot" style="color:#7c3aed;"></i>
+          <span style="font-weight:bold; color:#7c3aed;">🤖 AI Teacher (Rohamat AI)</span>
+        </div>
+        <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.75rem; color:#7c3aed;"></i>
       </li>
 
       <li class="settings-item" onclick="navigateTo('courses'); toggleSettingsDrawer();">
@@ -1626,6 +1643,11 @@
           </p>
 
           <div class="hero-cta">
+            <!-- ROHAMAT AI APP BUTTON -->
+            <a href="https://rmvisionacademy.github.io/rmvisionacademygegraphyai/" target="_blank" rel="noopener" class="btn-primary" style="background: linear-gradient(135deg, #7c3aed, #4f46e5); border-color: #6366f1; box-shadow: 0 4px 12px rgba(124, 58, 237, 0.35);">
+              <i class="fa-solid fa-robot"></i> Rohamat AI App
+            </a>
+            
             <a onclick="navigateTo('courses')" class="btn-primary">Explore Courses</a>
             <a onclick="navigateTo('cuet-entrance')" class="btn-primary" style="background:#f59e0b; border-color:#f59e0b;">CUET &amp; Entrance</a>
             <a onclick="navigateTo('materials')" class="btn-secondary">Open Access Study Material</a>
@@ -2221,6 +2243,7 @@
         <h3 style="color: #fff; margin-bottom: 0.6rem;">Quick Portals</h3>
         <ul style="list-style: none; font-size: 0.9rem; line-height: 1.9;">
           <li><a onclick="navigateTo('courses')" style="color: #cbd5e1; cursor: pointer;">Courses &amp; Tuition</a></li>
+          <li><a href="https://rmvisionacademy.github.io/rmvisionacademygegraphyai/" target="_blank" rel="noopener" style="color: #c4b5fd; cursor: pointer;"><i class="fa-solid fa-robot"></i> AI Teacher &amp; App</a></li>
           <li><a onclick="navigateTo('cuet-entrance')" style="color: #cbd5e1; cursor: pointer;">CUET &amp; Entrance Portal</a></li>
           <li><a onclick="navigateTo('materials')" style="color: #cbd5e1; cursor: pointer;">Open Study Materials</a></li>
           <li><a onclick="navigateTo('paid-materials')" style="color: #cbd5e1; cursor: pointer;">Study Material Repositories</a></li>
